@@ -8,42 +8,51 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8 text-slate-300">
-      <header className="border-b border-surface-border pb-6">
-        <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-2">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-8 text-text-muted bg-obsidian">
+      <header className="border-b border-border-subtle pb-6">
+        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
+          CONDICIONES DE SISTEMA // PROTOCOLO COMPETITIVO
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display mb-2">
           Términos de Servicio y Juego Limpio
         </h1>
-        <p className="text-xs font-mono text-slate-400">
-          Última actualización: Septiembre de 2026 • Versión 1.0 (Beta)
+        <p className="text-xs font-mono text-text-muted">
+          VERSIÓN 1.1 // COMPROMISO ANTI-CHEAT
         </p>
       </header>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-bold text-white">1. Aceptación de los Términos</h2>
-        <p className="text-sm leading-relaxed">
-          Al acceder al sitio web de <strong>BAu Interactive</strong> y participar en las versiones de prueba (Beta) de nuestros videojuegos, aceptas cumplir los presentes Términos de Servicio y nuestras normas de convivencia comunitaria.
+        <h2 className="text-base font-mono font-bold uppercase text-text-primary">
+          1. Aceptación del Protocolo
+        </h2>
+        <p className="text-xs font-sans leading-relaxed">
+          El acceso a los servicios web y la participación en las versiones de prueba de los títulos de <strong>BAu Interactive</strong> implican la aceptación de estas condiciones y el respeto estricto a las normas de competición leal.
         </p>
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-bold text-white">2. Política de Juego Limpio y Anti-Trampas</h2>
-        <p className="text-sm leading-relaxed">
-          La integridad del Top 15 mundial es fundamental para la experiencia de todos los jugadores. Queda estrictamente prohibido:
+        <h2 className="text-base font-mono font-bold uppercase text-text-primary">
+          2. Integridad de la Clasificación (Anti-Cheat)
+        </h2>
+        <p className="text-xs font-sans leading-relaxed">
+          Para salvaguardar la confianza de todos los pilotos, está terminantemente prohibido:
         </p>
-        <ul className="text-sm list-disc list-inside space-y-1.5 pl-2">
-          <li>Modificar la memoria del cliente de juego para alterar puntuaciones, velocidades o temporizadores.</li>
-          <li>Inyectar paquetes o realizar peticiones simuladas al endpoint de envío de puntuaciones sin jugar la partida.</li>
-          <li>Utilizar alias ofensivos, difamatorios, de odio o que contengan datos personales sensibles o intentos de inyección de código.</li>
+        <ul className="text-xs font-mono list-disc list-inside space-y-1.5 pl-2 text-text-secondary">
+          <li>Modificar o inyectar código en la memoria del ejecutable para alterar multiplicadores de inercia o cronómetros.</li>
+          <li>Enviar solicitudes HTTP simuladas o forzar telemetrías sintéticas fuera del flujo normal de juego.</li>
+          <li>Utilizar alias difamatorios, de odio o que contengan ataques de inyección de scripts.</li>
         </ul>
-        <p className="text-sm leading-relaxed">
-          Cualquier registro detectado como anómalo o fraudulento será purgado y el jugador podrá ser descalificado del salón de la fama.
+        <p className="text-xs font-sans leading-relaxed">
+          Cualquier marca anómala es rechazada en la ingestión y su identificador es purgado de la base canónica.
         </p>
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-bold text-white">3. Naturaleza de las Versiones Beta</h2>
-        <p className="text-sm leading-relaxed">
-          <em>Aether Drift</em> se encuentra actualmente en fase de Beta Pública. Esto significa que las físicas, balances, multiplicadores y requisitos de hardware pueden ser actualizados periódicamente. BAu Interactive se reserva el derecho de calibrar o reiniciar temporadas de clasificación previa notificación en la sección de Novedades.
+        <h2 className="text-base font-mono font-bold uppercase text-text-primary">
+          3. Versiones en Desarrollo
+        </h2>
+        <p className="text-xs font-sans leading-relaxed">
+          Los videojuegos en fase de Beta pública pueden recibir ajustes de balance y físicas periódicas para garantizar la paridad competitiva.
         </p>
       </section>
     </div>

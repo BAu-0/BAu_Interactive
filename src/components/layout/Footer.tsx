@@ -1,5 +1,6 @@
+import React from 'react';
 import Link from 'next/link';
-import { MessageSquare, Mail, Shield } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { GithubIcon, DiscordIcon } from '@/components/icons/BrandIcons';
 
 export function Footer() {
@@ -10,30 +11,29 @@ export function Footer() {
   const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/BAu-0/BAu_Interactive';
 
   return (
-    <footer className="bg-surface border-t border-surface-border mt-auto" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Columna 1: Estudio */}
+    <footer className="bg-obsidian border-t border-border-subtle mt-auto" role="contentinfo">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+          {/* Columna 1: Estudio e Identidad */}
           <div className="space-y-4 md:col-span-2">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-arcade-cyan to-arcade-purple flex items-center justify-center font-bold text-slate-950 text-sm">
-                BAu
+              <div className="w-7 h-7 rounded border border-border-hover bg-surface-elevated flex items-center justify-center font-mono font-bold text-white text-xs tracking-wider">
+                BAU
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">
+              <span className="text-sm font-bold tracking-[0.2em] uppercase text-text-primary">
                 BAu Interactive
               </span>
             </div>
-            <p className="text-sm text-slate-400 max-w-md leading-relaxed">
-              Estudio de desarrollo de videojuegos independiente. Creamos experiencias mecánicamente
-              exigentes, transparentes con la comunidad y centradas en la habilidad del jugador.
+            <p className="text-xs text-text-muted max-w-md leading-relaxed font-sans">
+              Estudio independiente de ingeniería de videojuegos. Arquitecturas deterministas de alto rendimiento, telemetría competitiva transparente y control inercial de precisión quirúrgica.
             </p>
             {supportEmail && (
-              <div className="flex items-center space-x-2 text-xs text-slate-400">
-                <Mail className="w-4 h-4 text-arcade-cyan" />
-                <span>Contacto directo: </span>
+              <div className="flex items-center space-x-2 text-xs font-mono text-text-muted pt-1">
+                <Mail className="w-3.5 h-3.5 text-accent-razer" />
+                <span>SUPPORT:</span>
                 <a
                   href={`mailto:${supportEmail}`}
-                  className="text-arcade-cyan hover:underline"
+                  className="text-text-secondary hover:text-accent-razer transition-colors"
                 >
                   {supportEmail}
                 </a>
@@ -43,53 +43,53 @@ export function Footer() {
 
           {/* Columna 2: Navegación Rápida */}
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-4">
-              Explorar
+            <h2 className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-text-muted mb-4">
+              Directorio
             </h2>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-xs font-mono text-text-muted">
               <li>
-                <Link href="/" className="hover:text-arcade-cyan transition-colors">
-                  Inicio
+                <Link href="/" className="hover:text-white transition-colors">
+                  INICIO
                 </Link>
               </li>
               <li>
-                <Link href="/juegos/aether-drift" className="hover:text-arcade-cyan transition-colors">
-                  Aether Drift (Beta)
+                <Link href="/juegos/aether-drift" className="hover:text-white transition-colors">
+                  AETHER DRIFT (BETA)
                 </Link>
               </li>
               <li>
-                <Link href="/clasificacion" className="hover:text-arcade-cyan transition-colors">
-                  Top 15 Mundial
+                <Link href="/clasificacion" className="hover:text-white transition-colors">
+                  TOP 15 TELEMETRY
                 </Link>
               </li>
               <li>
-                <Link href="/novedades" className="hover:text-arcade-cyan transition-colors">
-                  Novedades y Devlogs
+                <Link href="/novedades" className="hover:text-white transition-colors">
+                  CHANGELOG & DEVLOGS
                 </Link>
               </li>
               <li>
-                <Link href="/acerca" className="hover:text-arcade-cyan transition-colors">
-                  Acerca del Estudio
+                <Link href="/acerca" className="hover:text-white transition-colors">
+                  SISTEMA & MANIFIESTO
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Columna 3: Comunidad y Redes */}
+          {/* Columna 3: Canales de Comunidad */}
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-4">
-              Comunidad
+            <h2 className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-text-muted mb-4">
+              Canales Oficiales
             </h2>
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-2.5">
               {redditUrl && (
                 <a
                   href={redditUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-sm text-slate-400 hover:text-white group"
+                  className="inline-flex items-center space-x-2 text-xs font-mono text-text-muted hover:text-white transition-colors group"
                 >
-                  <MessageSquare className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform" />
-                  <span>Reddit (Feedback)</span>
+                  <span className="w-1 h-1 rounded-full bg-border-hover group-hover:bg-accent-razer transition-colors" />
+                  <span>REDDIT // FEEDBACK</span>
                 </a>
               )}
               {discordUrl && (
@@ -97,10 +97,10 @@ export function Footer() {
                   href={discordUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-sm text-slate-400 hover:text-white group"
+                  className="inline-flex items-center space-x-2 text-xs font-mono text-text-muted hover:text-white transition-colors group"
                 >
-                  <DiscordIcon className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
-                  <span>Discord</span>
+                  <DiscordIcon className="w-3.5 h-3.5 text-text-muted group-hover:text-white transition-colors" />
+                  <span>DISCORD SERVER</span>
                 </a>
               )}
               {githubUrl && (
@@ -108,10 +108,10 @@ export function Footer() {
                   href={githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-sm text-slate-400 hover:text-white group"
+                  className="inline-flex items-center space-x-2 text-xs font-mono text-text-muted hover:text-white transition-colors group"
                 >
-                  <GithubIcon className="w-4 h-4 text-slate-300 group-hover:scale-110 transition-transform" />
-                  <span>GitHub</span>
+                  <GithubIcon className="w-3.5 h-3.5 text-text-muted group-hover:text-white transition-colors" />
+                  <span>GITHUB SOURCE</span>
                 </a>
               )}
             </div>
@@ -119,16 +119,16 @@ export function Footer() {
         </div>
 
         {/* Barra inferior: Legales y Copyright */}
-        <div className="pt-8 border-t border-surface-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
           <div>
-            &copy; {currentYear} BAu Interactive. Todos los derechos reservados.
+            &copy; {currentYear} BAU INTERACTIVE. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center space-x-6">
-            <Link href="/privacidad" className="hover:text-slate-300 transition-colors">
-              Privacidad de Datos
+            <Link href="/privacidad" className="hover:text-text-primary transition-colors">
+              PRIVACIDAD
             </Link>
-            <Link href="/terminos" className="hover:text-slate-300 transition-colors">
-              Términos de Servicio
+            <Link href="/terminos" className="hover:text-text-primary transition-colors">
+              TÉRMINOS
             </Link>
           </div>
         </div>

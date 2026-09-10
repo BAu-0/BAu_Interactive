@@ -9,11 +9,11 @@ interface NewsListProps {
 }
 
 const CATEGORIES: { label: string; value: NewsCategory | 'todas' }[] = [
-  { label: 'Todas las publicaciones', value: 'todas' },
-  { label: 'Anuncios', value: 'anuncio' },
-  { label: 'Actualizaciones', value: 'actualizacion' },
-  { label: 'Notas de Versión', value: 'notas_de_version' },
-  { label: 'Devlogs', value: 'desarrollo' },
+  { label: 'TODAS', value: 'todas' },
+  { label: 'ANUNCIOS', value: 'anuncio' },
+  { label: 'ACTUALIZACIONES', value: 'actualizacion' },
+  { label: 'CHANGELOGS', value: 'notas_de_version' },
+  { label: 'DEVLOGS', value: 'desarrollo' },
 ];
 
 export function NewsList({ initialPosts }: NewsListProps) {
@@ -26,7 +26,7 @@ export function NewsList({ initialPosts }: NewsListProps) {
 
   return (
     <div className="space-y-8">
-      {/* Selector de Categorías */}
+      {/* Selector de Categorías Estilo Hardware Chips */}
       <div className="flex flex-wrap gap-2 pb-2">
         {CATEGORIES.map((cat) => {
           const isActive = selectedCategory === cat.value;
@@ -34,10 +34,10 @@ export function NewsList({ initialPosts }: NewsListProps) {
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-arcade-cyan ${
+              className={`px-3.5 py-1.5 rounded text-xs font-mono tracking-wider transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer ${
                 isActive
-                  ? 'bg-arcade-cyan text-slate-950 shadow-glow-cyan/50 font-bold'
-                  : 'bg-surface-card hover:bg-surface-border text-slate-300 hover:text-white border border-surface-border'
+                  ? 'bg-surface-elevated text-accent-razer border border-accent-razer/50 font-bold'
+                  : 'bg-surface-base hover:bg-surface-elevated text-text-muted hover:text-white border border-border-subtle'
               }`}
             >
               {cat.label}
@@ -48,9 +48,9 @@ export function NewsList({ initialPosts }: NewsListProps) {
 
       {/* Listado de Artículos */}
       {filteredPosts.length === 0 ? (
-        <div className="text-center py-16 px-4 rounded-2xl border border-surface-border bg-surface-card/40">
-          <p className="text-slate-400 text-sm">
-            No hay publicaciones en esta categoría por el momento.
+        <div className="text-center py-16 px-4 rounded-lg border border-border-subtle bg-surface-card">
+          <p className="text-text-muted text-xs font-mono">
+            NO EXISTEN PUBLICACIONES EN ESTA CATEGORÍA ACTUALMENTE.
           </p>
         </div>
       ) : (

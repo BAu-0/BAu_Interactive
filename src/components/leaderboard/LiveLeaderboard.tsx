@@ -40,13 +40,12 @@ export function LiveLeaderboard({
       }
     } catch {
       setIsStale(true);
-      setErrorMessage('No se pudo actualizar la clasificación. Mostrando los últimos datos verificados.');
+      setErrorMessage('Fallo en sincronización. Conservando última telemetría válida.');
     } finally {
       setIsLoading(false);
     }
   }, [gameSlug, limit]);
 
-  // Ciclo de refresco periódico (cada 45 segundos) con pausa al ocultar pestaña
   useEffect(() => {
     let intervalId: NodeJS.Timeout | null = null;
 
@@ -63,7 +62,6 @@ export function LiveLeaderboard({
       if (document.hidden) {
         if (intervalId) clearInterval(intervalId);
       } else {
-        // Al volver a la pestaña, refrescar datos
         fetchLeaderboard(false);
         startPolling();
       }
@@ -85,16 +83,20 @@ export function LiveLeaderboard({
   });
 
   return (
-    <div className="space-y-4">
-      {/* Barra de estado y control */}
-      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400 bg-surface-card/40 p-3 rounded-lg border border-surface-border">
-        <div className="flex items-center space-x-2">
-          <Clock className="w-3.5 h-3.5 text-arcade-cyan" />
-          <span>Última sincronización: <strong className="text-slate-200">{formattedTime}</strong></span>
+    <div className="space-y-3">
+      {/* Barra de Telemetría Superior */}
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg border border-border-subtle bg-surface-elevated text-xs font-mono text-text-muted">
+        <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1.5">
+            <Clock className="w-3.5 h-3.5 text-accent-razer" />
+            <span>SYNC: <strong className="text-text-primary">{formattedTime}</strong></span>
+          </div>
+          <span className="text-border-hover">|</span>
+          <span>INTERVAL: <strong className="text-text-secondary">45s</strong></span>
           {isStale && (
-            <span className="inline-flex items-center space-x-1 text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+            <span className="inline-flex items-center space-x-1 text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded text-[10px]">
               <AlertTriangle className="w-3 h-3" />
-              <span>Datos desactualizados</span>
+              <span>STALE</span>
             </span>
           )}
         </div>
@@ -103,31 +105,31 @@ export function LiveLeaderboard({
           type="button"
           onClick={() => fetchLeaderboard(true)}
           disabled={isLoading}
-          className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-surface-card hover:bg-surface-border text-slate-200 hover:text-white transition-all disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-arcade-cyan"
+          className="inline-flex items-center space-x-1.5 px-3 py-1 rounded bg-surface-card hover:bg-surface-overlay text-text-secondary hover:text-white border border-border-subtle hover:border-border-hover transition-all text-xs font-mono disabled:opacity-50 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
           aria-label="Actualizar clasificación ahora"
         >
-          <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-arcade-cyan' : ''}`} />
-          <span>{isLoading ? 'Actualizando...' : 'Actualizar'}</span>
+          <RefreshCw className={`w-3 h-3 ${isLoading ? 'animate-spin text-accent-razer' : ''}`} />
+          <span>{isLoading ? 'SYNCING...' : 'RE-SYNC'}</span>
         </button>
       </div>
 
       {errorMessage && (
-        <div className="p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg text-xs text-amber-200 flex items-center space-x-2">
+        <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded text-xs font-mono text-amber-300 flex items-center space-x-2">
           <AlertTriangle className="w-4 h-4 shrink-0 text-amber-400" />
           <span>{errorMessage}</span>
         </div>
       )}
 
-      {/* Tabla con aria-live para no abrumar al lector de pantalla */}
+      {/* Tabla con aria-live */}
       <div aria-live="polite">
         <LeaderboardTable entries={entries} />
       </div>
 
       {showVerificationNote && (
-        <div className="flex items-start space-x-2 text-xs text-slate-500 pt-1">
-          <ShieldCheck className="w-4 h-4 text-arcade-cyan shrink-0 mt-0.5" />
+        <div className="flex items-start space-x-2 text-[11px] font-mono text-text-muted pt-1">
+          <ShieldCheck className="w-3.5 h-3.5 text-accent-razer shrink-0 mt-0.5" />
           <p>
-            Solo se publican puntuaciones canónicas validadas por el servidor del juego. Desempates resueltos por marca de tiempo cronológica. Máximo 1 puesto por jugador.
+            TELEMETRÍA CRIPTOGRÁFICA VERIFICADA LADO SERVIDOR. DESEMPATE POR FECHA CRONOLÓGICA (RANKED_AT). MÁXIMO 1 REGISTRO POR JUGADOR.
           </p>
         </div>
       )}

@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #080c14;
+  --background: #000000;
   --foreground: #f8fafc;
 }
 
 @layer base {
   body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #000000;
+    color: #f8fafc;
+    font-feature-settings: "rlig" 1, "calt" 1, "tnum" 1;
     overflow-x: hidden;
   }
 
@@ -28,27 +28,33 @@
   }
 }
 
-/* Enfoque accesible visible */
+/* Enfoque accesible visible de precisión quirúrgica (Razer Green) */
 :focus-visible {
-  outline: 2px solid #00f0ff;
-  outline-offset: 2px;
+  outline: 2px solid #00ff55 !important;
+  outline-offset: 2px !important;
 }
 
-/* Scrollbar arcade personalizada */
+/* Selección de texto de élite */
+::selection {
+  background-color: #00ff55;
+  color: #000000;
+}
+
+/* Scrollbar técnica de hardware ultra-delgada */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b1120;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #222222;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #333333;
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import { getNewsPosts } from '@/lib/data/api';
 import { NewsList } from '@/components/news/NewsList';
-import { Newspaper } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Novedades y Devlogs',
+  title: 'Changelog y Devlogs',
   description:
-    'Noticias oficiales, notas de parches y bitácoras de desarrollo del estudio BAu Interactive.',
+    'Registro técnico de versiones, parches y bitácoras de ingeniería del estudio BAu Interactive.',
 };
 
 export const revalidate = 60;
@@ -16,17 +15,16 @@ export default async function NewsPage() {
   const posts = await getNewsPosts();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12 bg-obsidian">
       <div className="max-w-3xl">
-        <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-arcade-cyan mb-2">
-          <Newspaper className="w-4 h-4" />
-          <span>Archivo Editorial</span>
-        </div>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-4">
-          Novedades y Actualizaciones
+        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
+          CHANGELOG // REGISTRO DE INGENIERÍA
+        </span>
+        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary uppercase font-display mb-4">
+          Novedades y Parches
         </h1>
-        <p className="text-base text-slate-300">
-          Sigue el progreso de nuestros videojuegos, notas de versión de parches y reflexiones sobre diseño técnico y sonoro.
+        <p className="text-sm text-text-muted leading-relaxed font-sans">
+          Sigue el avance de desarrollo de nuestros títulos, calibraciones de inercia y notas de versión de cada compilación.
         </p>
       </div>
 

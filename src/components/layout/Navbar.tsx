@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Gamepad2, Trophy, Newspaper, Info, ShieldAlert } from 'lucide-react';
+import { Menu, X, Gamepad2, Trophy, Newspaper, Info } from 'lucide-react';
 
 interface NavItem {
   label: string;
@@ -26,16 +26,14 @@ export function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Detección de scroll para compactar la barra
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Control accesible del menú móvil: tecla Escape y bloqueo de foco
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -59,35 +57,33 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-surface-border py-2.5 shadow-lg'
-          : 'bg-background/80 backdrop-blur-sm border-b border-surface-border/50 py-4'
+          ? 'bg-obsidian/90 backdrop-blur-xl border-b border-border-subtle shadow-fluent-rest py-2.5'
+          : 'bg-obsidian/75 backdrop-blur-md border-b border-border-subtle/60 py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Nombre de Estudio */}
+          {/* Logo / Monograma Grabado en Titanio */}
           <Link
             href="/"
-            className="flex items-center space-x-3 group rounded-md p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-arcade-cyan"
+            className="flex items-center space-x-3 group rounded p-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-arcade-cyan to-arcade-purple p-0.5 shadow-glow-cyan transition-transform group-hover:scale-105">
-              <div className="w-full h-full bg-background rounded-[7px] flex items-center justify-center font-bold text-arcade-cyan text-lg tracking-wider">
-                BAu
-              </div>
+            <div className="w-8 h-8 rounded border border-border-hover bg-surface-elevated flex items-center justify-center font-mono font-bold text-white text-xs tracking-widest transition-colors group-hover:border-accent-razer group-hover:text-accent-razer">
+              BAU
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold tracking-tight text-white group-hover:text-arcade-cyan transition-colors">
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-text-primary group-hover:text-white transition-colors">
                 BAu Interactive
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400">
-                Indie Game Studio
+              <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-text-muted">
+                Studio Systems
               </span>
             </div>
           </Link>
 
-          {/* Navegación de Escritorio */}
+          {/* Navegación de Escritorio Minimalista */}
           <nav className="hidden md:flex items-center space-x-1" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -95,14 +91,17 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`relative px-3.5 py-2 text-xs font-mono uppercase tracking-wider transition-colors duration-150 ${
                     isActive
-                      ? 'text-arcade-cyan bg-surface-card border border-arcade-cyan/30 shadow-glow-cyan/20'
-                      : 'text-slate-300 hover:text-white hover:bg-surface-card/60'
+                      ? 'text-white font-semibold'
+                      : 'text-text-muted hover:text-text-primary'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-accent-razer shadow-[0_0_8px_#00ff55]" />
+                  )}
                 </Link>
               );
             })}
@@ -114,13 +113,13 @@ export function Navbar() {
               ref={buttonRef}
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-surface-card focus:outline-none focus-visible:ring-2 focus-visible:ring-arcade-cyan"
+              className="inline-flex items-center justify-center p-2 rounded border border-border-subtle bg-surface-elevated text-text-secondary hover:text-white hover:border-border-hover focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               aria-label={isOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
             >
               <span className="sr-only">Menú</span>
-              {isOpen ? <X className="h-6 w-6 text-arcade-pink" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5 text-accent-razer" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -131,12 +130,12 @@ export function Navbar() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="md:hidden fixed inset-x-0 top-[65px] bottom-0 bg-background/98 backdrop-blur-xl border-t border-surface-border px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
+          className="md:hidden fixed inset-x-0 top-[57px] bottom-0 bg-obsidian/98 backdrop-blur-2xl border-t border-border-subtle px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Navegación móvil"
         >
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
@@ -145,23 +144,23 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                  className={`flex items-center space-x-3 px-4 py-3 rounded text-sm font-mono uppercase tracking-wider transition-all ${
                     isActive
-                      ? 'text-arcade-cyan bg-surface-card border border-arcade-cyan/30'
-                      : 'text-slate-200 hover:bg-surface-card/60'
+                      ? 'text-accent-razer bg-surface-elevated border border-accent-razer/30'
+                      : 'text-text-secondary hover:bg-surface-elevated hover:text-white border border-transparent'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-arcade-cyan' : 'text-slate-400'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-accent-razer' : 'text-text-muted'}`} />
                   <span>{item.label}</span>
                 </Link>
               );
             })}
           </div>
 
-          <div className="pt-6 border-t border-surface-border text-center text-xs text-slate-400 space-y-1">
-            <p className="font-semibold text-slate-300">BAu Interactive</p>
-            <p>Videojuegos con pulso arcade y alma digital</p>
+          <div className="pt-6 border-t border-border-subtle text-center text-[11px] font-mono text-text-muted space-y-1">
+            <p className="font-semibold text-text-primary tracking-widest uppercase">BAu Interactive</p>
+            <p>HIGH-PRECISION INDIE GAMING SYSTEMS</p>
           </div>
         </div>
       )}

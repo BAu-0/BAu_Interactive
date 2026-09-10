@@ -1,7 +1,7 @@
 import React from 'react';
 import { LeaderboardEntry } from '@/types/leaderboard';
 import { formatScore, formatRelativeTime } from '@/lib/utils/format';
-import { Trophy, Medal, Award, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 interface LeaderboardTableProps {
   entries: LeaderboardEntry[];
@@ -10,121 +10,117 @@ interface LeaderboardTableProps {
 
 export function LeaderboardTable({
   entries,
-  captionTitle = 'Clasificación canónica mundial de Aether Drift (Top 15)',
+  captionTitle = 'Telemetría de Clasificación Canónica Mundial (Top 15)',
 }: LeaderboardTableProps) {
   if (entries.length === 0) {
     return (
-      <div className="text-center py-12 px-4 rounded-xl border border-surface-border bg-surface-card/40">
-        <p className="text-slate-400 text-sm">
-          No hay puntuaciones verificadas registradas todavía. ¡Sé el primero en entrar al ranking!
+      <div className="text-center py-12 px-4 rounded-lg border border-border-subtle bg-surface-card">
+        <p className="text-text-muted text-xs font-mono">
+          NO SE REGISTRAN TELEMETRÍAS VERIFICADAS TODAVÍA. SÉ EL PRIMERO EN ESTABLECER MARCA.
         </p>
       </div>
     );
   }
 
-  const getRankBadge = (rank: number) => {
-    switch (rank) {
-      case 1:
-        return (
-          <div className="flex items-center space-x-1 text-arcade-gold font-bold">
-            <Trophy className="w-5 h-5 text-arcade-gold fill-arcade-gold/20 animate-pulse" />
-            <span>1º</span>
-          </div>
-        );
-      case 2:
-        return (
-          <div className="flex items-center space-x-1 text-slate-300 font-bold">
-            <Medal className="w-5 h-5 text-slate-300 fill-slate-300/20" />
-            <span>2º</span>
-          </div>
-        );
-      case 3:
-        return (
-          <div className="flex items-center space-x-1 text-amber-600 font-bold">
-            <Award className="w-5 h-5 text-amber-600 fill-amber-600/20" />
-            <span>3º</span>
-          </div>
-        );
-      default:
-        return <span className="font-mono text-slate-400 font-medium pl-1">#{rank}</span>;
-    }
-  };
-
   return (
-    <div className="overflow-x-auto rounded-xl border border-surface-border bg-surface shadow-xl">
-      <table className="w-full text-left border-collapse">
-        <caption className="sr-only">{captionTitle}</caption>
-        <thead>
-          <tr className="border-b border-surface-border bg-surface-card/60 text-xs font-semibold uppercase tracking-wider text-slate-400">
-            <th scope="col" className="py-3.5 px-4 w-16 text-center">
-              Puesto
-            </th>
-            <th scope="col" className="py-3.5 px-4">
-              Piloto
-            </th>
-            <th scope="col" className="py-3.5 px-4 text-right">
-              Puntuación
-            </th>
-            <th scope="col" className="py-3.5 px-4 text-right hidden sm:table-cell">
-              Marca Lograda
-            </th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-surface-border/50 text-sm">
-          {entries.map((entry) => {
-            const isTop3 = entry.rank <= 3;
-            return (
-              <tr
-                key={`${entry.rank}-${entry.display_name}`}
-                className={`transition-colors hover:bg-surface-card/50 ${
-                  entry.rank === 1
-                    ? 'bg-arcade-gold/5'
-                    : entry.rank === 2
-                    ? 'bg-slate-300/5'
-                    : entry.rank === 3
-                    ? 'bg-amber-600/5'
-                    : ''
-                }`}
-              >
-                {/* Puesto */}
-                <td className="py-3 px-4 text-center whitespace-nowrap">
-                  {getRankBadge(entry.rank)}
-                </td>
+    <div className="rounded-lg border border-border-subtle bg-surface-base shadow-fluent-elevated overflow-hidden font-sans">
+      <div className="overflow-x-auto">
+        <table className="w-full text-left border-collapse">
+          <caption className="sr-only">{captionTitle}</caption>
+          <thead>
+            <tr className="border-b border-border-subtle bg-surface-elevated text-[11px] font-mono uppercase tracking-widest text-text-muted">
+              <th scope="col" className="py-3 px-4 w-16 text-center">
+                POS
+              </th>
+              <th scope="col" className="py-3 px-4">
+                PILOTO // CALLSIGN
+              </th>
+              <th scope="col" className="py-3 px-4 text-right">
+                PUNTUACIÓN // TELEMETRÍA
+              </th>
+              <th scope="col" className="py-3 px-4 text-right hidden sm:table-cell">
+                LOG_TIME
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border-subtle/40 text-xs font-mono">
+            {entries.map((entry) => {
+              const isP1 = entry.rank === 1;
+              const isTop3 = entry.rank <= 3;
 
-                {/* Nombre de jugador */}
-                <td className="py-3 px-4 font-medium text-slate-200">
-                  <div className="flex items-center space-x-2">
+              return (
+                <tr
+                  key={`${entry.rank}-${entry.display_name}`}
+                  className={`group transition-colors duration-100 hover:bg-surface-elevated ${
+                    isP1 ? 'bg-accent-razer/[0.02]' : ''
+                  }`}
+                >
+                  {/* Posición Formateada (01, 02... 15) */}
+                  <td className="py-3 px-4 text-center whitespace-nowrap">
+                    <div className="inline-flex items-center justify-center space-x-1 tabular-nums font-mono">
+                      {isP1 ? (
+                        <span className="inline-flex items-center text-accent-razer font-bold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-razer mr-1.5 shadow-[0_0_6px_#00ff55]" />
+                          01
+                        </span>
+                      ) : (
+                        <span
+                          className={
+                            entry.rank === 2
+                              ? 'text-accent-titanium font-semibold'
+                              : entry.rank === 3
+                              ? 'text-slate-300 font-medium'
+                              : 'text-text-muted'
+                          }
+                        >
+                          {entry.rank < 10 ? `0${entry.rank}` : entry.rank}
+                        </span>
+                      )}
+                    </div>
+                  </td>
+
+                  {/* Piloto */}
+                  <td className="py-3 px-4 whitespace-nowrap">
+                    <div className="flex items-center space-x-2">
+                      <span
+                        className={`font-sans text-sm ${
+                          isTop3 ? 'text-text-primary font-semibold' : 'text-text-secondary'
+                        }`}
+                      >
+                        {entry.display_name}
+                      </span>
+                      <span
+                        title="Telemetría verificada por servidor"
+                        className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded border border-border-subtle bg-surface-card text-text-muted font-mono"
+                      >
+                        <CheckCircle2 className="w-3 h-3 text-accent-razer mr-1 inline-block" />
+                        SYS_OK
+                      </span>
+                    </div>
+                  </td>
+
+                  {/* Puntuación Tabular */}
+                  <td className="py-3 px-4 text-right whitespace-nowrap">
                     <span
-                      className={`truncate max-w-[150px] sm:max-w-[260px] ${
-                        isTop3 ? 'font-bold text-white' : ''
+                      className={`font-mono text-sm tabular-nums tracking-tight ${
+                        isP1 ? 'text-accent-razer font-bold' : 'text-accent-titanium font-medium'
                       }`}
                     >
-                      {entry.display_name}
+                      {formatScore(entry.score)}
                     </span>
-                    <span
-                      title="Puntuación verificada por servidor"
-                      className="inline-flex items-center"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-arcade-cyan/70 shrink-0" />
-                    </span>
-                  </div>
-                </td>
+                    <span className="text-[10px] text-text-muted font-mono uppercase ml-1">PTS</span>
+                  </td>
 
-                {/* Puntuación */}
-                <td className="py-3 px-4 text-right font-mono font-bold text-arcade-cyan whitespace-nowrap">
-                  {formatScore(entry.score)}
-                  <span className="text-[10px] text-slate-400 font-sans font-normal ml-1">pts</span>
-                </td>
-
-                {/* Fecha */}
-                <td className="py-3 px-4 text-right text-xs text-slate-400 whitespace-nowrap hidden sm:table-cell">
-                  {formatRelativeTime(entry.ranked_at)}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                  {/* Timestamp */}
+                  <td className="py-3 px-4 text-right text-text-muted whitespace-nowrap hidden sm:table-cell text-[11px]">
+                    {formatRelativeTime(entry.ranked_at)}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

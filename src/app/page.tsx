@@ -7,47 +7,45 @@ import { GameGallery } from '@/components/home/GameGallery';
 import { CommunitySection } from '@/components/home/CommunitySection';
 import { LiveLeaderboard } from '@/components/leaderboard/LiveLeaderboard';
 import { NewsCard } from '@/components/news/NewsCard';
-import { Trophy, ArrowRight, Newspaper } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const revalidate = 60; // Revalidar contenido cada 60 segundos (ISR)
 
 export default async function HomePage() {
   const [featuredGame, initialLeaderboard, latestNews] = await Promise.all([
     getFeaturedGame(),
-    getLeaderboard('aether-drift', 5), // Adelanto de 5 puestos en portada
+    getLeaderboard('aether-drift', 5),
     getNewsPosts(),
   ]);
 
   const recentNews = latestNews.slice(0, 3);
 
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-16 pb-20 bg-obsidian">
       {/* 1. Hero del Juego Destacado */}
       <HeroGame game={featuredGame} />
 
-      {/* 2. Adelanto del Top 15 Mundial */}
+      {/* 2. Adelanto del Top 15 Mundial (Telemetría Canónica) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="leaderboard-preview-title">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-widest text-arcade-gold mb-1.5">
-              <Trophy className="w-3.5 h-3.5 fill-arcade-gold" />
-              <span>Competencia Global Canónica</span>
-            </div>
-            <h2 id="leaderboard-preview-title" className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-              Adelanto del Top 15 Mundial
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
+              CANONICAL_TELEMETRY // RANKING GLOBAL
+            </span>
+            <h2 id="leaderboard-preview-title" className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display">
+              Top 15 Mundial en Vivo
             </h2>
           </div>
 
           <Link
             href="/clasificacion"
-            className="inline-flex items-center space-x-1.5 text-sm font-semibold text-arcade-cyan hover:text-white transition-colors group"
+            className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-accent-razer transition-colors group"
           >
             <span>Ver tabla completa (Top 15)</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* Componente reactivo con polling inteligente */}
         <LiveLeaderboard
           initialEntries={initialLeaderboard}
           gameSlug="aether-drift"
@@ -56,7 +54,7 @@ export default async function HomePage() {
         />
       </section>
 
-      {/* 3. Características y Mecánicas */}
+      {/* 3. Especificaciones y Características de Hardware */}
       <GameFeatures />
 
       {/* 4. Galería de Capturas */}
@@ -67,21 +65,20 @@ export default async function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-labelledby="news-preview-title">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
-              <div className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-widest text-arcade-cyan mb-1.5">
-                <Newspaper className="w-3.5 h-3.5" />
-                <span>Bitácora de Desarrollo</span>
-              </div>
-              <h2 id="news-preview-title" className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-                Últimas Actualizaciones
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
+                CHANGELOG // INGENIERÍA
+              </span>
+              <h2 id="news-preview-title" className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display">
+                Notas y Actualizaciones
               </h2>
             </div>
 
             <Link
               href="/novedades"
-              className="inline-flex items-center space-x-1.5 text-sm font-semibold text-arcade-cyan hover:text-white transition-colors group"
+              className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-accent-razer transition-colors group"
             >
-              <span>Ver todas las noticias</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span>Ver archivo completo</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 

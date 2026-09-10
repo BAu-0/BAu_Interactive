@@ -1,78 +1,78 @@
 import React from 'react';
 import Link from 'next/link';
 import { Game } from '@/types/game';
-import { Play, MessageSquare, Shield, Sparkles, ExternalLink } from 'lucide-react';
+import { Play, MessageSquare, ExternalLink, ShieldCheck, Terminal, Cpu } from 'lucide-react';
 
 interface HeroGameProps {
   game: Game;
 }
 
 export function HeroGame({ game }: HeroGameProps) {
-  // Enlaces condicionales: se buscan en los enlaces del juego o variables de entorno
-  const betaLink = game.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
+  const betaLink =
+    game.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
     process.env.NEXT_PUBLIC_BETA_URL;
-  const feedbackLink = process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
+  const feedbackLink =
+    process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:py-24" aria-labelledby="hero-title">
-      {/* Luces de fondo ambientales */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-arcade-cyan/15 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-arcade-purple/20 blur-[130px] pointer-events-none rounded-full" />
+    <section className="relative overflow-hidden pt-12 pb-20 lg:py-28 bg-obsidian border-b border-border-subtle" aria-labelledby="hero-title">
+      {/* Luz cenital ambiental fría ultra-atenuada (Razer Chroma Ambient) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[280px] bg-accent-razer/[0.04] blur-[140px] pointer-events-none rounded-full" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Contenido Principal */}
+          {/* Columna Izquierda: Información de Ingeniería */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Badges de Estado */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-surface-card border border-arcade-cyan/40 shadow-glow-cyan/20">
-              <span className="w-2 h-2 rounded-full bg-arcade-cyan animate-ping" />
-              <span className="text-xs font-bold uppercase tracking-widest text-arcade-cyan">
-                {game.status === 'beta' ? 'Beta Pública Activa' : 'Lanzamiento'}
+            {/* Píldora HUD de Estado */}
+            <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-surface-elevated border border-border-subtle text-xs font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-razer shadow-[0_0_8px_#00ff55]" />
+              <span className="text-accent-razer font-semibold uppercase tracking-wider">
+                {game.status === 'beta' ? 'BETA V' + game.display_version : 'RELEASE'}
               </span>
-              <span className="text-slate-500 font-mono text-xs">|</span>
-              <span className="text-xs font-mono text-slate-300">{game.display_version}</span>
+              <span className="text-border-hover">/</span>
+              <span className="text-text-muted">PUBLIC ACCESS</span>
             </div>
 
-            {/* Título de Juego */}
+            {/* Título de Impacto */}
             <h1
               id="hero-title"
-              className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase font-display"
+              className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase font-display"
             >
               {game.title}
             </h1>
 
-            {/* Descripción breve de una frase */}
-            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
+            {/* Descripción Sobria */}
+            <p className="text-base sm:text-lg text-text-muted max-w-xl font-normal leading-relaxed mx-auto lg:mx-0">
               {game.short_description}
             </p>
 
-            {/* Plataformas disponibles reales */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-400">
+            {/* Ficha técnica rápida estilo consola */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-mono text-text-muted pt-2 border-t border-border-subtle/80">
               <div className="flex items-center space-x-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-arcade-green" />
-                <span>Disponible en Navegador Web</span>
+                <Cpu className="w-3.5 h-3.5 text-accent-titanium" />
+                <span>ENGINE: <strong className="text-text-secondary font-medium">CANVAS/WASM</strong></span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-arcade-green" />
-                <span>Windows 64-bit</span>
+                <Terminal className="w-3.5 h-3.5 text-accent-titanium" />
+                <span>TARGET: <strong className="text-text-secondary font-medium">60 FPS LOCKED</strong></span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <Shield className="w-3.5 h-3.5 text-arcade-cyan" />
-                <span>Top 15 Canónico Integrado</span>
+                <ShieldCheck className="w-3.5 h-3.5 text-accent-razer" />
+                <span>TELEMETRY: <strong className="text-accent-razer font-medium">VERIFIED</strong></span>
               </div>
             </div>
 
-            {/* Acciones principales (CTAs condicionales) */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* Acciones Principales (Razer Action + Microsoft Fluent) */}
+            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
               {betaLink && (
                 <a
                   href={betaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-arcade-cyan to-blue-600 text-slate-950 font-bold text-base shadow-glow-cyan hover:scale-[1.02] active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-arcade-cyan"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-md bg-accent-razer hover:bg-accent-razer-hover text-obsidian font-bold text-xs font-mono tracking-wider uppercase shadow-razer-sm hover:shadow-razer-md active:scale-[0.98] transition-all duration-150 ease-fluent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-razer"
                 >
-                  <Play className="w-5 h-5 fill-slate-950" />
-                  <span>Probar la Beta Gratis</span>
+                  <Play className="w-4 h-4 fill-obsidian" />
+                  <span>Jugar Beta en Navegador</span>
                 </a>
               )}
 
@@ -81,49 +81,53 @@ export function HeroGame({ game }: HeroGameProps) {
                   href={feedbackLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-xl bg-surface-card hover:bg-surface-border text-slate-200 hover:text-white border border-surface-border font-medium text-base transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-arcade-cyan"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-md bg-surface-elevated/90 hover:bg-surface-card text-accent-titanium hover:text-white border border-border-subtle hover:border-border-hover shadow-fluent-rest text-xs font-mono tracking-wide uppercase transition-all duration-150 ease-fluent focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
                 >
-                  <MessageSquare className="w-5 h-5 text-orange-400" />
-                  <span>Dar Feedback en Reddit</span>
-                  <ExternalLink className="w-4 h-4 text-slate-400" />
+                  <MessageSquare className="w-4 h-4 text-text-muted" />
+                  <span>Reportar Feedback</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-text-muted ml-0.5" />
                 </a>
               )}
             </div>
           </div>
 
-          {/* Key Art / Representación Gráfica del Juego */}
+          {/* Columna Derecha: Key Art 16:9 Showcase */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[460px] aspect-[4/3] rounded-2xl border-2 border-surface-border/80 bg-gradient-to-br from-surface-card via-surface to-background p-6 shadow-2xl flex flex-col justify-between overflow-hidden group">
-              {/* Rejilla retro-futurista decorativa */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-              
-              <div className="relative z-10 flex items-center justify-between">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-arcade-cyan border border-arcade-cyan/30 px-2 py-0.5 rounded bg-arcade-cyan/10">
-                  ARCADE REAL-TIME ENGINE
+            <div className="relative w-full aspect-video rounded-lg border border-border-subtle bg-surface-card shadow-fluent-elevated overflow-hidden group">
+              {/* Rejilla milimétrica sutil */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:32px_32px] opacity-25 pointer-events-none" />
+
+              {/* HUD Superior */}
+              <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-text-muted z-10">
+                <span className="px-2 py-0.5 rounded bg-surface-base/90 border border-border-subtle text-text-secondary">
+                  CANVAS_RENDER // HIGH PERFORMANCE
                 </span>
-                <span className="text-[10px] font-mono text-slate-400">60 FPS LOCKED</span>
+                <span className="text-accent-razer font-semibold">ONLINE</span>
               </div>
 
-              {/* Arte conceptual centrado */}
-              <div className="relative z-10 my-auto text-center space-y-3 py-6">
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-arcade-cyan via-arcade-purple to-arcade-pink p-0.5 shadow-glow-cyan group-hover:scale-110 transition-transform duration-500">
-                  <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
-                    <Sparkles className="w-10 h-10 text-arcade-cyan" />
-                  </div>
+              {/* Centro Gráfico */}
+              <div className="h-full flex flex-col items-center justify-center p-6 text-center space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded border border-border-hover bg-surface-elevated flex items-center justify-center text-accent-razer shadow-fluent-hairline group-hover:border-accent-razer transition-colors">
+                  <Play className="w-6 h-6 fill-accent-razer/20 text-accent-razer ml-0.5" />
                 </div>
-                <h3 className="text-xl font-bold tracking-wider text-white">AETHER DRIFT</h3>
-                <p className="text-xs text-slate-400 max-w-xs mx-auto">
-                  Vórtices cinéticos, reflejos hipercalibrados y sintetizadores dinámicos.
-                </p>
+                <div>
+                  <h3 className="text-xl font-bold text-text-primary tracking-wide uppercase font-display">
+                    {game.title}
+                  </h3>
+                  <p className="text-xs font-mono text-text-muted mt-1">
+                    INERTIAL DRIFT PHYSICS // 60 FPS
+                  </p>
+                </div>
               </div>
 
-              <div className="relative z-10 flex items-center justify-between pt-4 border-t border-surface-border text-xs text-slate-400 font-mono">
-                <span>VERSIÓN {game.display_version}</span>
+              {/* HUD Inferior */}
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-text-muted z-10 pt-2 border-t border-border-subtle/60">
+                <span>VERSION {game.display_version}</span>
                 <Link
                   href={`/juegos/${game.slug}`}
-                  className="text-arcade-cyan hover:underline flex items-center space-x-1"
+                  className="text-text-secondary hover:text-accent-razer transition-colors flex items-center space-x-1"
                 >
-                  <span>Ver Ficha Técnica</span>
+                  <span>ESPECIFICACIONES</span>
                   <span>&rarr;</span>
                 </Link>
               </div>

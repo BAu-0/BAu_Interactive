@@ -1,67 +1,79 @@
 import React from 'react';
-import { Zap, Music, Trophy, ShieldCheck } from 'lucide-react';
+import { Cpu, Headphones, Activity, Gauge } from 'lucide-react';
 
 const FEATURES = [
   {
-    icon: Zap,
-    title: 'Física Inercial de Precisión',
+    icon: Gauge,
+    title: 'Latencia Ultrabaja & 60 FPS',
     description:
-      'Control suave y milimétrico a 60 FPS sin retraso de entrada. Cada esquive al límite recarga tu impulso.',
-    accent: 'text-arcade-cyan',
-    border: 'hover:border-arcade-cyan/50',
+      'Muestreo de entrada directo sobre canvas optimizado sin amortiguación artificial. Respuesta instantánea en cada micro-esquive.',
+    tag: 'LATENCIA < 16MS',
   },
   {
-    icon: Music,
-    title: 'Audio Synthwave Procedural',
+    icon: Headphones,
+    title: 'Audio Espacial Procedural',
     description:
-      'Sintetizadores FM de los 80 que evolucionan dinámicamente con tu multiplicador de puntuación y velocidad.',
-    accent: 'text-arcade-pink',
-    border: 'hover:border-arcade-pink/50',
+      'Capas de audio analógico calibradas mediante síntesis física reactiva que se modulan dinámicamente con tu velocidad e inercia.',
+    tag: 'SYNTHESIS ENGINE',
   },
   {
-    icon: Trophy,
-    title: 'Top 15 Mundial Verificado',
+    icon: Activity,
+    title: 'Telemetría Criptográfica',
     description:
-      'Clasificación canónica centralizada. Solo cuentan partidas aprobadas por el servidor mediante protocolo seguro.',
-    accent: 'text-arcade-gold',
-    border: 'hover:border-arcade-gold/50',
+      'Sistema de clasificación verificado lado servidor. Cada partida se sella con firma atómica única e idempotencia contra trampas.',
+    tag: 'SHA-256 VERIFIED',
   },
   {
-    icon: ShieldCheck,
-    title: 'Pura Habilidad, Cero P2W',
+    icon: Cpu,
+    title: 'Física Determinista Pura',
     description:
-      'Sin compras dentro del juego, sin temporizadores forzados y sin anuncios que rompan la inmersión del arcade.',
-    accent: 'text-arcade-green',
-    border: 'hover:border-arcade-green/50',
+      'Cero mecánicas pay-to-win, cero compras internas y cero temporizadores. Rendimiento basado 100% en la precisión motriz del piloto.',
+    tag: 'ZERO P2W ARCHITECTURE',
   },
 ];
 
 export function GameFeatures() {
   return (
-    <section className="py-16 bg-surface/50 border-y border-surface-border/50" aria-labelledby="features-title">
+    <section className="py-20 bg-canvas border-b border-border-subtle" aria-labelledby="features-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 id="features-title" className="text-xs font-bold uppercase tracking-widest text-arcade-cyan mb-2">
-            Mecánicas y Filosofía
-          </h2>
-          <p className="text-3xl font-bold tracking-tight text-white">
-            Diseñado para poner a prueba tus reflejos
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
+              ESPECIFICACIONES DE SISTEMA
+            </span>
+            <h2 id="features-title" className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display">
+              Arquitectura de Precisión
+            </h2>
+          </div>
+          <p className="text-xs font-mono text-text-muted max-w-sm">
+            Diseñado bajo estándares de ingeniería de hardware competitivo.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {FEATURES.map((feature, idx) => {
             const Icon = feature.icon;
             return (
               <div
                 key={idx}
-                className={`p-6 rounded-2xl bg-surface-card/60 border border-surface-border transition-all duration-300 hover:-translate-y-1 ${feature.border} shadow-lg`}
+                className="p-6 rounded-lg bg-surface-card border border-border-subtle hover:border-border-hover transition-all duration-200 shadow-fluent-rest group flex flex-col justify-between"
               >
-                <div className={`w-12 h-12 rounded-xl bg-background flex items-center justify-center mb-4 ${feature.accent}`}>
-                  <Icon className="w-6 h-6" />
+                <div>
+                  <div className="w-10 h-10 rounded border border-border-subtle bg-surface-elevated flex items-center justify-center mb-6 text-accent-titanium group-hover:text-accent-razer group-hover:border-accent-razer/40 transition-colors">
+                    <Icon className="w-5 h-5 stroke-[1.5]" />
+                  </div>
+                  <h3 className="text-sm font-bold text-text-primary uppercase tracking-wide mb-2 font-display">
+                    {feature.title}
+                  </h3>
+                  <p className="text-xs text-text-muted leading-relaxed font-sans">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{feature.description}</p>
+
+                <div className="pt-6 mt-6 border-t border-border-subtle/60 flex items-center justify-between text-[10px] font-mono text-text-muted">
+                  <span>{feature.tag}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-border-hover group-hover:bg-accent-razer transition-colors" />
+                </div>
               </div>
             );
           })}

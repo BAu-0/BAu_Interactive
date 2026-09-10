@@ -1,33 +1,32 @@
 import React from 'react';
 import { getLeaderboard } from '@/lib/data/api';
 import { LiveLeaderboard } from '@/components/leaderboard/LiveLeaderboard';
-import { Trophy, ShieldCheck, HelpCircle } from 'lucide-react';
+import { ShieldCheck, HelpCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Clasificación Mundial (Top 15)',
+  title: 'Telemetría de Clasificación Mundial (Top 15)',
   description:
-    'Tabla de clasificación canónica oficial de Aether Drift y títulos de BAu Interactive. Solo puntuaciones verificadas.',
+    'Tabla de clasificación canónica oficial de Aether Drift y títulos de BAu Interactive. Solo puntuaciones verificadas criptográficamente.',
 };
 
-export const revalidate = 30; // Frescura cada 30 segundos
+export const revalidate = 30;
 
 export default async function LeaderboardPage() {
   const initialLeaderboard = await getLeaderboard('aether-drift', 15);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12 bg-obsidian">
       {/* Cabecera */}
       <div className="max-w-3xl">
-        <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-arcade-gold mb-2">
-          <Trophy className="w-4 h-4 fill-arcade-gold" />
-          <span>Salón de la Fama Canónico</span>
-        </div>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-4">
-          Clasificación Mundial (Top 15)
+        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
+          CANONICAL_LEADERBOARD // TOP 15 TELEMETRY
+        </span>
+        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary uppercase font-display mb-4">
+          Salón de la Fama Mundial
         </h1>
-        <p className="text-base text-slate-300 leading-relaxed">
-          Las 15 mejores marcas registradas y verificadas por nuestro servidor central para <strong>Aether Drift</strong>. Esta tabla consume exactamente la misma fuente de verdad que el videojuego.
+        <p className="text-sm text-text-muted leading-relaxed font-sans">
+          Las 15 mejores marcas registradas y autenticadas por el servidor central de <strong>Aether Drift</strong>. Esta telemetría consume la misma fuente canónica que alimenta el cliente del juego en tiempo de ejecución.
         </p>
       </div>
 
@@ -42,35 +41,35 @@ export default async function LeaderboardPage() {
       </div>
 
       {/* Reglas de la Clasificación y Preguntas Frecuentes */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-surface-border">
-        <div className="p-6 rounded-2xl bg-surface-card border border-surface-border space-y-3">
-          <div className="flex items-center space-x-2 text-arcade-cyan font-bold text-sm">
-            <ShieldCheck className="w-5 h-5" />
-            <h3>Reglas de Elegibilidad y Desempates</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10 border-t border-border-subtle">
+        <div className="p-6 rounded-lg bg-surface-card border border-border-subtle space-y-3 font-mono text-xs">
+          <div className="flex items-center space-x-2 text-accent-razer font-bold uppercase tracking-wider">
+            <ShieldCheck className="w-4 h-4" />
+            <h3>CRITERIOS DE DESEMPATE & ELEGIBILIDAD</h3>
           </div>
-          <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
+          <ul className="text-text-muted space-y-2 list-disc list-inside leading-relaxed text-[11px]">
             <li>
-              <strong>Una sola marca por jugador:</strong> Se proyecta únicamente tu mejor puntuación personal histórica.
+              <strong className="text-text-secondary">Mejor marca personal:</strong> Solo se proyecta el puntaje más alto alcanzado por cada jugador.
             </li>
             <li>
-              <strong>Criterio de desempate:</strong> En caso de empate en puntos, el jugador que haya registrado su marca antes cronológicamente (<code>ranked_at</code>) conservará el puesto superior.
+              <strong className="text-text-secondary">Desempate cronológico:</strong> En caso de igualdad de puntos, el jugador que haya registrado su marca antes (<code>ranked_at</code>) conservará el puesto superior.
             </li>
             <li>
-              <strong>Cálculo en consulta:</strong> La posición nunca es estática; se recalcula de forma atómica en cada consulta.
+              <strong className="text-text-secondary">Cálculo dinámico en consulta:</strong> La posición se computa de forma atómica en cada solicitud a la base de datos.
             </li>
             <li>
-              <strong>Anti-trampas:</strong> Registros anómalos o manipulados son rechazados en la ingestión y no entran a la tabla pública.
+              <strong className="text-text-secondary">Filtro antifraude:</strong> Registros con firmas inválidas o descalificados no son procesados por la RPC.
             </li>
           </ul>
         </div>
 
-        <div className="p-6 rounded-2xl bg-surface-card border border-surface-border space-y-3">
-          <div className="flex items-center space-x-2 text-arcade-purple font-bold text-sm">
-            <HelpCircle className="w-5 h-5" />
-            <h3>¿Cómo aparece mi puntuación aquí?</h3>
+        <div className="p-6 rounded-lg bg-surface-card border border-border-subtle space-y-3 font-mono text-xs">
+          <div className="flex items-center space-x-2 text-accent-titanium font-bold uppercase tracking-wider">
+            <HelpCircle className="w-4 h-4" />
+            <h3>INGESTIÓN & PROTOCOLO DE RED</h3>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed">
-            Al finalizar una partida en la versión Beta de <em>Aether Drift</em>, tu cliente genera una firma de sesión única y envía el resultado a través de nuestra API segura. Si superas a alguno de los 15 mejores pilotos del mundo, tu nombre aparecerá reflejado en menos de 60 segundos en esta pantalla.
+          <p className="text-text-muted leading-relaxed text-[11px] font-sans">
+            Al concluir una partida en el ejecutable o versión web de <em>Aether Drift</em>, el cliente genera un identificador de idempotencia (<code>client_submission_id</code>) y firma la sesión mediante token validado. Las marcas aprobadas se reflejan en este tablero en un lapso máximo de 45 segundos mientras la pestaña se mantenga activa.
           </p>
         </div>
       </div>

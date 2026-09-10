@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { NewsPost } from '@/types/news';
 import { CategoryBadge } from './CategoryBadge';
 import { formatRelativeTime } from '@/lib/utils/format';
-import { Calendar, User, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface NewsCardProps {
   post: NewsPost;
@@ -12,44 +12,44 @@ interface NewsCardProps {
 
 export function NewsCard({ post, compact = false }: NewsCardProps) {
   return (
-    <article className="flex flex-col justify-between rounded-2xl bg-surface-card border border-surface-border hover:border-arcade-cyan/40 p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg group">
+    <article className="flex flex-col justify-between rounded-lg bg-surface-card border border-border-subtle hover:border-border-hover p-6 transition-all duration-200 shadow-fluent-rest group">
       <div>
         {/* Encabezado: Categoría y Fecha */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <CategoryBadge category={post.category} />
-          <div className="flex items-center space-x-1.5 text-xs text-slate-400">
-            <Calendar className="w-3.5 h-3.5 text-slate-500" />
-            <span>{formatRelativeTime(post.published_at)}</span>
-          </div>
+          <span className="text-[11px] font-mono text-text-muted">
+            {formatRelativeTime(post.published_at)}
+          </span>
         </div>
 
         {/* Título */}
-        <h3 className="text-lg font-bold text-white group-hover:text-arcade-cyan transition-colors mb-2.5 line-clamp-2 leading-snug">
+        <h3 className="text-base font-bold text-text-primary group-hover:text-white transition-colors mb-2.5 line-clamp-2 leading-snug font-display">
           <Link href={`/novedades/${post.slug}`} className="focus:outline-none">
             {post.title}
           </Link>
         </h3>
 
         {/* Resumen / Excerpt */}
-        <p className={`text-sm text-slate-400 leading-relaxed ${compact ? 'line-clamp-2' : 'line-clamp-3'} mb-6`}>
+        <p
+          className={`text-xs text-text-muted leading-relaxed ${
+            compact ? 'line-clamp-2' : 'line-clamp-3'
+          } mb-6 font-sans`}
+        >
           {post.excerpt}
         </p>
       </div>
 
       {/* Footer de la tarjeta */}
-      <div className="pt-4 border-t border-surface-border/60 flex items-center justify-between text-xs text-slate-400">
-        <div className="flex items-center space-x-1.5">
-          <User className="w-3.5 h-3.5 text-slate-500" />
-          <span>{post.author_name}</span>
-        </div>
+      <div className="pt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-text-muted">
+        <span>POR {post.author_name.toUpperCase()}</span>
 
         <Link
           href={`/novedades/${post.slug}`}
-          className="inline-flex items-center space-x-1 font-semibold text-arcade-cyan hover:text-white transition-colors"
+          className="inline-flex items-center space-x-1 font-semibold text-text-secondary hover:text-accent-razer transition-colors"
           aria-label={`Leer artículo completo: ${post.title}`}
         >
-          <span>Leer más</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          <span>LEER</span>
+          <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </article>

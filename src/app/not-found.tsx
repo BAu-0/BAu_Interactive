@@ -1,34 +1,34 @@
 import React from 'react';
 import Link from 'next/link';
-import { Gamepad2, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Terminal } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div className="min-h-[70vh] flex items-center justify-center px-4 py-20 bg-obsidian">
       <div className="max-w-md w-full text-center space-y-6">
-        <div className="w-20 h-20 mx-auto rounded-2xl bg-surface-card border-2 border-arcade-pink flex items-center justify-center text-arcade-pink shadow-glow-pink">
-          <Gamepad2 className="w-10 h-10" />
+        <div className="w-14 h-14 mx-auto rounded border border-border-subtle bg-surface-elevated flex items-center justify-center text-accent-razer shadow-fluent-hairline">
+          <Terminal className="w-7 h-7" />
         </div>
 
         <div className="space-y-2">
-          <span className="text-xs font-mono tracking-widest uppercase text-arcade-pink">
-            ERROR 404 • SECTOR VACÍO
+          <span className="text-[11px] font-mono tracking-widest uppercase text-accent-razer">
+            ERROR 404 // COORDENADA INVÁLIDA
           </span>
-          <h1 className="text-4xl font-black text-white uppercase tracking-tight font-display">
-            Zona no explorada
+          <h1 className="text-3xl font-black text-text-primary uppercase tracking-tight font-display">
+            Sector No Encontrado
           </h1>
-          <p className="text-sm text-slate-400">
-            La coordenada que buscas se ha desintegrado en el vacío o nunca existió en este cuadrante.
+          <p className="text-xs font-mono text-text-muted">
+            El cuadrante solicitado no responde a la telemetría del sistema o ha sido desmantelado.
           </p>
         </div>
 
-        <div className="pt-4">
+        <div className="pt-2">
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-arcade-cyan text-slate-950 font-bold text-sm shadow-glow-cyan hover:scale-105 transition-all"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-accent-razer hover:bg-accent-razer-hover text-obsidian font-mono font-bold text-xs uppercase tracking-wider shadow-razer-sm hover:shadow-razer-md transition-all"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Volver a la Base (Inicio)</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Retornar a Base (Inicio)</span>
           </Link>
         </div>
       </div>
