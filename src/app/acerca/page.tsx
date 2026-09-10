@@ -10,25 +10,25 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12 bg-obsidian text-text-muted">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 bg-white text-zinc-700 font-sans">
       {/* Cabecera */}
       <div className="space-y-4">
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
-          MANIFIESTO // INGENIERÍA INDEPENDIENTE
+        <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+          Manifiesto // Ingeniería Independiente
         </span>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary uppercase font-display">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase">
           Acerca de BAu Interactive
         </h1>
-        <p className="text-base text-text-secondary leading-relaxed font-sans">
+        <p className="text-base text-zinc-600 leading-relaxed font-sans">
           Estudio independiente enfocado en mecánicas de alta exigencia, software determinista y transparencia técnica absoluta con la comunidad de jugadores.
         </p>
       </div>
 
       {/* Contenido Editorial */}
-      <div className="space-y-10 border-t border-border-subtle pt-10 text-sm font-sans leading-relaxed">
+      <div className="space-y-10 border-t border-zinc-200 pt-10 text-base leading-relaxed">
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-text-primary uppercase font-display flex items-center space-x-2">
-            <Cpu className="w-5 h-5 text-accent-razer" />
+          <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
+            <Cpu className="w-5 h-5 text-[#00a836]" />
             <span>Filosofía de Software</span>
           </h2>
           <p>
@@ -40,8 +40,8 @@ export default function AboutPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-text-primary uppercase font-display flex items-center space-x-2">
-            <ShieldCheck className="w-5 h-5 text-accent-titanium" />
+          <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
+            <ShieldCheck className="w-5 h-5 text-zinc-700" />
             <span>Telemetría Canónica</span>
           </h2>
           <p>
@@ -50,8 +50,8 @@ export default function AboutPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-bold text-text-primary uppercase font-display flex items-center space-x-2">
-            <Terminal className="w-5 h-5 text-accent-razer" />
+          <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
+            <Terminal className="w-5 h-5 text-[#00a836]" />
             <span>Iteración Abierta</span>
           </h2>
           <p>
@@ -60,20 +60,20 @@ export default function AboutPage() {
         </section>
       </div>
 
-      {/* Tarjeta de Contacto */}
-      <div className="p-8 rounded-lg bg-surface-card border border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-fluent-elevated">
+      {/* Tarjeta de Contacto / Call to Action en negro y verde */}
+      <div className="p-8 rounded-xl bg-black text-white border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
         <div>
-          <h3 className="text-base font-bold text-text-primary uppercase tracking-wide font-display mb-1">
+          <h3 className="text-lg font-bold text-white uppercase tracking-wide mb-1">
             Pruébalo en tu navegador
           </h3>
-          <p className="text-xs text-text-muted font-mono">BETA PÚBLICA GRATUITA // 60 FPS</p>
+          <p className="text-xs text-zinc-400">Beta pública gratuita // 60 FPS</p>
         </div>
         <Link
           href="/juegos/aether-drift"
-          className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-accent-razer hover:bg-accent-razer-hover text-obsidian font-mono font-bold text-xs uppercase tracking-wider shadow-razer-sm hover:shadow-razer-md transition-all whitespace-nowrap"
+          className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap"
         >
           <span>Ejecutar Aether Drift</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

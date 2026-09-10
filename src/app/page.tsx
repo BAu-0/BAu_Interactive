@@ -21,7 +21,7 @@ export default async function HomePage() {
   const recentNews = latestNews.slice(0, 3);
 
   return (
-    <div className="space-y-16 pb-20 bg-obsidian">
+    <div className="space-y-16 pb-20 bg-white">
       {/* 1. Hero del Juego Destacado */}
       <HeroGame game={featuredGame} />
 
@@ -29,17 +29,17 @@ export default async function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="leaderboard-preview-title">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
-              CANONICAL_TELEMETRY // RANKING GLOBAL
+            <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+              Telemetría Canónica // Ranking Global
             </span>
-            <h2 id="leaderboard-preview-title" className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display">
+            <h2 id="leaderboard-preview-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase font-sans">
               Top 15 Mundial en Vivo
             </h2>
           </div>
 
           <Link
             href="/clasificacion"
-            className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-accent-razer transition-colors group"
+            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 hover:text-[#00a836] transition-colors group"
           >
             <span>Ver tabla completa (Top 15)</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -65,17 +65,17 @@ export default async function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-labelledby="news-preview-title">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
-                CHANGELOG // INGENIERÍA
+              <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+                Changelog // Ingeniería
               </span>
-              <h2 id="news-preview-title" className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display">
+              <h2 id="news-preview-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase font-sans">
                 Notas y Actualizaciones
               </h2>
             </div>
 
             <Link
               href="/novedades"
-              className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-accent-razer transition-colors group"
+              className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 hover:text-[#00a836] transition-colors group"
             >
               <span>Ver archivo completo</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

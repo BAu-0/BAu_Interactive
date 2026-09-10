@@ -83,20 +83,20 @@ export function LiveLeaderboard({
   });
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 font-sans">
       {/* Barra de Telemetría Superior */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg border border-border-subtle bg-surface-elevated text-xs font-mono text-text-muted">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg border border-zinc-200 bg-zinc-50 text-xs text-zinc-600">
         <div className="flex items-center space-x-3">
           <div className="flex items-center space-x-1.5">
-            <Clock className="w-3.5 h-3.5 text-accent-razer" />
-            <span>SYNC: <strong className="text-text-primary">{formattedTime}</strong></span>
+            <Clock className="w-3.5 h-3.5 text-[#00a836]" />
+            <span>Sincronizado: <strong className="text-zinc-950 font-bold">{formattedTime}</strong></span>
           </div>
-          <span className="text-border-hover">|</span>
-          <span>INTERVAL: <strong className="text-text-secondary">45s</strong></span>
+          <span className="text-zinc-300">|</span>
+          <span>Intervalo: <strong className="text-zinc-800">45s</strong></span>
           {isStale && (
-            <span className="inline-flex items-center space-x-1 text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded text-[10px]">
+            <span className="inline-flex items-center space-x-1 text-amber-700 bg-amber-100 px-2 py-0.5 rounded text-[10px] font-bold">
               <AlertTriangle className="w-3 h-3" />
-              <span>STALE</span>
+              <span>DESFASADO</span>
             </span>
           )}
         </div>
@@ -105,17 +105,17 @@ export function LiveLeaderboard({
           type="button"
           onClick={() => fetchLeaderboard(true)}
           disabled={isLoading}
-          className="inline-flex items-center space-x-1.5 px-3 py-1 rounded bg-surface-card hover:bg-surface-overlay text-text-secondary hover:text-white border border-border-subtle hover:border-border-hover transition-all text-xs font-mono disabled:opacity-50 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
+          className="inline-flex items-center space-x-1.5 px-3 py-1 rounded bg-white hover:bg-zinc-100 text-zinc-800 border border-zinc-200 hover:border-zinc-400 transition-all text-xs font-medium disabled:opacity-50 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00a836]"
           aria-label="Actualizar clasificación ahora"
         >
-          <RefreshCw className={`w-3 h-3 ${isLoading ? 'animate-spin text-accent-razer' : ''}`} />
-          <span>{isLoading ? 'SYNCING...' : 'RE-SYNC'}</span>
+          <RefreshCw className={`w-3 h-3 ${isLoading ? 'animate-spin text-[#00a836]' : ''}`} />
+          <span>{isLoading ? 'Sincronizando...' : 'Actualizar'}</span>
         </button>
       </div>
 
       {errorMessage && (
-        <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded text-xs font-mono text-amber-300 flex items-center space-x-2">
-          <AlertTriangle className="w-4 h-4 shrink-0 text-amber-400" />
+        <div className="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800 flex items-center space-x-2">
+          <AlertTriangle className="w-4 h-4 shrink-0 text-amber-600" />
           <span>{errorMessage}</span>
         </div>
       )}
@@ -126,10 +126,10 @@ export function LiveLeaderboard({
       </div>
 
       {showVerificationNote && (
-        <div className="flex items-start space-x-2 text-[11px] font-mono text-text-muted pt-1">
-          <ShieldCheck className="w-3.5 h-3.5 text-accent-razer shrink-0 mt-0.5" />
+        <div className="flex items-start space-x-2 text-xs text-zinc-500 pt-1">
+          <ShieldCheck className="w-4 h-4 text-[#00a836] shrink-0 mt-0.5" />
           <p>
-            TELEMETRÍA CRIPTOGRÁFICA VERIFICADA LADO SERVIDOR. DESEMPATE POR FECHA CRONOLÓGICA (RANKED_AT). MÁXIMO 1 REGISTRO POR JUGADOR.
+            Telemetría criptográfica verificada lado servidor. Desempate por fecha cronológica (ranked_at). Máximo 1 registro por jugador.
           </p>
         </div>
       )}

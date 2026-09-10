@@ -13,15 +13,15 @@ export default async function GamesPage() {
   const games = await getAllGames();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12 bg-obsidian">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 bg-white font-sans">
       <div className="max-w-2xl">
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
-          CATÁLOGO // DESARROLLO INTERNO
+        <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+          Catálogo // Desarrollo Interno
         </span>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary uppercase font-display mb-4">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase mb-4">
           Producciones Oficiales
         </h1>
-        <p className="text-sm text-text-muted leading-relaxed font-sans">
+        <p className="text-sm text-zinc-600 leading-relaxed font-sans">
           Títulos independientes diseñados para competición de alta precisión, control inercial directo y rendimiento garantizado a 60 FPS+.
         </p>
       </div>
@@ -30,52 +30,52 @@ export default async function GamesPage() {
         {games.map((game) => (
           <article
             key={game.slug}
-            className="rounded-lg bg-surface-card border border-border-subtle hover:border-border-hover transition-all duration-200 overflow-hidden shadow-fluent-rest flex flex-col justify-between group"
+            className="rounded-lg bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between group"
           >
-            {/* Cabecera 16:9 Widescreen */}
-            <div className="aspect-video bg-surface-elevated relative border-b border-border-subtle p-5 flex flex-col justify-between overflow-hidden">
+            {/* Cabecera 16:9 Widescreen en marco oscuro */}
+            <div className="aspect-video bg-black relative border-b border-zinc-800 p-5 flex flex-col justify-between overflow-hidden">
               <div className="flex items-center justify-between z-10">
-                <span className="text-[9px] font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-surface-base border border-border-subtle text-accent-razer font-semibold">
-                  {game.status === 'beta' ? 'BETA V' + game.display_version : 'RELEASE'}
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-zinc-900 border border-zinc-700 text-[#00ff55]">
+                  {game.status === 'beta' ? 'BETA V' + game.display_version : 'LANZAMIENTO'}
                 </span>
-                <span className="text-[10px] font-mono text-text-muted">60 FPS ENGINE</span>
+                <span className="text-xs text-zinc-400">60 FPS ENGINE</span>
               </div>
 
               <div className="my-auto text-center py-2">
-                <div className="w-10 h-10 mx-auto rounded border border-border-subtle bg-surface-base flex items-center justify-center text-accent-razer mb-2 group-hover:border-accent-razer/50 transition-colors">
-                  <Play className="w-4 h-4 fill-accent-razer/20 text-accent-razer ml-0.5" />
+                <div className="w-10 h-10 mx-auto rounded border border-zinc-800 bg-zinc-900 flex items-center justify-center text-[#00ff55] mb-2 group-hover:border-[#00ff55]/60 transition-colors">
+                  <Play className="w-4 h-4 fill-[#00ff55] text-[#00ff55] ml-0.5" />
                 </div>
-                <h2 className="text-lg font-bold text-text-primary uppercase tracking-wide font-display group-hover:text-white transition-colors">
+                <h2 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ff55] transition-colors">
                   {game.title}
                 </h2>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] font-mono text-text-muted pt-2 border-t border-border-subtle/50">
-                <span>INERTIAL ARCADE</span>
-                <span>PC // WEB</span>
+              <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-zinc-800/80">
+                <span>ARCADE INERCIAL</span>
+                <span>PC // WEB CANVAS</span>
               </div>
             </div>
 
             {/* Contenido */}
             <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-              <p className="text-xs text-text-muted leading-relaxed line-clamp-2 font-sans">
+              <p className="text-sm text-zinc-600 leading-relaxed line-clamp-2 font-sans">
                 {game.short_description}
               </p>
 
-              <div className="pt-3 border-t border-border-subtle flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-zinc-100 flex items-center justify-between text-xs">
                 <Link
                   href={`/juegos/${game.slug}`}
-                  className="inline-flex items-center space-x-1.5 font-mono font-semibold text-text-secondary hover:text-accent-razer transition-colors"
+                  className="inline-flex items-center space-x-1.5 font-bold text-zinc-900 hover:text-[#00a836] transition-colors"
                 >
-                  <span>ESPECIFICACIONES</span>
+                  <span>Especificaciones</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
                 <Link
                   href="/clasificacion"
-                  className="font-mono text-[11px] text-text-muted hover:text-white transition-colors"
+                  className="text-xs text-zinc-500 hover:text-zinc-900 font-medium transition-colors"
                 >
-                  TELEMETRÍA &rarr;
+                  Telemetría &rarr;
                 </Link>
               </div>
             </div>

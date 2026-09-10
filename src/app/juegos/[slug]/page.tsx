@@ -50,24 +50,24 @@ export default async function GameDetailPage({ params }: Props) {
     process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
 
   return (
-    <div className="space-y-20 pb-24 bg-obsidian">
+    <div className="space-y-16 pb-24 bg-white font-sans">
       {/* Hero de Ficha de Juego */}
-      <section className="relative overflow-hidden pt-12 pb-16 bg-surface-base border-b border-border-subtle">
+      <section className="relative overflow-hidden pt-12 pb-16 bg-zinc-50 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-surface-elevated border border-border-subtle text-xs font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-razer shadow-[0_0_8px_#00ff55]" />
-                <span className="text-accent-razer font-semibold uppercase tracking-wider">
-                  STATUS: {game.status.toUpperCase()} V{game.display_version}
+              <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-white border border-zinc-200 text-xs">
+                <span className="w-2 h-2 rounded-full bg-[#00d647] shadow-[0_0_8px_#00d647]" />
+                <span className="text-[#00a836] font-bold uppercase tracking-wider">
+                  Estado: {game.status.toUpperCase()} V{game.display_version}
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-text-primary uppercase font-display">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-950 uppercase">
                 {game.title}
               </h1>
 
-              <p className="text-base text-text-muted leading-relaxed font-sans">
+              <p className="text-base text-zinc-600 leading-relaxed">
                 {game.full_description}
               </p>
 
@@ -78,9 +78,9 @@ export default async function GameDetailPage({ params }: Props) {
                     href={betaLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-md bg-accent-razer hover:bg-accent-razer-hover text-obsidian font-bold text-xs font-mono uppercase tracking-wider shadow-razer-sm hover:shadow-razer-md transition-all ease-fluent"
+                    className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
                   >
-                    <Play className="w-4 h-4 fill-obsidian" />
+                    <Play className="w-4 h-4 fill-black" />
                     <span>Jugar Beta en Navegador</span>
                   </a>
                 )}
@@ -90,9 +90,9 @@ export default async function GameDetailPage({ params }: Props) {
                     href={feedbackLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-md bg-surface-elevated hover:bg-surface-card text-accent-titanium hover:text-white border border-border-subtle text-xs font-mono uppercase tracking-wider transition-all ease-fluent"
+                    className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-md bg-black hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider transition-all"
                   >
-                    <MessageSquare className="w-4 h-4 text-text-muted" />
+                    <MessageSquare className="w-4 h-4 text-zinc-300" />
                     <span>Canal de Feedback</span>
                   </a>
                 )}
@@ -100,30 +100,30 @@ export default async function GameDetailPage({ params }: Props) {
             </div>
 
             {/* Ficha Resumen de Ingeniería */}
-            <div className="lg:col-span-5 bg-surface-card rounded-lg border border-border-subtle p-6 space-y-4 shadow-fluent-elevated">
-              <h2 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent-razer border-b border-border-subtle pb-3">
-                ESPECIFICACIONES DE TÍTULO
+            <div className="lg:col-span-5 bg-white rounded-lg border border-zinc-200 p-6 space-y-4 shadow-sm">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-[#00a836] border-b border-zinc-100 pb-3">
+                Especificaciones de Título
               </h2>
-              <dl className="divide-y divide-border-subtle/50 text-xs font-mono space-y-2.5">
+              <dl className="divide-y divide-zinc-100 text-xs space-y-2.5">
                 <div className="flex justify-between pt-2">
-                  <dt className="text-text-muted">GÉNERO:</dt>
-                  <dd className="font-semibold text-text-primary">ARCADE INERCIAL / SURVIVAL</dd>
+                  <dt className="text-zinc-500">Género:</dt>
+                  <dd className="font-bold text-zinc-950">Arcade Inercial / Survival</dd>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <dt className="text-text-muted">ESTADO:</dt>
-                  <dd className="font-semibold text-accent-razer">BETA PÚBLICA</dd>
+                  <dt className="text-zinc-500">Estado:</dt>
+                  <dd className="font-bold text-[#00a836]">Beta Pública</dd>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <dt className="text-text-muted">BUILD:</dt>
-                  <dd className="text-text-secondary">{game.display_version}</dd>
+                  <dt className="text-zinc-500">Compilación:</dt>
+                  <dd className="text-zinc-800 font-semibold">{game.display_version}</dd>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <dt className="text-text-muted">MÉTRICA TELEMETRÍA:</dt>
-                  <dd className="text-accent-titanium">MAYOR PUNTUACIÓN (1 MARCA/USER)</dd>
+                  <dt className="text-zinc-500">Métrica Telemetría:</dt>
+                  <dd className="text-zinc-900 font-semibold">Mayor Puntuación (1 marca/user)</dd>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <dt className="text-text-muted">ENTORNOS:</dt>
-                  <dd className="text-text-secondary">WEB CANVAS / WINDOWS PC</dd>
+                  <dt className="text-zinc-500">Entornos:</dt>
+                  <dd className="text-zinc-800">Web Canvas / Windows PC</dd>
                 </div>
               </dl>
             </div>
@@ -134,20 +134,20 @@ export default async function GameDetailPage({ params }: Props) {
       {/* Características Clave */}
       {game.features && game.features.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
-            MECÁNICAS DETERMINISTAS
+          <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+            Mecánicas Deterministas
           </span>
-          <h2 className="text-2xl font-bold tracking-tight text-text-primary uppercase font-display mb-6">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase mb-6">
             Parámetros de Ejecución
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {game.features.map((feature, i) => (
               <div
                 key={i}
-                className="flex items-start space-x-3 p-4 rounded-md bg-surface-card border border-border-subtle"
+                className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-zinc-200"
               >
-                <CheckCircle className="w-4 h-4 text-accent-razer shrink-0 mt-0.5" />
-                <span className="text-xs text-text-secondary font-sans leading-relaxed">{feature}</span>
+                <CheckCircle className="w-5 h-5 text-[#00a836] shrink-0 mt-0.5" />
+                <span className="text-sm text-zinc-700 leading-relaxed">{feature}</span>
               </div>
             ))}
           </div>
@@ -158,17 +158,17 @@ export default async function GameDetailPage({ params }: Props) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-1 block">
-              CANONICAL_TELEMETRY // {game.title.toUpperCase()}
+            <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-1 block">
+              Telemetría Canónica // {game.title.toUpperCase()}
             </span>
-            <h2 className="text-2xl font-bold tracking-tight text-text-primary uppercase font-display">
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase">
               Top 5 Canónico
             </h2>
           </div>
 
           <Link
             href="/clasificacion"
-            className="inline-flex items-center space-x-1.5 text-xs font-mono uppercase text-text-secondary hover:text-accent-razer transition-colors group"
+            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase text-zinc-700 hover:text-[#00a836] transition-colors group"
           >
             <span>Ver Top 15 completo</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -186,9 +186,9 @@ export default async function GameDetailPage({ params }: Props) {
       {/* Requisitos de Sistema */}
       {game.system_requirements && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center space-x-2 text-accent-razer mb-4">
-            <Monitor className="w-4 h-4" />
-            <h2 className="text-lg font-mono font-bold uppercase text-text-primary">
+          <div className="flex items-center space-x-2 text-[#00a836] mb-4">
+            <Monitor className="w-5 h-5" />
+            <h2 className="text-lg font-bold uppercase text-zinc-950">
               Requisitos de Hardware
             </h2>
           </div>
@@ -197,19 +197,19 @@ export default async function GameDetailPage({ params }: Props) {
             {game.system_requirements.map((req, i) => (
               <div
                 key={i}
-                className="p-5 rounded-md bg-surface-card border border-border-subtle space-y-3 font-mono text-xs"
+                className="p-5 rounded-lg bg-white border border-zinc-200 space-y-3 text-xs"
               >
-                <h3 className="font-bold text-text-primary border-b border-border-subtle pb-2 uppercase tracking-wide">
+                <h3 className="font-bold text-zinc-950 border-b border-zinc-100 pb-2 uppercase tracking-wide">
                   {req.platform}
                 </h3>
-                <div className="space-y-1.5 text-[11px]">
+                <div className="space-y-1.5 text-xs">
                   <p>
-                    <strong className="text-text-muted">MÍNIMO: </strong>
-                    <span className="text-text-secondary">{req.minimum}</span>
+                    <strong className="text-zinc-500">Mínimo: </strong>
+                    <span className="text-zinc-800">{req.minimum}</span>
                   </p>
                   <p>
-                    <strong className="text-text-muted">RECOMENDADO: </strong>
-                    <span className="text-text-secondary">{req.recommended}</span>
+                    <strong className="text-zinc-500">Recomendado: </strong>
+                    <span className="text-zinc-800">{req.recommended}</span>
                   </p>
                 </div>
               </div>
@@ -221,7 +221,7 @@ export default async function GameDetailPage({ params }: Props) {
       {/* Novedades Relacionadas */}
       {relatedNews.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold tracking-tight text-text-primary uppercase font-display mb-6">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-950 uppercase mb-6">
             Actualizaciones de {game.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

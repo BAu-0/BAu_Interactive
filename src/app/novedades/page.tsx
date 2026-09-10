@@ -15,15 +15,15 @@ export default async function NewsPage() {
   const posts = await getNewsPosts();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12 bg-obsidian">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 bg-white font-sans">
       <div className="max-w-3xl">
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-accent-razer mb-2 block">
-          CHANGELOG // REGISTRO DE INGENIERÍA
+        <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+          Changelog // Registro de Ingeniería
         </span>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-text-primary uppercase font-display mb-4">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase mb-4">
           Novedades y Parches
         </h1>
-        <p className="text-sm text-text-muted leading-relaxed font-sans">
+        <p className="text-sm text-zinc-600 leading-relaxed font-sans">
           Sigue el avance de desarrollo de nuestros títulos, calibraciones de inercia y notas de versión de cada compilación.
         </p>
       </div>

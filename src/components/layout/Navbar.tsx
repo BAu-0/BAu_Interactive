@@ -59,8 +59,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-obsidian/90 backdrop-blur-xl border-b border-border-subtle shadow-fluent-rest py-2.5'
-          : 'bg-obsidian/75 backdrop-blur-md border-b border-border-subtle/60 py-3.5'
+          ? 'bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-md py-2.5'
+          : 'bg-black/90 backdrop-blur-sm border-b border-zinc-800/80 py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,22 +68,22 @@ export function Navbar() {
           {/* Logo / Monograma Grabado en Titanio */}
           <Link
             href="/"
-            className="flex items-center space-x-3 group rounded p-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
+            className="flex items-center space-x-3 group rounded p-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff55]"
           >
-            <div className="w-8 h-8 rounded border border-border-hover bg-surface-elevated flex items-center justify-center font-mono font-bold text-white text-xs tracking-widest transition-colors group-hover:border-accent-razer group-hover:text-accent-razer">
+            <div className="w-8 h-8 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center font-bold text-white text-xs tracking-wider transition-colors group-hover:border-[#00ff55] group-hover:text-[#00ff55]">
               BAU
             </div>
             <div className="flex flex-col">
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-text-primary group-hover:text-white transition-colors">
+              <span className="text-sm font-bold tracking-wider uppercase text-white group-hover:text-zinc-200 transition-colors">
                 BAu Interactive
               </span>
-              <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-text-muted">
-                Studio Systems
+              <span className="text-[10px] tracking-widest uppercase text-zinc-400">
+                Indie Game Studio
               </span>
             </div>
           </Link>
 
-          {/* Navegación de Escritorio Minimalista */}
+          {/* Navegación de Escritorio Minimalista con Titillium Web */}
           <nav className="hidden md:flex items-center space-x-1" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -91,16 +91,16 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-3.5 py-2 text-xs font-mono uppercase tracking-wider transition-colors duration-150 ${
+                  className={`relative px-4 py-2 text-sm font-medium tracking-normal transition-colors duration-150 ${
                     isActive
                       ? 'text-white font-semibold'
-                      : 'text-text-muted hover:text-text-primary'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   <span>{item.label}</span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-accent-razer shadow-[0_0_8px_#00ff55]" />
+                    <span className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#00ff55] shadow-[0_0_8px_#00ff55]" />
                   )}
                 </Link>
               );
@@ -113,13 +113,13 @@ export function Navbar() {
               ref={buttonRef}
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded border border-border-subtle bg-surface-elevated text-text-secondary hover:text-white hover:border-border-hover focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer"
+              className="inline-flex items-center justify-center p-2 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white hover:border-zinc-700 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff55]"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               aria-label={isOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
             >
               <span className="sr-only">Menú</span>
-              {isOpen ? <X className="h-5 w-5 text-accent-razer" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? <X className="h-5 w-5 text-[#00ff55]" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -130,7 +130,7 @@ export function Navbar() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="md:hidden fixed inset-x-0 top-[57px] bottom-0 bg-obsidian/98 backdrop-blur-2xl border-t border-border-subtle px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
+          className="md:hidden fixed inset-x-0 top-[57px] bottom-0 bg-black/98 backdrop-blur-2xl border-t border-zinc-800 px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Navegación móvil"
@@ -144,23 +144,23 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded text-sm font-mono uppercase tracking-wider transition-all ${
+                  className={`flex items-center space-x-3 px-4 py-3 rounded text-sm font-medium tracking-normal transition-all ${
                     isActive
-                      ? 'text-accent-razer bg-surface-elevated border border-accent-razer/30'
-                      : 'text-text-secondary hover:bg-surface-elevated hover:text-white border border-transparent'
+                      ? 'text-[#00ff55] bg-zinc-900 border border-[#00ff55]/40'
+                      : 'text-zinc-300 hover:bg-zinc-900 hover:text-white border border-transparent'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-accent-razer' : 'text-text-muted'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#00ff55]' : 'text-zinc-400'}`} />
                   <span>{item.label}</span>
                 </Link>
               );
             })}
           </div>
 
-          <div className="pt-6 border-t border-border-subtle text-center text-[11px] font-mono text-text-muted space-y-1">
-            <p className="font-semibold text-text-primary tracking-widest uppercase">BAu Interactive</p>
-            <p>HIGH-PRECISION INDIE GAMING SYSTEMS</p>
+          <div className="pt-6 border-t border-zinc-800 text-center text-xs text-zinc-400 space-y-1">
+            <p className="font-semibold text-white tracking-wider uppercase">BAu Interactive</p>
+            <p>Juegos independientes de alto rendimiento</p>
           </div>
         </div>
       )}

@@ -12,18 +12,18 @@ interface NewsCardProps {
 
 export function NewsCard({ post, compact = false }: NewsCardProps) {
   return (
-    <article className="flex flex-col justify-between rounded-lg bg-surface-card border border-border-subtle hover:border-border-hover p-6 transition-all duration-200 shadow-fluent-rest group">
+    <article className="flex flex-col justify-between rounded-lg bg-white border border-zinc-200 hover:border-zinc-400 p-6 transition-all duration-200 shadow-sm hover:shadow-md group">
       <div>
         {/* Encabezado: Categoría y Fecha */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <CategoryBadge category={post.category} />
-          <span className="text-[11px] font-mono text-text-muted">
+          <span className="text-xs text-zinc-500 font-sans">
             {formatRelativeTime(post.published_at)}
           </span>
         </div>
 
         {/* Título */}
-        <h3 className="text-base font-bold text-text-primary group-hover:text-white transition-colors mb-2.5 line-clamp-2 leading-snug font-display">
+        <h3 className="text-lg font-bold text-zinc-950 group-hover:text-[#00a836] transition-colors mb-2.5 line-clamp-2 leading-snug font-sans">
           <Link href={`/novedades/${post.slug}`} className="focus:outline-none">
             {post.title}
           </Link>
@@ -31,7 +31,7 @@ export function NewsCard({ post, compact = false }: NewsCardProps) {
 
         {/* Resumen / Excerpt */}
         <p
-          className={`text-xs text-text-muted leading-relaxed ${
+          className={`text-sm text-zinc-600 leading-relaxed ${
             compact ? 'line-clamp-2' : 'line-clamp-3'
           } mb-6 font-sans`}
         >
@@ -40,16 +40,16 @@ export function NewsCard({ post, compact = false }: NewsCardProps) {
       </div>
 
       {/* Footer de la tarjeta */}
-      <div className="pt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-text-muted">
-        <span>POR {post.author_name.toUpperCase()}</span>
+      <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs text-zinc-500 font-sans">
+        <span>Por {post.author_name}</span>
 
         <Link
           href={`/novedades/${post.slug}`}
-          className="inline-flex items-center space-x-1 font-semibold text-text-secondary hover:text-accent-razer transition-colors"
+          className="inline-flex items-center space-x-1 font-semibold text-zinc-900 hover:text-[#00a836] transition-colors"
           aria-label={`Leer artículo completo: ${post.title}`}
         >
-          <span>LEER</span>
-          <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+          <span>Leer artículo</span>
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </article>

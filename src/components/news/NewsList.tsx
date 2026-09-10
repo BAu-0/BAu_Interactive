@@ -9,11 +9,11 @@ interface NewsListProps {
 }
 
 const CATEGORIES: { label: string; value: NewsCategory | 'todas' }[] = [
-  { label: 'TODAS', value: 'todas' },
-  { label: 'ANUNCIOS', value: 'anuncio' },
-  { label: 'ACTUALIZACIONES', value: 'actualizacion' },
-  { label: 'CHANGELOGS', value: 'notas_de_version' },
-  { label: 'DEVLOGS', value: 'desarrollo' },
+  { label: 'Todas', value: 'todas' },
+  { label: 'Anuncios', value: 'anuncio' },
+  { label: 'Actualizaciones', value: 'actualizacion' },
+  { label: 'Changelogs', value: 'notas_de_version' },
+  { label: 'Devlogs', value: 'desarrollo' },
 ];
 
 export function NewsList({ initialPosts }: NewsListProps) {
@@ -25,7 +25,7 @@ export function NewsList({ initialPosts }: NewsListProps) {
       : initialPosts.filter((post) => post.category === selectedCategory);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 font-sans">
       {/* Selector de Categorías Estilo Hardware Chips */}
       <div className="flex flex-wrap gap-2 pb-2">
         {CATEGORIES.map((cat) => {
@@ -34,10 +34,10 @@ export function NewsList({ initialPosts }: NewsListProps) {
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`px-3.5 py-1.5 rounded text-xs font-mono tracking-wider transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-accent-razer ${
+              className={`px-4 py-2 rounded text-xs font-semibold tracking-wide transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00a836] ${
                 isActive
-                  ? 'bg-surface-elevated text-accent-razer border border-accent-razer/50 font-bold'
-                  : 'bg-surface-base hover:bg-surface-elevated text-text-muted hover:text-white border border-border-subtle'
+                  ? 'bg-black text-white border border-black shadow-sm'
+                  : 'bg-white hover:bg-zinc-100 text-zinc-600 hover:text-black border border-zinc-200'
               }`}
             >
               {cat.label}
@@ -48,9 +48,9 @@ export function NewsList({ initialPosts }: NewsListProps) {
 
       {/* Listado de Artículos */}
       {filteredPosts.length === 0 ? (
-        <div className="text-center py-16 px-4 rounded-lg border border-border-subtle bg-surface-card">
-          <p className="text-text-muted text-xs font-mono">
-            NO EXISTEN PUBLICACIONES EN ESTA CATEGORÍA ACTUALMENTE.
+        <div className="text-center py-16 px-4 rounded-lg border border-zinc-200 bg-white">
+          <p className="text-zinc-500 text-xs">
+            No existen publicaciones en esta categoría actualmente.
           </p>
         </div>
       ) : (

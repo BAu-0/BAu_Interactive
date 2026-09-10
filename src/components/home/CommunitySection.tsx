@@ -9,18 +9,18 @@ export function CommunitySection() {
 
   return (
     <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="community-title">
-      <div className="rounded-xl bg-surface-card border border-border-subtle p-8 md:p-12 relative overflow-hidden shadow-fluent-elevated">
-        <div className="relative z-10 max-w-3xl space-y-4">
-          <div className="inline-flex items-center space-x-2 text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-accent-razer">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-razer shadow-[0_0_6px_#00ff55]" />
-            <span>DESARROLLO ABIERTO & COMUNIDAD</span>
+      <div className="rounded-xl bg-black text-white border border-zinc-800 p-8 md:p-12 relative overflow-hidden shadow-2xl">
+        <div className="relative z-10 max-w-3xl space-y-5">
+          <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#00ff55]">
+            <span className="w-2 h-2 rounded-full bg-[#00ff55] shadow-[0_0_8px_#00ff55]" />
+            <span>Desarrollo Abierto & Comunidad</span>
           </div>
 
-          <h2 id="community-title" className="text-3xl sm:text-4xl font-black tracking-tight text-text-primary uppercase font-display">
+          <h2 id="community-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-white uppercase">
             Tu telemetría da forma a las actualizaciones
           </h2>
 
-          <p className="text-sm text-text-muted leading-relaxed font-sans pb-4">
+          <p className="text-sm text-zinc-400 leading-relaxed font-sans pb-2">
             Construimos nuestros títulos con comunicación abierta. Si probaste la beta de Aether Drift y detectas descalibración de físicas, latencia en algún navegador o tienes sugerencias de obstáculos, nuestro equipo revisa directamente los canales comunitarios oficiales.
           </p>
 
@@ -30,15 +30,15 @@ export function CommunitySection() {
               href={redditUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 rounded-md bg-surface-elevated border border-border-subtle hover:border-border-hover transition-all duration-150 group"
+              className="flex items-center justify-between p-4 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-[#00ff55]/50 transition-all duration-150 group"
             >
               <div>
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-text-primary group-hover:text-white transition-colors">
+                <h3 className="text-sm font-bold text-white group-hover:text-[#00ff55] transition-colors">
                   Reddit
                 </h3>
-                <p className="text-[11px] font-mono text-text-muted">HILO DE FEEDBACK</p>
+                <p className="text-xs text-zinc-400">Hilo de feedback</p>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:translate-x-1 group-hover:text-accent-razer transition-all" />
+              <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:translate-x-1 group-hover:text-[#00ff55] transition-all" />
             </a>
 
             {/* Discord */}
@@ -46,18 +46,18 @@ export function CommunitySection() {
               href={discordUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 rounded-md bg-surface-elevated border border-border-subtle hover:border-border-hover transition-all duration-150 group"
+              className="flex items-center justify-between p-4 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-[#00ff55]/50 transition-all duration-150 group"
             >
               <div className="flex items-center space-x-3">
-                <DiscordIcon className="w-4 h-4 text-text-muted group-hover:text-white transition-colors" />
+                <DiscordIcon className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
                 <div>
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-text-primary group-hover:text-white transition-colors">
+                  <h3 className="text-sm font-bold text-white group-hover:text-[#00ff55] transition-colors">
                     Discord
                   </h3>
-                  <p className="text-[11px] font-mono text-text-muted">CHAT & SOPORTE</p>
+                  <p className="text-xs text-zinc-400">Chat & soporte</p>
                 </div>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:translate-x-1 group-hover:text-accent-razer transition-all" />
+              <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:translate-x-1 group-hover:text-[#00ff55] transition-all" />
             </a>
 
             {/* GitHub */}
@@ -65,18 +65,18 @@ export function CommunitySection() {
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 rounded-md bg-surface-elevated border border-border-subtle hover:border-border-hover transition-all duration-150 group"
+              className="flex items-center justify-between p-4 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-[#00ff55]/50 transition-all duration-150 group"
             >
               <div className="flex items-center space-x-3">
-                <GithubIcon className="w-4 h-4 text-text-muted group-hover:text-white transition-colors" />
+                <GithubIcon className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
                 <div>
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-text-primary group-hover:text-white transition-colors">
+                  <h3 className="text-sm font-bold text-white group-hover:text-[#00ff55] transition-colors">
                     GitHub
                   </h3>
-                  <p className="text-[11px] font-mono text-text-muted">REPOSITORIO CÓDIGO</p>
+                  <p className="text-xs text-zinc-400">Código fuente</p>
                 </div>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:translate-x-1 group-hover:text-accent-razer transition-all" />
+              <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:translate-x-1 group-hover:text-[#00ff55] transition-all" />
             </a>
           </div>
         </div>

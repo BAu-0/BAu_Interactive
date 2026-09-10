@@ -1,7 +1,15 @@
 import type { Metadata } from 'next';
+import { Titillium_Web } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+
+const titilliumWeb = Titillium_Web({
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '700'],
+  variable: '--font-titillium',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -49,12 +57,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="dark">
-      <body className="min-h-screen flex flex-col bg-background text-slate-100 font-sans antialiased selection:bg-arcade-cyan selection:text-slate-950">
+    <html lang="es" className={titilliumWeb.variable}>
+      <body className="min-h-screen flex flex-col bg-white text-zinc-900 font-sans antialiased selection:bg-[#00ff55] selection:text-black">
         {/* Enlace accesible para saltar directo al contenido */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-arcade-cyan text-slate-950 font-bold rounded-lg shadow-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-black text-white font-bold rounded shadow-lg border border-[#00ff55]"
         >
           Saltar al contenido principal
         </a>

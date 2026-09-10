@@ -4,20 +4,20 @@ import { ArrowLeft, Terminal } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4 py-20 bg-obsidian">
+    <div className="min-h-[70vh] flex items-center justify-center px-4 py-20 bg-white font-sans">
       <div className="max-w-md w-full text-center space-y-6">
-        <div className="w-14 h-14 mx-auto rounded border border-border-subtle bg-surface-elevated flex items-center justify-center text-accent-razer shadow-fluent-hairline">
-          <Terminal className="w-7 h-7" />
+        <div className="w-16 h-16 mx-auto rounded-full border border-zinc-200 bg-zinc-50 flex items-center justify-center text-[#00a836] shadow-sm">
+          <Terminal className="w-8 h-8" />
         </div>
 
         <div className="space-y-2">
-          <span className="text-[11px] font-mono tracking-widest uppercase text-accent-razer">
-            ERROR 404 // COORDENADA INVÁLIDA
+          <span className="text-xs font-bold tracking-widest uppercase text-[#00a836]">
+            Error 404 // Coordenada Inválida
           </span>
-          <h1 className="text-3xl font-black text-text-primary uppercase tracking-tight font-display">
+          <h1 className="text-3xl sm:text-4xl font-bold text-zinc-950 uppercase tracking-tight">
             Sector No Encontrado
           </h1>
-          <p className="text-xs font-mono text-text-muted">
+          <p className="text-sm text-zinc-600">
             El cuadrante solicitado no responde a la telemetría del sistema o ha sido desmantelado.
           </p>
         </div>
@@ -25,9 +25,9 @@ export default function NotFound() {
         <div className="pt-2">
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-accent-razer hover:bg-accent-razer-hover text-obsidian font-mono font-bold text-xs uppercase tracking-wider shadow-razer-sm hover:shadow-razer-md transition-all"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-4 h-4" />
             <span>Retornar a Base (Inicio)</span>
           </Link>
         </div>
