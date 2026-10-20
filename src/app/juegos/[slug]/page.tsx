@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { getGameBySlug, getLeaderboard, getNewsPosts } from '@/lib/data/api';
 import { LiveLeaderboard } from '@/components/leaderboard/LiveLeaderboard';
 import { NewsCard } from '@/components/news/NewsCard';
-import { Play, MessageSquare, Monitor, CheckCircle, ArrowRight } from 'lucide-react';
+import { GameDetailHero } from '@/components/games/GameDetailHero';
+import { Monitor, CheckCircle, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -43,95 +44,13 @@ export default async function GameDetailPage({ params }: Props) {
   ]);
 
   const relatedNews = newsPosts.filter((n) => n.game_id === game.id).slice(0, 2);
-  const betaLink =
-    game.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
-    'https://garanda.itch.io/pok-tschack-betav1';
-  const feedbackLink =
-    process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
 
   return (
     <div className="space-y-16 pb-24 bg-white font-sans">
-      {/* Hero de Ficha de Juego */}
-      <section className="relative overflow-hidden pt-12 pb-16 bg-zinc-50 border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-white border border-zinc-200 text-xs">
-                <span className="w-2 h-2 rounded-full bg-[#9333ea] shadow-[0_0_8px_#a855f7]" />
-                <span className="text-[#7e22ce] font-bold uppercase tracking-wider">
-                  Estado: {game.status.toUpperCase()} {game.display_version}
-                </span>
-              </div>
+      {/* 1. Hero Cinematográfico con Video de Fondo, Logo Oficial y Especificaciones */}
+      <GameDetailHero game={game} />
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-950 uppercase">
-                {game.title}
-              </h1>
-
-              <p className="text-base text-zinc-600 leading-relaxed">
-                {game.full_description}
-              </p>
-
-              {/* Botones de acción directos */}
-              <div className="flex flex-wrap gap-3.5 pt-2">
-                {betaLink && (
-                  <a
-                    href={betaLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-md bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
-                  >
-                    <Play className="w-4 h-4 fill-white text-white" />
-                    <span>Jugar Beta en Navegador</span>
-                  </a>
-                )}
-
-                {feedbackLink && (
-                  <a
-                    href={feedbackLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-md bg-black hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider transition-all"
-                  >
-                    <MessageSquare className="w-4 h-4 text-zinc-300" />
-                    <span>Canal de Feedback</span>
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Ficha Resumen de Ingeniería */}
-            <div className="lg:col-span-5 bg-white rounded-lg border border-zinc-200 p-6 space-y-4 shadow-sm">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-[#7e22ce] border-b border-zinc-100 pb-3">
-                Especificaciones de Título
-              </h2>
-              <dl className="divide-y divide-zinc-100 text-xs space-y-2.5">
-                <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Género:</dt>
-                  <dd className="font-bold text-zinc-950">Arcade 2D / Precisión y Físicas</dd>
-                </div>
-                <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Estado:</dt>
-                  <dd className="font-bold text-[#7e22ce]">Beta Pública (Itch.io)</dd>
-                </div>
-                <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Compilación:</dt>
-                  <dd className="text-zinc-800 font-semibold">{game.display_version}</dd>
-                </div>
-                <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Métrica:</dt>
-                  <dd className="text-zinc-900 font-semibold">Mayor Puntuación & Goles</dd>
-                </div>
-                <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Plataformas:</dt>
-                  <dd className="text-zinc-800">HTML5 Web / En desarrollo para Android</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Características Clave */}
+      {/* 2. Características Clave y Parámetros */}
       {game.features && game.features.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
@@ -144,7 +63,7 @@ export default async function GameDetailPage({ params }: Props) {
             {game.features.map((feature, i) => (
               <div
                 key={i}
-                className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-zinc-200"
+                className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-zinc-200 shadow-sm"
               >
                 <CheckCircle className="w-5 h-5 text-[#7e22ce] shrink-0 mt-0.5" />
                 <span className="text-sm text-zinc-700 leading-relaxed">{feature}</span>
@@ -154,7 +73,7 @@ export default async function GameDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* Adelanto del Top 15 del Juego */}
+      {/* 3. Adelanto del Top 15 del Juego */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
           <div>
@@ -183,7 +102,7 @@ export default async function GameDetailPage({ params }: Props) {
         />
       </section>
 
-      {/* Requisitos de Sistema */}
+      {/* 4. Requisitos de Sistema */}
       {game.system_requirements && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-[#7e22ce] mb-4">
@@ -197,7 +116,7 @@ export default async function GameDetailPage({ params }: Props) {
             {game.system_requirements.map((req, i) => (
               <div
                 key={i}
-                className="p-5 rounded-lg bg-white border border-zinc-200 space-y-3 text-xs"
+                className="p-5 rounded-lg bg-white border border-zinc-200 space-y-3 text-xs shadow-sm"
               >
                 <h3 className="font-bold text-zinc-950 border-b border-zinc-100 pb-2 uppercase tracking-wide">
                   {req.platform}
@@ -218,7 +137,7 @@ export default async function GameDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* Novedades Relacionadas */}
+      {/* 5. Novedades Relacionadas */}
       {relatedNews.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold tracking-tight text-zinc-950 uppercase mb-6">

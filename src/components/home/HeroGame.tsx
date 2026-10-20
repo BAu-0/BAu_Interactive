@@ -228,13 +228,23 @@ export function HeroGame({ game }: HeroGameProps) {
 
         {/* Bloque Central de Tipografía y Acción */}
         <div className="max-w-2xl py-8 sm:py-12 space-y-6">
-          {/* Título de Gran Impacto (Estilo Bethesda) */}
-          <h1
-            id="hero-title"
-            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-none uppercase font-sans drop-shadow-md"
-          >
-            {game.title}
-          </h1>
+          {/* Título de Gran Impacto: Logo Oficial de Pok-Tschack */}
+          <div className="space-y-2">
+            <h1 id="hero-title" className="sr-only">
+              {game.title}
+            </h1>
+            <div className="relative w-72 sm:w-88 md:w-[420px] aspect-[1232/592] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              <Image
+                src="/images/pok-tschack/pok-tschack-title-logo.png"
+                alt={`Logo oficial de ${game.title}`}
+                fill
+                priority
+                sizes="(max-width: 640px) 288px, (max-width: 768px) 352px, 420px"
+                className="object-contain object-left"
+                style={{ imageRendering: 'pixelated' }}
+              />
+            </div>
+          </div>
 
           {/* Premisa del Juego */}
           <p className="text-base sm:text-lg text-zinc-200 font-normal leading-relaxed drop-shadow">
