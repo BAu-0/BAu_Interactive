@@ -12,7 +12,7 @@ export function Footer() {
   const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/BAu-0/BAu_Interactive';
 
   return (
-    <footer className="bg-black text-zinc-300 border-t border-zinc-800 mt-auto" role="contentinfo">
+    <footer className="bg-[#000000] text-zinc-300 border-t border-zinc-800 mt-auto" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Columna 1: Estudio e Identidad */}

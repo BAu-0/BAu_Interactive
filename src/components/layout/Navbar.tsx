@@ -22,18 +22,9 @@ const NAV_ITEMS: NavItem[] = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -57,35 +48,29 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-200 ${
-        isScrolled
-          ? 'bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-xl py-2'
-          : 'bg-black/90 backdrop-blur-sm border-b border-zinc-800/80 py-3'
-      }`}
-    >
-      {/* Contenedor de ancho completo para anclar el logo al extremo izquierdo (estilo Nintendo / Bethesda) */}
-      <div className="w-full px-4 sm:px-6 lg:px-10">
-        <div className="flex items-center justify-between">
-          {/* Logo Oficial de BAu Interactive en el Extremo Superior Izquierdo */}
-          <Link
-            href="/"
-            className="flex items-center group rounded p-1 -ml-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55]"
-            aria-label="BAu Interactive - Inicio"
-          >
-            <div className="relative h-12 sm:h-14 md:h-16 w-32 sm:w-40 md:w-48 transition-transform duration-200 group-hover:scale-105">
-              <Image
-                src="/images/studio/bau-interactive-logo-cropped.png"
-                alt="BAu Interactive"
-                fill
-                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
-                className="object-contain object-left"
-                priority
-              />
-            </div>
-          </Link>
+    <header className="sticky top-0 z-50 bg-[#000000] border-b border-zinc-800 shadow-xl">
+      {/* Contenedor de ancho completo y altura uniforme */}
+      <div className="w-full flex items-stretch justify-between h-16 sm:h-20">
+        {/* Bloque Insignia en el Extremo Superior Izquierdo (Estilo Nintendo / Bethesda) */}
+        <Link
+          href="/"
+          className="h-full flex items-center justify-center px-4 sm:px-7 md:px-9 bg-[#000000] border-r border-zinc-800/80 hover:bg-zinc-950 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55]"
+          aria-label="BAu Interactive - Inicio"
+        >
+          <div className="relative h-full py-2 sm:py-2.5 aspect-[814/640] transition-transform duration-200 group-hover:scale-105 flex items-center justify-center">
+            <Image
+              src="/images/studio/bau-interactive-logo-cropped.png"
+              alt="BAu Interactive"
+              fill
+              sizes="(max-width: 640px) 120px, 160px"
+              className="object-contain object-center"
+              priority
+            />
+          </div>
+        </Link>
 
-          {/* Navegación de Escritorio Minimalista */}
+        {/* Lado Derecho: Navegación de Escritorio y Menú */}
+        <div className="flex items-center px-4 sm:px-6 lg:px-8">
           <nav className="hidden md:flex items-center space-x-1" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -132,7 +117,7 @@ export function Navbar() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="md:hidden fixed inset-x-0 top-[65px] bottom-0 bg-black/98 backdrop-blur-2xl border-t border-zinc-800 px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
+          className="md:hidden fixed inset-x-0 top-[64px] sm:top-[80px] bottom-0 bg-[#000000]/98 backdrop-blur-2xl border-t border-zinc-800 px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Navegación móvil"
