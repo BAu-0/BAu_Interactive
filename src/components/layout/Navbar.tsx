@@ -60,34 +60,28 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-md py-2.5'
+          ? 'bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-xl py-2'
           : 'bg-black/90 backdrop-blur-sm border-b border-zinc-800/80 py-3'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Contenedor de ancho completo para anclar el logo al extremo izquierdo (estilo Nintendo / Bethesda) */}
+      <div className="w-full px-4 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between">
-          {/* Logo Oficial de BAu Interactive */}
+          {/* Logo Oficial de BAu Interactive en el Extremo Superior Izquierdo */}
           <Link
             href="/"
-            className="flex items-center space-x-3 group rounded p-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff55]"
+            className="flex items-center group rounded p-1 -ml-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55]"
+            aria-label="BAu Interactive - Inicio"
           >
-            <div className="relative h-9 w-20 sm:w-24 overflow-hidden rounded bg-black flex items-center justify-center border border-zinc-800 group-hover:border-zinc-600 transition-colors">
+            <div className="relative h-12 sm:h-14 md:h-16 w-32 sm:w-40 md:w-48 transition-transform duration-200 group-hover:scale-105">
               <Image
-                src="/images/studio/bau-interactive-logo.jpg"
+                src="/images/studio/bau-interactive-logo-cropped.png"
                 alt="BAu Interactive"
                 fill
-                sizes="(max-width: 640px) 80px, 96px"
-                className="object-contain object-center"
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+                className="object-contain object-left"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-wider uppercase text-white group-hover:text-zinc-200 transition-colors">
-                BAu Interactive
-              </span>
-              <span className="text-[10px] tracking-widest uppercase text-zinc-400">
-                Indie Game Studio
-              </span>
             </div>
           </Link>
 
@@ -127,7 +121,7 @@ export function Navbar() {
               aria-label={isOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
             >
               <span className="sr-only">Menú</span>
-              {isOpen ? <X className="h-5 w-5 text-[#00ff55]" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? <X className="h-6 w-6 text-[#00ff55]" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -138,7 +132,7 @@ export function Navbar() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="md:hidden fixed inset-x-0 top-[57px] bottom-0 bg-black/98 backdrop-blur-2xl border-t border-zinc-800 px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
+          className="md:hidden fixed inset-x-0 top-[65px] bottom-0 bg-black/98 backdrop-blur-2xl border-t border-zinc-800 px-4 pt-4 pb-8 flex flex-col justify-between overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Navegación móvil"

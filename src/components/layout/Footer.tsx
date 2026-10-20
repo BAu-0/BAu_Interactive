@@ -17,20 +17,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Columna 1: Estudio e Identidad */}
           <div className="space-y-4 md:col-span-2">
-            <div className="flex items-center space-x-3">
-              <div className="relative h-9 w-20 sm:w-24 overflow-hidden rounded bg-black flex items-center justify-center border border-zinc-800">
+            <Link href="/" className="inline-block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55] rounded">
+              <div className="relative h-14 sm:h-16 w-40 sm:w-48">
                 <Image
-                  src="/images/studio/bau-interactive-logo.jpg"
+                  src="/images/studio/bau-interactive-logo-cropped.png"
                   alt="BAu Interactive"
                   fill
-                  sizes="(max-width: 640px) 80px, 96px"
-                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 160px, 192px"
+                  className="object-contain object-left"
                 />
               </div>
-              <span className="text-base font-bold tracking-wider uppercase text-white">
-                BAu Interactive
-              </span>
-            </div>
+            </Link>
             <p className="text-sm text-zinc-400 max-w-md leading-relaxed font-sans">
               Estudio independiente de desarrollo de videojuegos. Diseñado con una arquitectura limpia, física de precisión, estética arcade y transparencia absoluta con la comunidad.
             </p>
