@@ -52,7 +52,7 @@ export function LeaderboardTable({
                 <tr
                   key={`${entry.rank}-${entry.display_name}`}
                   className={`group transition-colors duration-100 hover:bg-zinc-50/80 ${
-                    isP1 ? 'bg-emerald-50/30' : ''
+                    isP1 ? 'bg-purple-50/40' : ''
                   }`}
                 >
                   {/* Posición Formateada (01, 02... 15) */}
@@ -61,7 +61,7 @@ export function LeaderboardTable({
                       <span
                         className={`font-bold ${
                           isP1
-                            ? 'text-[#00a836]'
+                            ? 'text-[#7e22ce]'
                             : isTop3
                             ? 'text-zinc-900'
                             : 'text-zinc-500'
@@ -76,7 +76,7 @@ export function LeaderboardTable({
                   <td className="py-3 px-4 font-medium text-zinc-900 flex items-center space-x-2">
                     <span className="truncate max-w-[180px] sm:max-w-xs">{entry.display_name}</span>
                     {isP1 && (
-                      <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#00d647]/15 text-[#00a836] border border-[#00d647]/30">
+                      <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#9333ea]/15 text-[#7e22ce] border border-[#9333ea]/30">
                         LÍDER
                       </span>
                     )}
@@ -90,7 +90,7 @@ export function LeaderboardTable({
                   {/* Timestamp Relativo */}
                   <td className="py-3 px-4 text-right text-zinc-500 font-mono text-[11px] hidden sm:table-cell">
                     <span className="inline-flex items-center justify-end space-x-1">
-                      <CheckCircle2 className="w-3 h-3 text-[#00a836]" />
+                      <CheckCircle2 className="w-3 h-3 text-[#7e22ce]" />
                       <span>{formatRelativeTime(entry.ranked_at)}</span>
                     </span>
                   </td>

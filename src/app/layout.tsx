@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Titillium_Web } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
-const titilliumWeb = Titillium_Web({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '600', '700'],
-  variable: '--font-titillium',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-sans',
   display: 'swap',
 });
 
@@ -57,15 +57,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={titilliumWeb.variable}>
+    <html lang="es" className={plusJakartaSans.variable}>
       <head>
         <link rel="icon" href="/images/studio/bau-interactive-logo.jpg" />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-zinc-900 antialiased selection:bg-[#00d647] selection:text-black">
+      <body className="min-h-screen flex flex-col bg-white text-zinc-900 antialiased selection:bg-[#9333ea] selection:text-white">
         {/* Enlace de accesibilidad para saltar al contenido principal */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-black text-[#00ff55] font-bold border border-[#00ff55] rounded shadow-lg focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-black text-[#a855f7] font-bold border border-[#a855f7] rounded shadow-lg focus:outline-none"
         >
           Saltar al contenido principal
         </a>
@@ -74,7 +74,7 @@ export default function RootLayout({
         <Navbar />
 
         {/* Contenedor de Vistas */}
-        <main id="main-content" className="flex-1 focus:outline-none" tabIndex={-1}>
+        <main id="main-content" className="flex-1 focus:outline-none font-sans" tabIndex={-1}>
           {children}
         </main>
 

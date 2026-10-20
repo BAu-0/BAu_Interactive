@@ -23,7 +23,7 @@ export function HeroGame({ game }: HeroGameProps) {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Píldora de Estado */}
             <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-zinc-100 border border-zinc-300 text-xs font-medium text-zinc-800">
-              <span className="w-2 h-2 rounded-full bg-[#00d647] shadow-[0_0_6px_#00d647]" />
+              <span className="w-2 h-2 rounded-full bg-[#9333ea] shadow-[0_0_6px_#a855f7]" />
               <span className="font-semibold uppercase tracking-wider">
                 BETA v1.0 EN ITCH.IO
               </span>
@@ -55,8 +55,8 @@ export function HeroGame({ game }: HeroGameProps) {
                 <span>Formato: <strong className="text-zinc-950">Arcade Vertical 2D</strong></span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#00a836]" />
-                <span>Objetivo: <strong className="text-[#00a836]">Aro Rotatorio & Reloj</strong></span>
+                <ShieldCheck className="w-4 h-4 text-[#7e22ce]" />
+                <span>Objetivo: <strong className="text-[#7e22ce]">Aro Rotatorio & Reloj</strong></span>
               </div>
             </div>
 
@@ -67,9 +67,9 @@ export function HeroGame({ game }: HeroGameProps) {
                   href={betaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-sm uppercase tracking-wider shadow-sm hover:shadow-md active:scale-[0.98] transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-sm hover:shadow-md active:scale-[0.98] transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                 >
-                  <Play className="w-4 h-4 fill-black" />
+                  <Play className="w-4 h-4 fill-white text-white" />
                   <span>Jugar la Beta en Navegador</span>
                 </a>
               )}
@@ -97,8 +97,8 @@ export function HeroGame({ game }: HeroGameProps) {
                 <span className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-300">
                   CANCHA // 60 FPS
                 </span>
-                <span className="text-[#00ff55] font-semibold flex items-center space-x-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#00ff55] animate-pulse" />
+                <span className="text-[#a855f7] font-semibold flex items-center space-x-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#a855f7] animate-pulse" />
                   <span>BETA DISPONIBLE</span>
                 </span>
               </div>
@@ -111,7 +111,7 @@ export function HeroGame({ game }: HeroGameProps) {
                     alt="Logo oficial de Pok-Tschack"
                     fill
                     sizes="(max-width: 640px) 256px, 288px"
-                    className="object-contain object-center drop-shadow-[0_0_15px_rgba(0,255,85,0.25)]"
+                    className="object-contain object-center drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]"
                     style={{ imageRendering: 'pixelated' }}
                     priority
                   />
@@ -126,7 +126,7 @@ export function HeroGame({ game }: HeroGameProps) {
                 <span>VERSIÓN v1.0 HTML5</span>
                 <Link
                   href={`/juegos/${game.slug}`}
-                  className="text-zinc-200 hover:text-[#00ff55] transition-colors flex items-center space-x-1"
+                  className="text-zinc-200 hover:text-[#a855f7] transition-colors flex items-center space-x-1"
                 >
                   <span>Ficha Técnica</span>
                   <span>&rarr;</span>

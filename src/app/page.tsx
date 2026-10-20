@@ -29,7 +29,7 @@ export default async function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="leaderboard-preview-title">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
               Telemetría de Juego // Marcas de Cancha
             </span>
             <h2 id="leaderboard-preview-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase font-sans">
@@ -39,7 +39,7 @@ export default async function HomePage() {
 
           <Link
             href="/clasificacion"
-            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 hover:text-[#00a836] transition-colors group"
+            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 hover:text-[#7e22ce] transition-colors group"
           >
             <span>Ver tabla completa (Top 15)</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -65,7 +65,7 @@ export default async function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-labelledby="news-preview-title">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
                 Devlogs // Desarrollo
               </span>
               <h2 id="news-preview-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase font-sans">
@@ -75,7 +75,7 @@ export default async function HomePage() {
 
             <Link
               href="/novedades"
-              className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 hover:text-[#00a836] transition-colors group"
+              className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 hover:text-[#7e22ce] transition-colors group"
             >
               <span>Ver archivo completo</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

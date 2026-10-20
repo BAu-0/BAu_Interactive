@@ -6,12 +6,12 @@ export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-20 bg-white font-sans">
       <div className="max-w-md w-full text-center space-y-6">
-        <div className="w-16 h-16 mx-auto rounded-full border border-zinc-200 bg-zinc-50 flex items-center justify-center text-[#00a836] shadow-sm">
+        <div className="w-16 h-16 mx-auto rounded-full border border-zinc-200 bg-zinc-50 flex items-center justify-center text-[#7e22ce] shadow-sm">
           <Terminal className="w-8 h-8" />
         </div>
 
         <div className="space-y-2">
-          <span className="text-xs font-bold tracking-widest uppercase text-[#00a836]">
+          <span className="text-xs font-bold tracking-widest uppercase text-[#7e22ce]">
             Error 404 // Coordenada Inválida
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold text-zinc-950 uppercase tracking-tight">
@@ -25,7 +25,7 @@ export default function NotFound() {
         <div className="pt-2">
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Retornar a Base (Inicio)</span>

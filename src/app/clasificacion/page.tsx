@@ -19,7 +19,7 @@ export default async function LeaderboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 bg-white font-sans">
       {/* Cabecera */}
       <div className="max-w-3xl">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+        <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
           Telemetría de Cancha // Top 15
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase mb-4">
@@ -43,7 +43,7 @@ export default async function LeaderboardPage() {
       {/* Reglas de la Clasificación y Preguntas Frecuentes */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10 border-t border-zinc-200">
         <div className="p-6 rounded-lg bg-white border border-zinc-200 space-y-3 shadow-sm text-xs">
-          <div className="flex items-center space-x-2 text-[#00a836] font-bold uppercase tracking-wider">
+          <div className="flex items-center space-x-2 text-[#7e22ce] font-bold uppercase tracking-wider">
             <ShieldCheck className="w-5 h-5" />
             <h3 className="text-sm text-zinc-950">Criterios de Puntuación & Registro</h3>
           </div>

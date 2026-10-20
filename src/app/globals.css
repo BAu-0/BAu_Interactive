@@ -33,10 +33,10 @@
   outline-offset: 2px !important;
 }
 
-/* Selección de texto en verde Razer */
+/* Selección de texto en morado Mace Windu */
 ::selection {
-  background-color: #00ff55;
-  color: #000000;
+  background-color: #9333ea;
+  color: #ffffff;
 }
 
 /* Scrollbar minimalista clara */

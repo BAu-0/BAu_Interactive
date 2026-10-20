@@ -88,7 +88,7 @@ export function LiveLeaderboard({
       <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg border border-zinc-200 bg-zinc-50 text-xs text-zinc-600">
         <div className="flex items-center space-x-3">
           <div className="flex items-center space-x-1.5">
-            <Clock className="w-3.5 h-3.5 text-[#00a836]" />
+            <Clock className="w-3.5 h-3.5 text-[#7e22ce]" />
             <span>Sincronizado: <strong className="text-zinc-950 font-bold">{formattedTime}</strong></span>
           </div>
           <span className="text-zinc-300">|</span>
@@ -105,10 +105,10 @@ export function LiveLeaderboard({
           type="button"
           onClick={() => fetchLeaderboard(true)}
           disabled={isLoading}
-          className="inline-flex items-center space-x-1.5 px-3 py-1 rounded bg-white hover:bg-zinc-100 text-zinc-800 border border-zinc-200 hover:border-zinc-400 transition-all text-xs font-medium disabled:opacity-50 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00a836]"
+          className="inline-flex items-center space-x-1.5 px-3 py-1 rounded bg-white hover:bg-zinc-100 text-zinc-800 border border-zinc-200 hover:border-zinc-400 transition-all text-xs font-medium disabled:opacity-50 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#9333ea]"
           aria-label="Actualizar clasificación ahora"
         >
-          <RefreshCw className={`w-3 h-3 ${isLoading ? 'animate-spin text-[#00a836]' : ''}`} />
+          <RefreshCw className={`w-3 h-3 ${isLoading ? 'animate-spin text-[#7e22ce]' : ''}`} />
           <span>{isLoading ? 'Sincronizando...' : 'Actualizar'}</span>
         </button>
       </div>
@@ -127,7 +127,7 @@ export function LiveLeaderboard({
 
       {showVerificationNote && (
         <div className="flex items-start space-x-2 text-xs text-zinc-500 pt-1">
-          <ShieldCheck className="w-4 h-4 text-[#00a836] shrink-0 mt-0.5" />
+          <ShieldCheck className="w-4 h-4 text-[#7e22ce] shrink-0 mt-0.5" />
           <p>
             Marcas de prueba y telemetría de juego. Desempate por fecha cronológica (ranked_at). Máximo 1 registro por jugador.
           </p>

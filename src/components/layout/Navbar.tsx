@@ -54,7 +54,7 @@ export function Navbar() {
         {/* Logo Oficial de BAu Interactive en el Extremo Izquierdo (Fondo 100% transparente, estático y sin saltos) */}
         <Link
           href="/"
-          className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55] rounded py-1"
+          className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a855f7] rounded py-1"
           aria-label="BAu Interactive - Inicio"
         >
           <div className="relative h-12 sm:h-16 w-16 sm:w-21 aspect-[755/581]">
@@ -87,7 +87,7 @@ export function Navbar() {
                 >
                   <span>{item.label}</span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#00ff55] shadow-[0_0_8px_#00ff55]" />
+                    <span className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
                   )}
                 </Link>
               );
@@ -100,13 +100,13 @@ export function Navbar() {
               ref={buttonRef}
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white hover:border-zinc-700 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff55]"
+              className="inline-flex items-center justify-center p-2 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white hover:border-zinc-700 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#a855f7]"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               aria-label={isOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
             >
               <span className="sr-only">Menú</span>
-              {isOpen ? <X className="h-6 w-6 text-[#00ff55]" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6 text-[#a855f7]" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -133,12 +133,12 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center space-x-3 px-4 py-3 rounded text-sm font-medium tracking-normal transition-all ${
                     isActive
-                      ? 'text-[#00ff55] bg-zinc-900 border border-[#00ff55]/40'
+                      ? 'text-[#a855f7] bg-zinc-900 border border-[#a855f7]/40'
                       : 'text-zinc-300 hover:bg-zinc-900 hover:text-white border border-transparent'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#00ff55]' : 'text-zinc-400'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#a855f7]' : 'text-zinc-400'}`} />
                   <span>{item.label}</span>
                 </Link>
               );

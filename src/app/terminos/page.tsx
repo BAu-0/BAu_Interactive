@@ -10,7 +10,7 @@ export default function TermsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8 text-zinc-700 bg-white font-sans">
       <header className="border-b border-zinc-200 pb-6">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+        <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
           Condiciones de Sistema // Protocolo Competitivo
         </span>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase mb-2">

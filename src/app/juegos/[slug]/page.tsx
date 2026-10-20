@@ -57,8 +57,8 @@ export default async function GameDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-white border border-zinc-200 text-xs">
-                <span className="w-2 h-2 rounded-full bg-[#00d647] shadow-[0_0_8px_#00d647]" />
-                <span className="text-[#00a836] font-bold uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-[#9333ea] shadow-[0_0_8px_#a855f7]" />
+                <span className="text-[#7e22ce] font-bold uppercase tracking-wider">
                   Estado: {game.status.toUpperCase()} {game.display_version}
                 </span>
               </div>
@@ -78,9 +78,9 @@ export default async function GameDetailPage({ params }: Props) {
                     href={betaLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
+                    className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-md bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
                   >
-                    <Play className="w-4 h-4 fill-black" />
+                    <Play className="w-4 h-4 fill-white text-white" />
                     <span>Jugar Beta en Navegador</span>
                   </a>
                 )}
@@ -101,7 +101,7 @@ export default async function GameDetailPage({ params }: Props) {
 
             {/* Ficha Resumen de Ingeniería */}
             <div className="lg:col-span-5 bg-white rounded-lg border border-zinc-200 p-6 space-y-4 shadow-sm">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-[#00a836] border-b border-zinc-100 pb-3">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-[#7e22ce] border-b border-zinc-100 pb-3">
                 Especificaciones de Título
               </h2>
               <dl className="divide-y divide-zinc-100 text-xs space-y-2.5">
@@ -111,7 +111,7 @@ export default async function GameDetailPage({ params }: Props) {
                 </div>
                 <div className="flex justify-between pt-2">
                   <dt className="text-zinc-500">Estado:</dt>
-                  <dd className="font-bold text-[#00a836]">Beta Pública (Itch.io)</dd>
+                  <dd className="font-bold text-[#7e22ce]">Beta Pública (Itch.io)</dd>
                 </div>
                 <div className="flex justify-between pt-2">
                   <dt className="text-zinc-500">Compilación:</dt>
@@ -134,7 +134,7 @@ export default async function GameDetailPage({ params }: Props) {
       {/* Características Clave */}
       {game.features && game.features.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
             Mecánicas Deterministas
           </span>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase mb-6">
@@ -146,7 +146,7 @@ export default async function GameDetailPage({ params }: Props) {
                 key={i}
                 className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-zinc-200"
               >
-                <CheckCircle className="w-5 h-5 text-[#00a836] shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-[#7e22ce] shrink-0 mt-0.5" />
                 <span className="text-sm text-zinc-700 leading-relaxed">{feature}</span>
               </div>
             ))}
@@ -158,7 +158,7 @@ export default async function GameDetailPage({ params }: Props) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-1 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-1 block">
               Telemetría Canónica // {game.title.toUpperCase()}
             </span>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase">
@@ -168,7 +168,7 @@ export default async function GameDetailPage({ params }: Props) {
 
           <Link
             href="/clasificacion"
-            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase text-zinc-700 hover:text-[#00a836] transition-colors group"
+            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase text-zinc-700 hover:text-[#7e22ce] transition-colors group"
           >
             <span>Ver Top 15 completo</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -186,7 +186,7 @@ export default async function GameDetailPage({ params }: Props) {
       {/* Requisitos de Sistema */}
       {game.system_requirements && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center space-x-2 text-[#00a836] mb-4">
+          <div className="flex items-center space-x-2 text-[#7e22ce] mb-4">
             <Monitor className="w-5 h-5" />
             <h2 className="text-lg font-bold uppercase text-zinc-950">
               Dispositivos y Plataformas

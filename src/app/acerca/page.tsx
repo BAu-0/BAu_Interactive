@@ -13,7 +13,7 @@ export default function AboutPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 bg-white text-zinc-700 font-sans">
       {/* Cabecera */}
       <div className="space-y-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+        <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
           Manifiesto // Estudio Independiente
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase">
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <div className="space-y-10 border-t border-zinc-200 pt-10 text-base leading-relaxed">
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
-            <Cpu className="w-5 h-5 text-[#00a836]" />
+            <Cpu className="w-5 h-5 text-[#7e22ce]" />
             <span>Filosofía de Juego</span>
           </h2>
           <p>
@@ -51,7 +51,7 @@ export default function AboutPage() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
-            <Terminal className="w-5 h-5 text-[#00a836]" />
+            <Terminal className="w-5 h-5 text-[#7e22ce]" />
             <span>Desarrollo Abierto & Feedback</span>
           </h2>
           <p>
@@ -73,9 +73,9 @@ export default function AboutPage() {
             href="https://garanda.itch.io/pok-tschack-betav1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap"
+            className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-md bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap"
           >
-            <Play className="w-3.5 h-3.5 fill-black" />
+            <Play className="w-3.5 h-3.5 fill-white text-white" />
             <span>Jugar en Itch.io</span>
           </a>
           <Link

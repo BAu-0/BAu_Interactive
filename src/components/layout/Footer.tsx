@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Columna 1: Estudio e Identidad */}
           <div className="space-y-4 md:col-span-2">
-            <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55] rounded">
+            <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a855f7] rounded">
               <div className="relative h-14 sm:h-16 w-18 sm:w-21 aspect-[755/581]">
                 <Image
                   src="/images/studio/bau-interactive-logo-tight.png"
@@ -33,11 +33,11 @@ export function Footer() {
             </p>
             {supportEmail && (
               <div className="flex items-center space-x-2 text-xs text-zinc-400 pt-1">
-                <Mail className="w-3.5 h-3.5 text-[#00ff55]" />
+                <Mail className="w-3.5 h-3.5 text-[#a855f7]" />
                 <span>Contacto oficial:</span>
                 <a
                   href={`mailto:${supportEmail}`}
-                  className="text-zinc-200 hover:text-[#00ff55] transition-colors"
+                  className="text-zinc-200 hover:text-[#a855f7] transition-colors"
                 >
                   {supportEmail}
                 </a>
@@ -92,7 +92,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-[#00ff55] transition-colors" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-[#a855f7] transition-colors" />
                   <span>Canal de Feedback</span>
                 </a>
               )}

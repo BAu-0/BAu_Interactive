@@ -10,7 +10,7 @@ export function CategoryBadge({ category }: CategoryBadgeProps) {
     case 'anuncio':
       return (
         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider bg-black text-white">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00ff55]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7]" />
           <span>Anuncio</span>
         </span>
       );
@@ -23,8 +23,8 @@ export function CategoryBadge({ category }: CategoryBadgeProps) {
       );
     case 'notas_de_version':
       return (
-        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider bg-emerald-50 border border-emerald-300 text-emerald-800">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00a836]" />
+        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-sans font-bold uppercase tracking-wider bg-purple-50 border border-purple-300 text-purple-900">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7e22ce]" />
           <span>Changelog</span>
         </span>
       );

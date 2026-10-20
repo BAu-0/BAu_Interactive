@@ -23,7 +23,7 @@ export function NewsCard({ post, compact = false }: NewsCardProps) {
         </div>
 
         {/* Título */}
-        <h3 className="text-lg font-bold text-zinc-950 group-hover:text-[#00a836] transition-colors mb-2.5 line-clamp-2 leading-snug font-sans">
+        <h3 className="text-lg font-bold text-zinc-950 group-hover:text-[#7e22ce] transition-colors mb-2.5 line-clamp-2 leading-snug font-sans">
           <Link href={`/novedades/${post.slug}`} className="focus:outline-none">
             {post.title}
           </Link>
@@ -45,7 +45,7 @@ export function NewsCard({ post, compact = false }: NewsCardProps) {
 
         <Link
           href={`/novedades/${post.slug}`}
-          className="inline-flex items-center space-x-1 font-semibold text-zinc-900 hover:text-[#00a836] transition-colors"
+          className="inline-flex items-center space-x-1 font-semibold text-zinc-900 hover:text-[#7e22ce] transition-colors"
           aria-label={`Leer artículo completo: ${post.title}`}
         >
           <span>Leer artículo</span>

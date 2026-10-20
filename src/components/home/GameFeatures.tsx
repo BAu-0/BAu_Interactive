@@ -38,7 +38,7 @@ export function GameFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
               Mecánicas Principales
             </span>
             <h2 id="features-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-black uppercase">
@@ -59,7 +59,7 @@ export function GameFeatures() {
                 className="p-6 rounded-lg bg-white border border-zinc-200 hover:border-zinc-400 hover:shadow-md transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-10 h-10 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center mb-6 text-zinc-800 group-hover:text-black group-hover:border-[#00d647] transition-colors">
+                  <div className="w-10 h-10 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center mb-6 text-zinc-800 group-hover:text-black group-hover:border-[#9333ea] transition-colors">
                     <Icon className="w-5 h-5 stroke-[1.75]" />
                   </div>
                   <h3 className="text-base font-bold text-black mb-2">
@@ -71,7 +71,7 @@ export function GameFeatures() {
                 </div>
 
                 <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                  <span className="text-[#00a836] font-semibold">{feature.tag}</span>
+                  <span className="text-[#7e22ce] font-semibold">{feature.tag}</span>
                   <span>CANCHA // MECÁNICA</span>
                 </div>
               </div>

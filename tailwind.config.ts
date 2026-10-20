@@ -26,15 +26,24 @@ const config: Config = {
           subtle: "#e4e4e7",
           hover: "#d4d4d8",
           dark: "#27272a",
-          razer: "rgba(0, 214, 71, 0.40)",
+          brand: "rgba(147, 51, 234, 0.40)",
+          razer: "rgba(147, 51, 234, 0.40)",
         },
         accent: {
+          brand: {
+            DEFAULT: "#9333ea",
+            bright: "#a855f7",
+            hover: "#7e22ce",
+            dark: "#581c87",
+            dim: "#f3e8ff",
+            subtle: "rgba(147, 51, 234, 0.08)",
+          },
           razer: {
-            DEFAULT: "#00d647",
-            bright: "#00ff55",
-            hover: "#00b83c",
-            dim: "#e6fbee",
-            subtle: "rgba(0, 214, 71, 0.08)",
+            DEFAULT: "#9333ea",
+            bright: "#a855f7",
+            hover: "#7e22ce",
+            dim: "#f3e8ff",
+            subtle: "rgba(147, 51, 234, 0.08)",
           },
           titanium: {
             DEFAULT: "#52525b",
@@ -51,7 +60,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "var(--font-titillium)",
+          "var(--font-sans)",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -67,7 +76,7 @@ const config: Config = {
           "monospace",
         ],
         display: [
-          "var(--font-titillium)",
+          "var(--font-sans)",
           "Inter",
           "-apple-system",
           "sans-serif",
@@ -82,7 +91,8 @@ const config: Config = {
         xl: "12px",
       },
       boxShadow: {
-        "razer-sm": "0 2px 10px -2px rgba(0, 214, 71, 0.35)",
+        "brand-sm": "0 2px 10px -2px rgba(147, 51, 234, 0.35)",
+        "razer-sm": "0 2px 10px -2px rgba(147, 51, 234, 0.35)",
         "card-clean": "0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)",
         "card-hover": "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)",
       },

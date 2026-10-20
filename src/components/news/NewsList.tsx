@@ -34,7 +34,7 @@ export function NewsList({ initialPosts }: NewsListProps) {
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`px-4 py-2 rounded text-xs font-semibold tracking-wide transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00a836] ${
+              className={`px-4 py-2 rounded text-xs font-semibold tracking-wide transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-[#9333ea] ${
                 isActive
                   ? 'bg-black text-white border border-black shadow-sm'
                   : 'bg-white hover:bg-zinc-100 text-zinc-600 hover:text-black border border-zinc-200'

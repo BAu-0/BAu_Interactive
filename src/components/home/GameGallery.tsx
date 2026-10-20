@@ -44,7 +44,7 @@ export function GameGallery() {
     <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white" aria-labelledby="gallery-title">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
             Dinámica de Cancha
           </span>
           <h2 id="gallery-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-black uppercase">
@@ -65,7 +65,7 @@ export function GameGallery() {
               onClick={() => setActiveShot(idx)}
               className={`cursor-pointer rounded-lg overflow-hidden border transition-all duration-200 ${
                 isSelected
-                  ? 'border-black ring-2 ring-[#00d647] shadow-lg scale-[1.01] bg-white'
+                  ? 'border-black ring-2 ring-[#9333ea] shadow-lg scale-[1.01] bg-white'
                   : 'border-zinc-200 hover:border-zinc-400 bg-zinc-50'
               }`}
             >

@@ -82,7 +82,7 @@ export default async function NewsDetailPage({ params }: Props) {
       <div className="mb-8">
         <Link
           href="/novedades"
-          className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-zinc-600 hover:text-[#00a836] transition-colors"
+          className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-zinc-600 hover:text-[#7e22ce] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Volver al Changelog</span>
@@ -109,7 +109,7 @@ export default async function NewsDetailPage({ params }: Props) {
       </header>
 
       {/* Resumen destacado */}
-      <div className="my-8 p-5 rounded-lg bg-zinc-50 border-l-4 border-[#00d647] text-base text-zinc-700 leading-relaxed">
+      <div className="my-8 p-5 rounded-lg bg-zinc-50 border-l-4 border-[#9333ea] text-base text-zinc-700 leading-relaxed">
         {post.excerpt}
       </div>
 
@@ -127,7 +127,7 @@ export default async function NewsDetailPage({ params }: Props) {
         <div>
           <Link
             href="/clasificacion"
-            className="text-xs font-semibold uppercase tracking-wider text-zinc-800 hover:text-[#00a836] transition-colors"
+            className="text-xs font-semibold uppercase tracking-wider text-zinc-800 hover:text-[#7e22ce] transition-colors"
           >
             Ver Telemetría Mundial &rarr;
           </Link>
