@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           Privacidad de Datos
         </h1>
         <p className="text-xs text-zinc-500">
-          Versión 1.1 // Protocolo Canónico de Telemetría
+          Versión 1.2 // Protocolo de Telemetría BAu Interactive
         </p>
       </header>
 
@@ -28,31 +28,31 @@ export default function PrivacyPage() {
           1. Mínima Ingestión de Datos
         </h2>
         <p className="text-sm leading-relaxed">
-          En <strong>BAu Interactive</strong> procesamos únicamente la información técnica imprescindible para calcular y proyectar la tabla de clasificación mundial. No rastreamos datos personales invasivos ni comercializamos perfiles de jugadores.
+          En <strong>BAu Interactive</strong> procesamos únicamente la información técnica imprescindible para calcular y proyectar la tabla de marcas y clasificación. No rastreamos datos personales invasivos ni comercializamos perfiles de jugadores.
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-base font-bold uppercase text-zinc-950">
-          2. Parámetros de la Clasificación (Top 15)
+          2. Parámetros de la Clasificación
         </h2>
         <p className="text-sm leading-relaxed">
-          Al enviar una partida verificada en <em>Aether Drift</em>, se registran:
+          Al registrar una partida en los títulos de BAu Interactive (como <em>Pok-Tschack</em>), se procesan:
         </p>
         <ul className="text-sm list-disc list-inside space-y-1.5 pl-2 text-zinc-800">
-          <li><strong>Alias público (Callsign):</strong> Nombre visible elegido libremente por el jugador.</li>
-          <li><strong>Puntuación y marca de tiempo UTC:</strong> Asignadas canónicamente por el servidor.</li>
-          <li><strong>Identificador seudónimo (UUID):</strong> Token no asociado a datos personales.</li>
-          <li><strong>Firma técnica de versión y plataforma:</strong> Con fines de integridad antifraude.</li>
+          <li><strong>Alias público del jugador:</strong> Nombre visible elegido libremente para la tabla de marcas.</li>
+          <li><strong>Puntuación y marca de tiempo UTC:</strong> Registradas con fines cronológicos.</li>
+          <li><strong>Identificador seudónimo:</strong> Token no asociado a datos personales ni perfiles externos.</li>
+          <li><strong>Firma técnica de versión y plataforma:</strong> Con fines de integridad y soporte de compatibilidad.</li>
         </ul>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-base font-bold uppercase text-zinc-950">
-          3. Cookies & Almacenamiento
+          3. Cookies & Almacenamiento Local
         </h2>
         <p className="text-sm leading-relaxed">
-          No empleamos cookies publicitarias ni trackers de terceros. Solo se utilizan claves locales de almacenamiento en el cliente para mantener preferencias técnicas funcionales.
+          No empleamos cookies publicitarias ni trackers de terceros. Solo se utilizan claves locales de almacenamiento en el cliente para mantener preferencias técnicas y ajustes de control.
         </p>
       </section>
 
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
           4. Rectificación o Purga de Datos
         </h2>
         <p className="text-sm leading-relaxed">
-          Cualquier piloto puede solicitar la rectificación o eliminación inmediata de su alias y marcas de la tabla de clasificación escribiendo a nuestro correo oficial de soporte:
+          Cualquier jugador puede solicitar la rectificación o eliminación inmediata de su alias y marcas de la tabla escribiendo a nuestro correo oficial de soporte:
         </p>
         <div className="p-3 bg-zinc-50 rounded border border-zinc-200 text-xs font-semibold text-zinc-900">
           {supportEmail}

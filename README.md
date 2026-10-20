@@ -1,23 +1,30 @@
-# BAu Interactive — Portal Oficial de Videojuegos Independientes
+# BAu Interactive — Portal Oficial de la Desarrolladora de Videojuegos
 
-Sitio web oficial de **BAu Interactive**, estudio independiente de desarrollo de videojuegos. Diseñado con una arquitectura escalable, estética retro-futurista de alto contraste y sistema canónico de clasificación mundial en tiempo real.
+Sitio web oficial de **BAu Interactive**, estudio independiente de desarrollo de videojuegos creado por BAu. Diseñado con una arquitectura moderna, estética de alto contraste, catálogo escalable y presentación del juego insignia en turno: **Pok-Tschack**.
 
 ---
 
 ## 🚀 Características Principales
 
 - **Next.js 15 & React 19**: App Router, Server Components y renderizado optimizado para Core Web Vitals (LCP < 2.5s).
-- **Catálogo Escalable**: Diseñado para funcionar de forma impecable con un solo juego inicial (*Aether Drift*) y expandirse a futuros títulos sin modificar componentes.
-- **Top 15 Canónico en Vivo**:
+- **Catálogo Escalable del Estudio**: Diseñado para albergar las producciones del estudio, destacando en portada el juego en turno (*Pok-Tschack*) con enlace directo a su beta en itch.io.
+- **Top 15 de Telemetría**:
   - Polling inteligente cada 45 segundos que se pausa automáticamente cuando la pestaña está en segundo plano (`document.hidden`).
   - Detección de estados stale/desactualizados con reintento manual.
-  - Reglas estrictas: 1 mejor marca por jugador, desempate por timestamp cronológico (`ranked_at`) y acotado a máximo 15 registros verificados.
+  - Reglas estrictas: 1 mejor marca por jugador, desempate por timestamp cronológico (`ranked_at`) y acotado a 15 registros.
 - **Seguridad y Privacidad**:
   - Web pública 100% de solo lectura. Ningún secreto privilegiado se expone en el cliente.
-  - Políticas estrictas de Row Level Security (RLS) en Supabase con separación de esquema público y privado (`private`).
-  - Cabeceras de seguridad CSP completas, prevención de XSS y saneamiento de alias.
-  - Contrato de ingestión atómico documentado en `docs/SCORE_INGESTION_CONTRACT.md`.
+  - Saneamiento de alias, prevención de XSS y cabeceras de seguridad.
+  - Soporte para Supabase con dataset de respaldo de alta fidelidad integrado.
 - **Accesibilidad WCAG 2.2 AA**: Navegación por teclado completa, foco visible, trampa de foco en menú móvil con cierre en tecla `Escape` y soporte para `prefers-reduced-motion`.
+
+---
+
+## 🎮 Juego Insignia en Turno: Pok-Tschack
+
+- **Premisa**: Arcade vertical 2D de precisión y físicas inspirado en el juego de pelota mesoamericano. Golpea la pelota para hacerla cruzar un aro de piedra rotatorio con apertura cambiante; cada gol reinicia el reloj y prolonga la partida mientras la cancha introduce criaturas, trampas y desafíos.
+- **Beta Pública**: Disponible en HTML5 para jugar en navegador en [itch.io](https://garanda.itch.io/pok-tschack-betav1).
+- **Plataformas**: Web (HTML5) / En desarrollo activo para móviles Android.
 
 ---
 
@@ -26,7 +33,6 @@ Sitio web oficial de **BAu Interactive**, estudio independiente de desarrollo de
 - **Node.js**: v18.18+ o superior (recomendado v20+)
 - **NPM**: v9+ o superior
 - **Git**
-- **Proyecto en Supabase** (Opcional para desarrollo local, el sistema incluye dataset de respaldo de alta fidelidad).
 
 ---
 
@@ -58,34 +64,12 @@ Sitio web oficial de **BAu Interactive**, estudio independiente de desarrollo de
 
 ---
 
-## 🗄️ Configuración de Base de Datos (Supabase)
-
-Si deseas conectar tu propio proyecto de Supabase:
-
-1. Ve a tu panel de Supabase y abre el **SQL Editor**.
-2. Ejecuta el archivo de migración inicial:
-   [`supabase/migrations/20260910000000_initial_schema.sql`](file:///c:/proyectos/BAu_Interactive/supabase/migrations/20260910000000_initial_schema.sql)
-3. Ejecuta el archivo de datos de semilla (Seed):
-   [`supabase/seed.sql`](file:///c:/proyectos/BAu_Interactive/supabase/seed.sql)
-4. Copia tu `Project URL` y tu `anon public key` a tu archivo `.env.local`:
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=https://tu-proyecto.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-llave-anonima
-   ```
-
----
-
 ## 🧪 Pruebas Automatizadas
 
-El proyecto incluye pruebas unitarias con Vitest para validar las reglas canónicas del ranking y saneamiento:
+El proyecto incluye pruebas unitarias con Vitest para validar las reglas de clasificación y saneamiento:
 
 ```bash
 npm run test
-```
-
-Para ejecutar las pruebas en modo observador:
-```bash
-npm run test:watch
 ```
 
 ---
@@ -103,19 +87,7 @@ npm run start
 
 ## ☁️ Despliegue en Vercel
 
-Este proyecto está 100% optimizado para Vercel:
-
-1. **Desde GitHub**:
-   - Conecta tu cuenta de Vercel con el repositorio `BAu-0/BAu_Interactive`.
-   - Vercel detectará automáticamente la configuración de Next.js.
-   - En la sección **Environment Variables**, añade las variables de `.env.example` si ya tienes Supabase configurado.
-   - Pulsa **Deploy**.
-
-2. **Desde la CLI de Vercel**:
-   ```bash
-   npx vercel
-   npx vercel --prod
-   ```
+Este proyecto está conectado a GitHub (`BAu-0/BAu_Interactive`) y se despliega automáticamente en Vercel ante cada push a la rama `main`.
 
 ---
 

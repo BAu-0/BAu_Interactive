@@ -45,7 +45,7 @@ export default async function GameDetailPage({ params }: Props) {
   const relatedNews = newsPosts.filter((n) => n.game_id === game.id).slice(0, 2);
   const betaLink =
     game.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
-    process.env.NEXT_PUBLIC_BETA_URL;
+    'https://garanda.itch.io/pok-tschack-betav1';
   const feedbackLink =
     process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
 
@@ -59,7 +59,7 @@ export default async function GameDetailPage({ params }: Props) {
               <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-white border border-zinc-200 text-xs">
                 <span className="w-2 h-2 rounded-full bg-[#00d647] shadow-[0_0_8px_#00d647]" />
                 <span className="text-[#00a836] font-bold uppercase tracking-wider">
-                  Estado: {game.status.toUpperCase()} V{game.display_version}
+                  Estado: {game.status.toUpperCase()} {game.display_version}
                 </span>
               </div>
 
@@ -107,23 +107,23 @@ export default async function GameDetailPage({ params }: Props) {
               <dl className="divide-y divide-zinc-100 text-xs space-y-2.5">
                 <div className="flex justify-between pt-2">
                   <dt className="text-zinc-500">Género:</dt>
-                  <dd className="font-bold text-zinc-950">Arcade Inercial / Survival</dd>
+                  <dd className="font-bold text-zinc-950">Arcade 2D / Precisión y Físicas</dd>
                 </div>
                 <div className="flex justify-between pt-2">
                   <dt className="text-zinc-500">Estado:</dt>
-                  <dd className="font-bold text-[#00a836]">Beta Pública</dd>
+                  <dd className="font-bold text-[#00a836]">Beta Pública (Itch.io)</dd>
                 </div>
                 <div className="flex justify-between pt-2">
                   <dt className="text-zinc-500">Compilación:</dt>
                   <dd className="text-zinc-800 font-semibold">{game.display_version}</dd>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Métrica Telemetría:</dt>
-                  <dd className="text-zinc-900 font-semibold">Mayor Puntuación (1 marca/user)</dd>
+                  <dt className="text-zinc-500">Métrica:</dt>
+                  <dd className="text-zinc-900 font-semibold">Mayor Puntuación & Goles</dd>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <dt className="text-zinc-500">Entornos:</dt>
-                  <dd className="text-zinc-800">Web Canvas / Windows PC</dd>
+                  <dt className="text-zinc-500">Plataformas:</dt>
+                  <dd className="text-zinc-800">HTML5 Web / En desarrollo para Android</dd>
                 </div>
               </dl>
             </div>
@@ -138,7 +138,7 @@ export default async function GameDetailPage({ params }: Props) {
             Mecánicas Deterministas
           </span>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase mb-6">
-            Parámetros de Ejecución
+            Parámetros de Jugabilidad
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {game.features.map((feature, i) => (
@@ -162,7 +162,7 @@ export default async function GameDetailPage({ params }: Props) {
               Telemetría Canónica // {game.title.toUpperCase()}
             </span>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase">
-              Top 5 Canónico
+              Top 5 de Marcas
             </h2>
           </div>
 
@@ -189,7 +189,7 @@ export default async function GameDetailPage({ params }: Props) {
           <div className="flex items-center space-x-2 text-[#00a836] mb-4">
             <Monitor className="w-5 h-5" />
             <h2 className="text-lg font-bold uppercase text-zinc-950">
-              Requisitos de Hardware
+              Dispositivos y Plataformas
             </h2>
           </div>
 

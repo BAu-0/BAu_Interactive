@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail } from 'lucide-react';
 import { GithubIcon, DiscordIcon } from '@/components/icons/BrandIcons';
 
@@ -17,20 +18,26 @@ export function Footer() {
           {/* Columna 1: Estudio e Identidad */}
           <div className="space-y-4 md:col-span-2">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center font-bold text-white text-xs tracking-wider">
-                BAU
+              <div className="relative h-9 w-20 sm:w-24 overflow-hidden rounded bg-black flex items-center justify-center border border-zinc-800">
+                <Image
+                  src="/images/studio/bau-interactive-logo.jpg"
+                  alt="BAu Interactive"
+                  fill
+                  sizes="(max-width: 640px) 80px, 96px"
+                  className="object-contain object-center"
+                />
               </div>
               <span className="text-base font-bold tracking-wider uppercase text-white">
                 BAu Interactive
               </span>
             </div>
             <p className="text-sm text-zinc-400 max-w-md leading-relaxed font-sans">
-              Estudio independiente de desarrollo de videojuegos. Diseñado con una arquitectura limpia, física inercial de precisión y telemetría competitiva transparente.
+              Estudio independiente de desarrollo de videojuegos. Diseñado con una arquitectura limpia, física de precisión, estética arcade y transparencia absoluta con la comunidad.
             </p>
             {supportEmail && (
               <div className="flex items-center space-x-2 text-xs text-zinc-400 pt-1">
                 <Mail className="w-3.5 h-3.5 text-[#00ff55]" />
-                <span>Soporte oficial:</span>
+                <span>Contacto oficial:</span>
                 <a
                   href={`mailto:${supportEmail}`}
                   className="text-zinc-200 hover:text-[#00ff55] transition-colors"
@@ -53,18 +60,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/juegos/aether-drift" className="hover:text-white transition-colors">
-                  Aether Drift (Beta)
+                <Link href="/juegos/pok-tschack" className="hover:text-white transition-colors">
+                  Pok-Tschack (Beta)
                 </Link>
               </li>
               <li>
                 <Link href="/clasificacion" className="hover:text-white transition-colors">
-                  Top 15 Mundial
+                  Clasificación
                 </Link>
               </li>
               <li>
                 <Link href="/novedades" className="hover:text-white transition-colors">
-                  Novedades y Parches
+                  Novedades & Devlogs
                 </Link>
               </li>
               <li>
@@ -89,7 +96,7 @@ export function Footer() {
                   className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-[#00ff55] transition-colors" />
-                  <span>Reddit // Canal de Feedback</span>
+                  <span>Canal de Feedback</span>
                 </a>
               )}
               {discordUrl && (

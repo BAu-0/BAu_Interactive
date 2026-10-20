@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Gamepad2, Trophy, Newspaper, Info } from 'lucide-react';
 
@@ -13,10 +14,10 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Inicio', href: '/', icon: Gamepad2 },
-  { label: 'Aether Drift', href: '/juegos/aether-drift', icon: Gamepad2 },
+  { label: 'Pok-Tschack (Beta)', href: '/juegos/pok-tschack', icon: Gamepad2 },
   { label: 'Clasificación', href: '/clasificacion', icon: Trophy },
   { label: 'Novedades', href: '/novedades', icon: Newspaper },
-  { label: 'Acerca', href: '/acerca', icon: Info },
+  { label: 'El Estudio', href: '/acerca', icon: Info },
 ];
 
 export function Navbar() {
@@ -60,18 +61,25 @@ export function Navbar() {
       className={`sticky top-0 z-50 transition-all duration-200 ${
         isScrolled
           ? 'bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-md py-2.5'
-          : 'bg-black/90 backdrop-blur-sm border-b border-zinc-800/80 py-3.5'
+          : 'bg-black/90 backdrop-blur-sm border-b border-zinc-800/80 py-3'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Monograma Grabado en Titanio */}
+          {/* Logo Oficial de BAu Interactive */}
           <Link
             href="/"
             className="flex items-center space-x-3 group rounded p-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff55]"
           >
-            <div className="w-8 h-8 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center font-bold text-white text-xs tracking-wider transition-colors group-hover:border-[#00ff55] group-hover:text-[#00ff55]">
-              BAU
+            <div className="relative h-9 w-20 sm:w-24 overflow-hidden rounded bg-black flex items-center justify-center border border-zinc-800 group-hover:border-zinc-600 transition-colors">
+              <Image
+                src="/images/studio/bau-interactive-logo.jpg"
+                alt="BAu Interactive"
+                fill
+                sizes="(max-width: 640px) 80px, 96px"
+                className="object-contain object-center"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-bold tracking-wider uppercase text-white group-hover:text-zinc-200 transition-colors">
@@ -83,7 +91,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Navegación de Escritorio Minimalista con Titillium Web */}
+          {/* Navegación de Escritorio Minimalista */}
           <nav className="hidden md:flex items-center space-x-1" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -160,7 +168,7 @@ export function Navbar() {
 
           <div className="pt-6 border-t border-zinc-800 text-center text-xs text-zinc-400 space-y-1">
             <p className="font-semibold text-white tracking-wider uppercase">BAu Interactive</p>
-            <p>Juegos independientes de alto rendimiento</p>
+            <p>Estudio de desarrollo de videojuegos independientes</p>
           </div>
         </div>
       )}

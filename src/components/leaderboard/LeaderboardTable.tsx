@@ -10,13 +10,13 @@ interface LeaderboardTableProps {
 
 export function LeaderboardTable({
   entries,
-  captionTitle = 'Telemetría de Clasificación Canónica Mundial (Top 15)',
+  captionTitle = 'Tabla de Clasificación y Puntuaciones (Top 15)',
 }: LeaderboardTableProps) {
   if (entries.length === 0) {
     return (
       <div className="text-center py-12 px-4 rounded-lg border border-zinc-200 bg-white">
         <p className="text-zinc-500 text-xs font-sans">
-          No se registran telemetrías verificadas todavía. Sé el primero en establecer marca.
+          No se registran marcas verificadas todavía. Sé el primero en establecer una puntuación.
         </p>
       </div>
     );
@@ -33,7 +33,7 @@ export function LeaderboardTable({
                 Pos
               </th>
               <th scope="col" className="py-3 px-4">
-                Piloto // Callsign
+                Jugador // Alias
               </th>
               <th scope="col" className="py-3 px-4 text-right">
                 Puntuación
@@ -58,62 +58,41 @@ export function LeaderboardTable({
                   {/* Posición Formateada (01, 02... 15) */}
                   <td className="py-3 px-4 text-center whitespace-nowrap">
                     <div className="inline-flex items-center justify-center space-x-1 tabular-nums font-sans">
-                      {isP1 ? (
-                        <span className="inline-flex items-center text-[#00a836] font-bold">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00d647] mr-1.5 shadow-[0_0_6px_#00d647]" />
-                          01
-                        </span>
-                      ) : (
-                        <span
-                          className={
-                            entry.rank === 2
-                              ? 'text-zinc-950 font-bold'
-                              : entry.rank === 3
-                              ? 'text-zinc-800 font-semibold'
-                              : 'text-zinc-400 font-medium'
-                          }
-                        >
-                          {entry.rank < 10 ? `0${entry.rank}` : entry.rank}
-                        </span>
-                      )}
-                    </div>
-                  </td>
-
-                  {/* Piloto */}
-                  <td className="py-3 px-4 whitespace-nowrap">
-                    <div className="flex items-center space-x-2">
                       <span
-                        className={`font-sans text-sm ${
-                          isTop3 ? 'text-zinc-950 font-bold' : 'text-zinc-700'
+                        className={`font-bold ${
+                          isP1
+                            ? 'text-[#00a836]'
+                            : isTop3
+                            ? 'text-zinc-900'
+                            : 'text-zinc-500'
                         }`}
                       >
-                        {entry.display_name}
-                      </span>
-                      <span
-                        title="Telemetría verificada por servidor"
-                        className="inline-flex items-center text-[10px] px-1.5 py-0.5 rounded border border-zinc-200 bg-zinc-50 text-zinc-600 font-sans"
-                      >
-                        <CheckCircle2 className="w-3 h-3 text-[#00a836] mr-1 inline-block" />
-                        SYS_OK
+                        {String(entry.rank).padStart(2, '0')}
                       </span>
                     </div>
                   </td>
 
-                  {/* Puntuación Tabular */}
-                  <td className="py-3 px-4 text-right whitespace-nowrap">
-                    <span
-                      className={`font-mono text-sm tabular-nums tracking-tight ${
-                        isP1 ? 'text-[#00a836] font-bold' : 'text-zinc-950 font-bold'
-                      }`}
-                    >
-                      {formatScore(entry.score)}
-                    </span>
-                    <span className="text-[10px] text-zinc-400 font-sans uppercase ml-1">pts</span>
+                  {/* Nombre del Jugador */}
+                  <td className="py-3 px-4 font-medium text-zinc-900 flex items-center space-x-2">
+                    <span className="truncate max-w-[180px] sm:max-w-xs">{entry.display_name}</span>
+                    {isP1 && (
+                      <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#00d647]/15 text-[#00a836] border border-[#00d647]/30">
+                        LÍDER
+                      </span>
+                    )}
                   </td>
 
-                  {/* Timestamp */}
-                  <td className="py-3 px-4 text-right text-zinc-500 whitespace-nowrap hidden sm:table-cell text-[11px] font-sans">
-                    {formatRelativeTime(entry.ranked_at)}
+                  {/* Puntuación */}
+                  <td className="py-3 px-4 text-right font-mono font-bold tabular-nums text-zinc-950">
+                    {formatScore(entry.score)}
+                  </td>
+
+                  {/* Timestamp Relativo */}
+                  <td className="py-3 px-4 text-right text-zinc-500 font-mono text-[11px] hidden sm:table-cell">
+                    <span className="inline-flex items-center justify-end space-x-1">
+                      <CheckCircle2 className="w-3 h-3 text-[#00a836]" />
+                      <span>{formatRelativeTime(entry.ranked_at)}</span>
+                    </span>
                   </td>
                 </tr>
               );

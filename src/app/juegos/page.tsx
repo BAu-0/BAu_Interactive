@@ -16,13 +16,13 @@ export default async function GamesPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 bg-white font-sans">
       <div className="max-w-2xl">
         <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
-          Catálogo // Desarrollo Interno
+          Catálogo // Desarrollo del Estudio
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase mb-4">
-          Producciones Oficiales
+          Producciones
         </h1>
         <p className="text-sm text-zinc-600 leading-relaxed font-sans">
-          Títulos independientes diseñados para competición de alta precisión, control inercial directo y rendimiento garantizado a 60 FPS+.
+          Videojuegos independientes enfocados en mecánicas de habilidad pura, físicas deterministas y control fluido a 60 FPS.
         </p>
       </div>
 
@@ -32,13 +32,13 @@ export default async function GamesPage() {
             key={game.slug}
             className="rounded-lg bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between group"
           >
-            {/* Cabecera 16:9 Widescreen en marco oscuro */}
+            {/* Cabecera en marco oscuro estilo arcade */}
             <div className="aspect-video bg-black relative border-b border-zinc-800 p-5 flex flex-col justify-between overflow-hidden">
               <div className="flex items-center justify-between z-10">
                 <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-zinc-900 border border-zinc-700 text-[#00ff55]">
-                  {game.status === 'beta' ? 'BETA V' + game.display_version : 'LANZAMIENTO'}
+                  {game.status === 'beta' ? 'BETA ' + game.display_version : 'LANZAMIENTO'}
                 </span>
-                <span className="text-xs text-zinc-400">60 FPS ENGINE</span>
+                <span className="text-xs text-zinc-400">60 FPS</span>
               </div>
 
               <div className="my-auto text-center py-2">
@@ -51,8 +51,8 @@ export default async function GamesPage() {
               </div>
 
               <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-zinc-800/80">
-                <span>ARCADE INERCIAL</span>
-                <span>PC // WEB CANVAS</span>
+                <span>ARCADE 2D</span>
+                <span>WEB // ANDROID</span>
               </div>
             </div>
 
@@ -67,7 +67,7 @@ export default async function GamesPage() {
                   href={`/juegos/${game.slug}`}
                   className="inline-flex items-center space-x-1.5 font-bold text-zinc-900 hover:text-[#00a836] transition-colors"
                 >
-                  <span>Especificaciones</span>
+                  <span>Ficha Técnica</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
@@ -75,7 +75,7 @@ export default async function GamesPage() {
                   href="/clasificacion"
                   className="text-xs text-zinc-500 hover:text-zinc-900 font-medium transition-colors"
                 >
-                  Telemetría &rarr;
+                  Marcas &rarr;
                 </Link>
               </div>
             </div>

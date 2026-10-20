@@ -15,7 +15,7 @@ interface LiveLeaderboardProps {
 
 export function LiveLeaderboard({
   initialEntries,
-  gameSlug = 'aether-drift',
+  gameSlug = 'pok-tschack',
   limit = 15,
   showVerificationNote = true,
 }: LiveLeaderboardProps) {
@@ -40,7 +40,7 @@ export function LiveLeaderboard({
       }
     } catch {
       setIsStale(true);
-      setErrorMessage('Fallo en sincronización. Conservando última telemetría válida.');
+      setErrorMessage('Fallo en sincronización. Conservando última marca registrada.');
     } finally {
       setIsLoading(false);
     }
@@ -129,7 +129,7 @@ export function LiveLeaderboard({
         <div className="flex items-start space-x-2 text-xs text-zinc-500 pt-1">
           <ShieldCheck className="w-4 h-4 text-[#00a836] shrink-0 mt-0.5" />
           <p>
-            Telemetría criptográfica verificada lado servidor. Desempate por fecha cronológica (ranked_at). Máximo 1 registro por jugador.
+            Marcas de prueba y telemetría de juego. Desempate por fecha cronológica (ranked_at). Máximo 1 registro por jugador.
           </p>
         </div>
       )}

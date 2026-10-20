@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Cpu, ShieldCheck, Terminal } from 'lucide-react';
+import { ArrowRight, Cpu, ShieldCheck, Terminal, Play } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Acerca del Estudio',
-  description: 'Filosofía de ingeniería y diseño detrás del estudio independiente BAu Interactive.',
+  description: 'Filosofía de desarrollo y diseño independiente detrás de BAu Interactive.',
 };
 
 export default function AboutPage() {
@@ -14,13 +14,13 @@ export default function AboutPage() {
       {/* Cabecera */}
       <div className="space-y-4">
         <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
-          Manifiesto // Ingeniería Independiente
+          Manifiesto // Estudio Independiente
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase">
           Acerca de BAu Interactive
         </h1>
         <p className="text-base text-zinc-600 leading-relaxed font-sans">
-          Estudio independiente enfocado en mecánicas de alta exigencia, software determinista y transparencia técnica absoluta con la comunidad de jugadores.
+          Estudio independiente enfocado en mecánicas de alta precisión, control fluido a 60 FPS y desarrollo transparente con la comunidad de jugadores.
         </p>
       </div>
 
@@ -29,52 +29,63 @@ export default function AboutPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
             <Cpu className="w-5 h-5 text-[#00a836]" />
-            <span>Filosofía de Software</span>
+            <span>Filosofía de Juego</span>
           </h2>
           <p>
-            No simulamos ser una corporación masiva ni añadimos capas innecesarias a nuestros productos. En <strong>BAu Interactive</strong> diseñamos videojuegos donde la respuesta de control a 60 FPS o más es la prioridad número uno. Cada milisegundo de entrada importa.
+            En <strong>BAu Interactive</strong> creamos videojuegos donde la respuesta de control, el ritmo y la física determinista son la prioridad. Rechazamos de raíz las prácticas predatorias: no existen compras integradas abusivas, pay-to-win ni anuncios invasivos que interrumpan la concentración del jugador.
           </p>
           <p>
-            Rechazamos de raíz las prácticas predatorias: no existen compras integradas forzadas, cajas de botín ni anuncios invasivos que interrumpan la concentración del jugador.
+            Creemos en los retos auténticos donde cada segundo cuenta y donde la destreza motriz y la lectura táctica del jugador determinan el éxito de cada intento.
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
             <ShieldCheck className="w-5 h-5 text-zinc-700" />
-            <span>Telemetría Canónica</span>
+            <span>Proyecto Actual: Pok-Tschack</span>
           </h2>
           <p>
-            Nuestro primer título, <em>Aether Drift</em>, conecta directamente con un backend criptográfico en Supabase. Las tablas de clasificación que ves en este portal consumen de manera idéntica la misma fuente canónica que el ejecutable del juego.
+            Nuestro primer título estandarte es <strong>Pok-Tschack</strong>, un arcade vertical 2D de física e interceptación inspirado en el juego de pelota mesoamericano. Su núcleo se basa en golpear la pelota para hacerla cruzar un aro de piedra que gira y cambia de apertura, donde cada gol reinicia el reloj y permite resistir frente a las criaturas y desafíos de la cancha.
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-zinc-950 uppercase flex items-center space-x-2">
             <Terminal className="w-5 h-5 text-[#00a836]" />
-            <span>Iteración Abierta</span>
+            <span>Desarrollo Abierto & Feedback</span>
           </h2>
           <p>
-            Toda calibración de físicas, detección de colisiones y diseño de niveles se discute abiertamente con los pilotos en Reddit y Discord. Los parches reflejan directamente las necesidades de la comunidad competitiva.
+            El juego se encuentra actualmente en fase beta pública jugable desde el navegador en itch.io, con el objetivo prioritario de llegar a dispositivos móviles Android. Toda retroalimentación de los jugadores sobre sensibilidad de controles, balance de dificultad y rendimiento es evaluada directamente por el autor para afinar la experiencia.
           </p>
         </section>
       </div>
 
-      {/* Tarjeta de Contacto / Call to Action en negro y verde */}
+      {/* Tarjeta de Contacto / Call to Action */}
       <div className="p-8 rounded-xl bg-black text-white border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
         <div>
           <h3 className="text-lg font-bold text-white uppercase tracking-wide mb-1">
-            Pruébalo en tu navegador
+            Prueba Pok-Tschack en tu navegador
           </h3>
-          <p className="text-xs text-zinc-400">Beta pública gratuita // 60 FPS</p>
+          <p className="text-xs text-zinc-400">Beta pública v1.0 en itch.io // 60 FPS</p>
         </div>
-        <Link
-          href="/juegos/aether-drift"
-          className="inline-flex items-center space-x-2 px-6 py-3 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap"
-        >
-          <span>Ejecutar Aether Drift</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a
+            href="https://garanda.itch.io/pok-tschack-betav1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-md bg-[#00d647] hover:bg-[#00b83c] text-black font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap"
+          >
+            <Play className="w-3.5 h-3.5 fill-black" />
+            <span>Jugar en Itch.io</span>
+          </a>
+          <Link
+            href="/juegos/pok-tschack"
+            className="inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider border border-zinc-700 transition-all whitespace-nowrap"
+          >
+            <span>Ficha Técnica</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </div>
     </div>
   );

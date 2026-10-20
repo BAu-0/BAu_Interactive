@@ -1,34 +1,34 @@
 import React from 'react';
-import { Cpu, Headphones, Activity, Gauge } from 'lucide-react';
+import { RotateCw, Clock, Zap, ShieldCheck } from 'lucide-react';
 
 const FEATURES = [
   {
-    icon: Gauge,
-    title: 'Latencia Ultrabaja & 60 FPS',
+    icon: RotateCw,
+    title: 'Aro Rotatorio & Apertura Variable',
     description:
-      'Muestreo de entrada directo sobre canvas optimizado sin amortiguación artificial. Respuesta instantánea en cada esquive milimétrico.',
-    tag: 'Latencia < 16ms',
+      'El aro de piedra gira de forma continua en la cancha. El reto exige leer el ángulo y calcular el momento exacto en que la apertura permite el cruce limpio de la pelota.',
+    tag: 'Precisión de Tiro',
   },
   {
-    icon: Headphones,
-    title: 'Audio Espacial Procedural',
+    icon: Clock,
+    title: 'Reloj Dinámico Reiniciable',
     description:
-      'Capas de audio analógico calibradas mediante síntesis física reactiva que se modulan dinámicamente con tu velocidad e inercia.',
-    tag: 'Síntesis Reactiva',
+      'Cada gol reinicia el tiempo a 60 segundos. La partida dura lo que tu destreza permita prolongar. Los goles rápidos recompensan con escalones de hasta 100 puntos.',
+    tag: 'Supervivencia Activa',
   },
   {
-    icon: Activity,
-    title: 'Telemetría Criptográfica',
+    icon: Zap,
+    title: 'Física de Rebote e Inercia',
     description:
-      'Sistema de clasificación verificado lado servidor. Cada partida se sella con firma atómica única e idempotencia contra trampas.',
-    tag: 'Validación SHA-256',
+      'Encadenar contactos en el aire y rebotes en paredes o techo acumula velocidad e impulso cinético. Tocar el suelo interrumpe la inercia sin eliminar al jugador.',
+    tag: 'Control Físico 2D',
   },
   {
-    icon: Cpu,
-    title: 'Física Determinista Pura',
+    icon: ShieldCheck,
+    title: 'Habilidad Pura & Cero Pay-to-Win',
     description:
-      'Cero mecánicas pay-to-win, cero compras internas y cero temporizadores. Rendimiento basado 100% en la precisión motriz del piloto.',
-    tag: '100% Habilidad Pura',
+      'Sin micropagos con dinero real ni ventajas prediseñadas. La tienda interna utiliza exclusivamente puntos generados en la misma partida para mejoras temporales.',
+    tag: '100% Destreza Arcade',
   },
 ];
 
@@ -39,14 +39,14 @@ export function GameFeatures() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
-              Mecánicas y Rendimiento
+              Mecánicas Principales
             </span>
-            <h2 id="features-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
-              Arquitectura de Precisión
+            <h2 id="features-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-black uppercase">
+              Pilares de Jugabilidad
             </h2>
           </div>
           <p className="text-sm text-zinc-600 max-w-sm">
-            Diseñado bajo estándares de ingeniería y gaming competitivo.
+            Diseñado para poner a prueba tu capacidad de respuesta y lectura de trayectorias bajo presión continua.
           </p>
         </div>
 
@@ -70,9 +70,9 @@ export function GameFeatures() {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-zinc-100 flex items-center justify-between text-xs font-medium text-zinc-500">
-                  <span>{feature.tag}</span>
-                  <span className="w-2 h-2 rounded-full bg-zinc-300 group-hover:bg-[#00d647] transition-colors" />
+                <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                  <span className="text-[#00a836] font-semibold">{feature.tag}</span>
+                  <span>CANCHA // MECÁNICA</span>
                 </div>
               </div>
             );

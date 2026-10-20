@@ -14,7 +14,7 @@ export const revalidate = 60; // Revalidar contenido cada 60 segundos (ISR)
 export default async function HomePage() {
   const [featuredGame, initialLeaderboard, latestNews] = await Promise.all([
     getFeaturedGame(),
-    getLeaderboard('aether-drift', 5),
+    getLeaderboard('pok-tschack', 5),
     getNewsPosts(),
   ]);
 
@@ -25,15 +25,15 @@ export default async function HomePage() {
       {/* 1. Hero del Juego Destacado */}
       <HeroGame game={featuredGame} />
 
-      {/* 2. Adelanto del Top 15 Mundial (Telemetría Canónica) */}
+      {/* 2. Marcas y Clasificación (Top 15) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="leaderboard-preview-title">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
-              Telemetría Canónica // Ranking Global
+              Telemetría de Juego // Marcas de Cancha
             </span>
             <h2 id="leaderboard-preview-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase font-sans">
-              Top 15 Mundial en Vivo
+              Top 15 de Puntuaciones
             </h2>
           </div>
 
@@ -48,28 +48,28 @@ export default async function HomePage() {
 
         <LiveLeaderboard
           initialEntries={initialLeaderboard}
-          gameSlug="aether-drift"
+          gameSlug="pok-tschack"
           limit={5}
           showVerificationNote={true}
         />
       </section>
 
-      {/* 3. Especificaciones y Características de Hardware */}
+      {/* 3. Pilares de Jugabilidad y Mecánicas */}
       <GameFeatures />
 
-      {/* 4. Galería de Capturas */}
+      {/* 4. Dinámica de Cancha y Criaturas */}
       <GameGallery />
 
-      {/* 5. Novedades y Devlogs Recientes */}
+      {/* 5. Novedades y Devlogs del Estudio */}
       {recentNews.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-labelledby="news-preview-title">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-[#00a836] mb-2 block">
-                Changelog // Ingeniería
+                Devlogs // Desarrollo
               </span>
               <h2 id="news-preview-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 uppercase font-sans">
-                Notas y Actualizaciones
+                Novedades y Actualizaciones
               </h2>
             </div>
 

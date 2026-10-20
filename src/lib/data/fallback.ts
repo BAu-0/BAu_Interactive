@@ -3,53 +3,57 @@ import { NewsPost } from '@/types/news';
 import { LeaderboardEntry } from '@/types/leaderboard';
 
 export const FALLBACK_GAME: Game = {
-  id: '11111111-1111-1111-1111-111111111111',
-  slug: 'aether-drift',
-  title: 'Aether Drift',
-  short_description: 'Sobrevive a las ráfagas del vacío en este arcade de velocidad y reflejos extremos.',
+  id: 'pok-tschack-001',
+  slug: 'pok-tschack',
+  title: 'Pok-Tschack',
+  short_description:
+    'Domina los rebotes, atraviesa un aro de apertura cambiante y anota para ganar más tiempo. Un arcade vertical 2D de precisión y físicas inspirado en el juego de pelota mesoamericano.',
   full_description:
-    'Aether Drift es un homenaje contemporáneo a la era dorada de los arcades de supervivencia con una estética retro-futurista y banda sonora synthwave dinámica. Pilota tu nave a través del pulso del vacío, esquiva campos gravitacionales cambiantes, encadena multiplicadores de inercia y compite por el codiciado Top 15 mundial.',
+    'Pok-Tschack es un videojuego independiente de arcade 2D y precisión en formato vertical, inspirado en el juego de pelota mesoamericano. Muévete, salta e intercepta la pelota para hacerla cruzar un aro de piedra que gira y altera continuamente su apertura. Cada gol reinicia el reloj y prolonga la partida mientras la cancha introduce criaturas, trampas y desafíos que ponen a prueba tu capacidad de adaptación y reflejos.',
   status: 'beta',
-  display_version: 'v0.9.5-beta',
+  display_version: 'v1.0-beta',
+  cover_image_path: '/images/pok-tschack/Pok-Tschack!.png',
+  hero_image_path: '/images/pok-tschack/POK-TSCHACK-LOGO.png',
   leaderboard_enabled: true,
   leaderboard_mode: 'best_score',
   score_order: 'desc',
   score_label: 'Puntos',
   featured: true,
   sort_order: 1,
-  published_at: '2026-09-01T00:00:00Z',
+  published_at: '2026-10-20T00:00:00Z',
   links: [
     {
       id: 'l-1',
       type: 'beta',
-      url: process.env.NEXT_PUBLIC_BETA_URL || 'https://play.bauinteractive.com/beta',
+      url: process.env.NEXT_PUBLIC_BETA_URL || 'https://garanda.itch.io/pok-tschack-betav1',
       enabled: true,
       sort_order: 1,
     },
     {
       id: 'l-2',
       type: 'itch',
-      url: 'https://bau-interactive.itch.io/aether-drift',
+      url: 'https://garanda.itch.io/pok-tschack-betav1',
       enabled: true,
       sort_order: 2,
     },
   ],
   features: [
-    'Control inercial hipercalibrado a 60 FPS con respuesta instantánea.',
-    'Banda sonora synthwave procedural que acelera con tu multiplicador de supervivencia.',
-    'Clasificación canónica mundial en tiempo real con validación antifraude.',
-    'Sin anuncios invasivos, sin pay-to-win, 100% habilidad arcade pura.',
+    'Reloj dinámico: cada gol reinicia el cronómetro a 60 segundos y premia la rapidez con hasta 100 puntos.',
+    'Física de rebotes e inercia: interceptación precisa, acumulación de impulso en paredes y control de trayectorias.',
+    'Cancha reactiva: criaturas como Luxen, interferencias de Temotl, Punzantes en el aro y Mirones de bloqueo.',
+    'Desafíos de 30 segundos y objetos misteriosos con alteraciones temporales de reglas.',
+    'Habilidad arcade pura: cero micropagos, con tienda de mejoras temporales adquiridas con puntos de la misma partida.',
   ],
   system_requirements: [
     {
-      platform: 'Navegador Web',
-      minimum: 'Chrome 115+, Firefox 118+, Safari 16+ con aceleración por hardware',
-      recommended: 'Cualquier navegador moderno con tasa de refresco a 60Hz o 144Hz',
+      platform: 'Navegador Web (PC / Móvil)',
+      minimum: 'Chrome, Firefox, Safari o Edge con soporte HTML5 y aceleración gráfica',
+      recommended: 'Navegador moderno a 60 Hz. En móviles, se recomienda jugar en orientación vertical.',
     },
     {
-      platform: 'Windows',
-      minimum: 'Windows 10 64-bit, 4 GB RAM, Intel HD 4000 o superior',
-      recommended: 'Windows 11, 8 GB RAM, GPU dedicada compatible con DirectX 11',
+      platform: 'Móviles (Android)',
+      minimum: 'En desarrollo activo para distribución nativa en Google Play',
+      recommended: 'Controles optimizados para gestos de deslizamiento táctil y toque',
     },
   ],
 };
@@ -57,90 +61,90 @@ export const FALLBACK_GAME: Game = {
 export const FALLBACK_NEWS: NewsPost[] = [
   {
     id: 'n-1',
-    slug: 'lanzamiento-beta-publica-aether-drift',
-    game_id: '11111111-1111-1111-1111-111111111111',
-    game_title: 'Aether Drift',
-    title: '¡La Beta Pública de Aether Drift ya está disponible!',
+    slug: 'beta-v1-pok-tschack-itchio',
+    game_id: 'pok-tschack-001',
+    game_title: 'Pok-Tschack',
+    title: 'Beta v1.0 de Pok-Tschack disponible en itch.io',
     excerpt:
-      'Abrimos las puertas del vacío a la comunidad. Juega directamente desde el navegador o descarga la versión de prueba y comparte tu experiencia.',
-    body: `Hoy marcamos un hito para **BAu Interactive**: el lanzamiento de la primera beta pública jugable de *Aether Drift*.
+      'La primera versión de prueba de Pok-Tschack ya está accesible en navegador. Prueba la física de rebotes, el aro dinámico y comparte tus impresiones.',
+    body: `La beta v1.0 de **Pok-Tschack** se encuentra disponible en itch.io para jugar directamente en navegador sin descargas obligatorias.
 
-### ¿Qué incluye esta versión inicial?
-- **Modo Supervivencia Clásico**: Oleadas de vórtices y partículas con dificultad adaptativa.
-- **Física de Inercia**: Esquives milimétricos al borde del choque para recargar el medidor de turbo.
-- **Top 15 Canónico**: Tu mejor marca se registra automáticamente en la tabla de clasificación mundial.
+### ¿Qué encontrarás en esta versión?
+- **Mecánica central de aro rotatorio**: el aro gira y cambia de apertura en tiempo real, exigiendo leer el momento exacto para encajar la pelota.
+- **Reloj reiniciable**: cada gol reinicia el tiempo a 60 segundos. Los goles veloces otorgan mayores puntuaciones (hasta 100 puntos por anotación).
+- **Control de inercia y rebotes**: aprovecha el personaje, las paredes y el techo para construir trayectorias precisas.
+- **Pruebas y criaturas en cancha**: interferencias de Luxen, Punzantes y fases de reto que cambian las condiciones del juego.
 
-### La comunidad es el centro del desarrollo
-Como estudio independiente, cada detalle cuenta. Hemos abierto nuestro hilo oficial en Reddit para recibir cualquier comentario sobre balance de controles, dificultad y rendimiento.`,
+### Feedback de la comunidad
+Como estudio independiente, los comentarios sobre sensibilidad de controles (tanto en teclado como en gestos táctiles móviles) y balance de dificultad son fundamentales para pulir el juego rumbo a su versión final.`,
     category: 'anuncio',
     status: 'published',
-    author_name: 'Equipo BAu',
-    published_at: '2026-09-07T14:00:00Z',
+    author_name: 'BAu',
+    published_at: '2026-10-18T14:00:00Z',
   },
   {
     id: 'n-2',
-    slug: 'parche-v0-9-5-balance-y-leaderboard',
-    game_id: '11111111-1111-1111-1111-111111111111',
-    game_title: 'Aether Drift',
-    title: 'Notas de Versión v0.9.5: Calibración de inercia y prevención de colisiones fantasma',
+    slug: 'mecanicas-cancha-y-aro-giratorio',
+    game_id: 'pok-tschack-001',
+    game_title: 'Pok-Tschack',
+    title: 'Notas de Diseño: Física de rebotes, impulso y lectura de aro',
     excerpt:
-      'Ajustes finos en las físicas de frenado, corrección de hitbox en los vórtices de antimateria y nueva función de refresco de clasificación.',
-    body: `### Registro de Cambios v0.9.5
+      'Profundizamos en cómo la cancha interactúa con la pelota, la acumulación de impulso al encadenar golpes y la estrategia de tiempo.',
+    body: `En Pok-Tschack la cancha no es un simple escenario pasivo, sino el eje de todo el desafío.
 
-- **Jugabilidad**: Reducido el radio del hitbox de colisión en un 4% para permitir esquives más ajustados.
-- **Clasificación**: Implementado sistema de idempotencia en envíos de partidas con \`client_submission_id\` para evitar pérdida de puntuaciones por fluctuaciones de red.
-- **Audio**: Nuevo efecto de sonido de reverberación al activar el modo Hiperimpulso.
-- **Rendimiento**: Optimización del buffer de renderizado WebGL para pantallas con alta tasa de refresco (120Hz/144Hz).`,
-    category: 'notas_de_version',
+### Factores clave de la jugabilidad:
+1. **Acumulación de Impulso**: Encadenar golpes en el aire y rebotes en paredes y techo incrementa la velocidad de la pelota. Tocar el suelo corta la acumulación de inercia, pero no elimina al jugador.
+2. **Aro de Apertura Variable**: La piedra gira constantemente. Encontrar la ventana en la que la apertura es suficiente para el paso de la pelota requiere cálculo y paciencia bajo la presión del reloj.
+3. **Escalones de Puntuación**: Los goles inmediatos valen 100 puntos; conforme avanzan los segundos del reloj, el valor desciende a 75, 50 y 25 puntos. Anotar rápido no solo salva tu tiempo, sino que maximiza tu marca.`,
+    category: 'desarrollo',
     status: 'published',
-    author_name: 'Equipo BAu',
-    published_at: '2026-09-09T18:30:00Z',
+    author_name: 'BAu',
+    published_at: '2026-10-16T18:00:00Z',
   },
   {
     id: 'n-3',
-    slug: 'bitacora-diseno-sonoro-retro-futurista',
-    game_id: '11111111-1111-1111-1111-111111111111',
-    game_title: 'Aether Drift',
-    title: 'Bitácora #1: Sintetizadores analógicos y la búsqueda del pulso perfecto',
+    slug: 'criaturas-y-desafios-de-cancha',
+    game_id: 'pok-tschack-001',
+    game_title: 'Pok-Tschack',
+    title: 'Bitácora #1: Luxen, Temotl y los Desafíos de 30 segundos',
     excerpt:
-      'Descubre cómo construimos la atmósfera sonora de Aether Drift combinando sintetizadores FM de los 80 con diseño de audio reactivo.',
-    body: `La música en un arcade de supervivencia no es un simple adorno: es el metrónomo de tu concentración.
+      'Cómo las interferencias en la cancha evitan la monotonía y obligan al jugador a tomar decisiones en fracciones de segundo.',
+    body: `A medida que un intento se prolonga y se acumulan goles, la cancha incrementa sus pruebas:
 
-En esta primera bitácora compartimos el proceso creativo detrás de la banda sonora:
-1. **Capas Dinámicas**: Las pistas están divididas en 4 capas de sintetizadores (arpegio, bajo sub, leads y percusión) que entran progresivamente conforme la partida avanza.
-2. **Efecto de Tensión**: Cuando tu multiplicador supera x10, las frecuencias bajas se filtran sutilmente para enfocar tus reflejos auditivos en los avisos de impacto.
-
-Queremos que cada partida se sienta como una carrera contrarreloj a través de una noche de neón infinita.`,
+- **Luxen**: Criaturas que aparecen cerca del suelo para atrapar o arrebatar la pelota. El jugador debe saltar cerca de ellos para recuperarla de inmediato.
+- **Temotl**: Una presencia que interfiere físicamente con el aro o la pelota mediante fintas y bloqueos temporales.
+- **Punzantes y Mirones**: Peligros que penalizan puntos al tocar el aro o sellos que exigen golpear objetos específicos antes de volver a anotar.
+- **Fases de Desafío**: Eventos de 30 segundos con combinaciones de gravedad variable, controles invertidos o aros teletransportados donde al menos un gol es necesario para superar la prueba.`,
     category: 'desarrollo',
     status: 'published',
-    author_name: 'Equipo BAu',
-    published_at: '2026-09-05T10:15:00Z',
+    author_name: 'BAu',
+    published_at: '2026-10-14T10:00:00Z',
   },
 ];
 
 export const FALLBACK_LEADERBOARD: LeaderboardEntry[] = [
-  { rank: 1, display_name: 'VortexPilot', score: 985400, ranked_at: '2026-09-10T15:30:00Z' },
-  { rank: 2, display_name: 'NeonRunner_99', score: 942150, ranked_at: '2026-09-10T12:45:00Z' },
-  { rank: 3, display_name: 'CyberSpecter', score: 895300, ranked_at: '2026-09-10T09:15:00Z' },
-  { rank: 4, display_name: 'SolarisApex', score: 854200, ranked_at: '2026-09-10T05:20:00Z' },
-  { rank: 5, display_name: 'Echo_Striker', score: 812900, ranked_at: '2026-09-09T22:10:00Z' },
-  { rank: 6, display_name: 'QuantumShift', score: 776400, ranked_at: '2026-09-09T18:40:00Z' },
-  { rank: 7, display_name: 'GlitchDrifter', score: 734100, ranked_at: '2026-09-08T21:15:00Z' },
-  { rank: 8, display_name: 'NullVector', score: 698500, ranked_at: '2026-09-08T17:05:00Z' },
-  { rank: 9, display_name: 'AeroPulse', score: 662000, ranked_at: '2026-09-08T11:50:00Z' },
-  { rank: 10, display_name: 'RetroByte', score: 625300, ranked_at: '2026-09-07T20:30:00Z' },
-  { rank: 11, display_name: 'HyperionX', score: 589000, ranked_at: '2026-09-07T14:10:00Z' },
-  { rank: 12, display_name: 'ZeroGravity', score: 554200, ranked_at: '2026-09-06T19:00:00Z' },
-  { rank: 13, display_name: 'LaserPhantom', score: 512000, ranked_at: '2026-09-06T13:45:00Z' },
-  { rank: 14, display_name: 'CosmicFlux', score: 481500, ranked_at: '2026-09-05T16:20:00Z' },
-  { rank: 15, display_name: 'SubZeroPilot', score: 440200, ranked_at: '2026-09-05T09:10:00Z' },
+  { rank: 1, display_name: 'BAu_Dev', score: 3850, ranked_at: '2026-10-19T20:30:00Z' },
+  { rank: 2, display_name: 'CanchaMaster', score: 3200, ranked_at: '2026-10-19T18:45:00Z' },
+  { rank: 3, display_name: 'RebotePro', score: 2950, ranked_at: '2026-10-19T15:10:00Z' },
+  { rank: 4, display_name: 'InerciaPilot', score: 2600, ranked_at: '2026-10-18T22:20:00Z' },
+  { rank: 5, display_name: 'AroHunter', score: 2350, ranked_at: '2026-10-18T19:00:00Z' },
+  { rank: 6, display_name: 'LuxenSlayer', score: 2100, ranked_at: '2026-10-18T14:30:00Z' },
+  { rank: 7, display_name: 'TemotlRival', score: 1850, ranked_at: '2026-10-17T21:15:00Z' },
+  { rank: 8, display_name: 'SpeedStriker', score: 1600, ranked_at: '2026-10-17T17:05:00Z' },
+  { rank: 9, display_name: 'PelotaAzul', score: 1450, ranked_at: '2026-10-17T11:50:00Z' },
+  { rank: 10, display_name: 'GrecasRun', score: 1300, ranked_at: '2026-10-16T20:30:00Z' },
+  { rank: 11, display_name: 'PixelCourt', score: 1150, ranked_at: '2026-10-16T14:10:00Z' },
+  { rank: 12, display_name: 'ZeroDrop', score: 1000, ranked_at: '2026-10-15T19:00:00Z' },
+  { rank: 13, display_name: 'TimeKeep', score: 850, ranked_at: '2026-10-15T13:45:00Z' },
+  { rank: 14, display_name: 'Reflejo99', score: 700, ranked_at: '2026-10-14T16:20:00Z' },
+  { rank: 15, display_name: 'BetaTester1', score: 550, ranked_at: '2026-10-14T09:10:00Z' },
 ];
 
 export const FALLBACK_SOCIAL_LINKS = [
   {
     id: 's-1',
     platform: 'reddit' as const,
-    label: 'r/BAuInteractive',
+    label: 'Comunidad en Reddit',
     url: process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive',
     enabled: true,
   },
