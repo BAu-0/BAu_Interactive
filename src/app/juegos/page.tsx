@@ -71,12 +71,9 @@ export default async function GamesPage() {
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
-                <Link
-                  href="/clasificacion"
-                  className="text-xs text-zinc-500 hover:text-zinc-900 font-medium transition-colors"
-                >
-                  Marcas &rarr;
-                </Link>
+                <span className="text-xs text-zinc-500 font-medium font-sans">
+                  HTML5 // Godot
+                </span>
               </div>
             </div>
           </article>

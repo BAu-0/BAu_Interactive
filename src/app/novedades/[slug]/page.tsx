@@ -126,10 +126,10 @@ export default async function NewsDetailPage({ params }: Props) {
 
         <div>
           <Link
-            href="/clasificacion"
+            href="/juegos/pok-tschack"
             className="text-xs font-semibold uppercase tracking-wider text-zinc-800 hover:text-[#7e22ce] transition-colors"
           >
-            Ver Telemetría Mundial &rarr;
+            Ver Ficha Técnica &rarr;
           </Link>
         </div>
       </div>

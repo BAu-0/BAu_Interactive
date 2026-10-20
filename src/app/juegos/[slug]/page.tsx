@@ -1,11 +1,10 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { getGameBySlug, getLeaderboard, getNewsPosts } from '@/lib/data/api';
-import { LiveLeaderboard } from '@/components/leaderboard/LiveLeaderboard';
+import { getGameBySlug, getNewsPosts } from '@/lib/data/api';
 import { NewsCard } from '@/components/news/NewsCard';
 import { GameDetailHero } from '@/components/games/GameDetailHero';
-import { Monitor, CheckCircle, ArrowRight } from 'lucide-react';
+import { TrailerSection } from '@/components/media/TrailerSection';
+import { Monitor, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -38,25 +37,32 @@ export default async function GameDetailPage({ params }: Props) {
     notFound();
   }
 
-  const [leaderboard, newsPosts] = await Promise.all([
-    getLeaderboard(game.slug, 5),
-    getNewsPosts(),
-  ]);
-
+  const newsPosts = await getNewsPosts();
   const relatedNews = newsPosts.filter((n) => n.game_id === game.id).slice(0, 2);
+  const betaLink =
+    game.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
+    'https://garanda.itch.io/pok-tschack-betav1';
 
   return (
     <div className="space-y-16 pb-24 bg-white font-sans">
       {/* 1. Hero Cinematográfico con Video de Fondo, Logo Oficial y Especificaciones */}
       <GameDetailHero game={game} />
 
-      {/* 2. Características Clave y Parámetros */}
+      {/* 2. Trailer Oficial Vertical en Lateral (Con Audio & PageSpeed Protegido) */}
+      <TrailerSection
+        title={`Metraje Oficial de ${game.title}`}
+        subtitle="Trailer Oficial // Formato Vertical Arcade"
+        gameTitle={game.title}
+        betaUrl={betaLink}
+      />
+
+      {/* 3. Características Clave y Parámetros */}
       {game.features && game.features.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block font-sans">
             Mecánicas Deterministas
           </span>
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase mb-6">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase mb-6 font-sans">
             Parámetros de Jugabilidad
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -66,48 +72,19 @@ export default async function GameDetailPage({ params }: Props) {
                 className="flex items-start space-x-3 p-4 rounded-lg bg-white border border-zinc-200 shadow-sm"
               >
                 <CheckCircle className="w-5 h-5 text-[#7e22ce] shrink-0 mt-0.5" />
-                <span className="text-sm text-zinc-700 leading-relaxed">{feature}</span>
+                <span className="text-sm text-zinc-700 leading-relaxed font-sans">{feature}</span>
               </div>
             ))}
           </div>
         </section>
       )}
 
-      {/* 3. Adelanto del Top 15 del Juego */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-1 block">
-              Telemetría Canónica // {game.title.toUpperCase()}
-            </span>
-            <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase">
-              Top 5 de Marcas
-            </h2>
-          </div>
-
-          <Link
-            href="/clasificacion"
-            className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase text-zinc-700 hover:text-[#7e22ce] transition-colors group"
-          >
-            <span>Ver Top 15 completo</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        <LiveLeaderboard
-          initialEntries={leaderboard}
-          gameSlug={game.slug}
-          limit={5}
-          showVerificationNote={true}
-        />
-      </section>
-
       {/* 4. Requisitos de Sistema */}
       {game.system_requirements && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-[#7e22ce] mb-4">
             <Monitor className="w-5 h-5" />
-            <h2 className="text-lg font-bold uppercase text-zinc-950">
+            <h2 className="text-lg font-bold uppercase text-zinc-950 font-sans">
               Dispositivos y Plataformas
             </h2>
           </div>
@@ -116,7 +93,7 @@ export default async function GameDetailPage({ params }: Props) {
             {game.system_requirements.map((req, i) => (
               <div
                 key={i}
-                className="p-5 rounded-lg bg-white border border-zinc-200 space-y-3 text-xs shadow-sm"
+                className="p-5 rounded-lg bg-white border border-zinc-200 space-y-3 text-xs shadow-sm font-sans"
               >
                 <h3 className="font-bold text-zinc-950 border-b border-zinc-100 pb-2 uppercase tracking-wide">
                   {req.platform}
@@ -140,7 +117,7 @@ export default async function GameDetailPage({ params }: Props) {
       {/* 5. Novedades Relacionadas */}
       {relatedNews.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold tracking-tight text-zinc-950 uppercase mb-6">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-950 uppercase mb-6 font-sans">
             Actualizaciones de {game.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

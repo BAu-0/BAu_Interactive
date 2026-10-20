@@ -62,11 +62,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/clasificacion" className="hover:text-white transition-colors">
-                  Clasificación
-                </Link>
-              </li>
-              <li>
                 <Link href="/novedades" className="hover:text-white transition-colors">
                   Novedades & Devlogs
                 </Link>
