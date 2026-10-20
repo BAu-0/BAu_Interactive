@@ -2,6 +2,8 @@
 
 Sitio web oficial de **BAu Interactive**, estudio independiente de desarrollo de videojuegos creado por BAu. Diseñado con una arquitectura moderna, estética de alto contraste, catálogo escalable y presentación del juego insignia en turno: **Pok-Tschack**.
 
+*Última actualización de interfaz: 20 de octubre de 2026.*
+
 ---
 
 ## 🚀 Características Principales
