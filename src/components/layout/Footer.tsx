@@ -17,13 +17,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Columna 1: Estudio e Identidad */}
           <div className="space-y-4 md:col-span-2">
-            <Link href="/" className="inline-block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55] rounded">
-              <div className="relative h-14 sm:h-16 w-40 sm:w-48">
+            <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55] rounded">
+              <div className="relative h-14 sm:h-16 w-18 sm:w-21 aspect-[755/581]">
                 <Image
-                  src="/images/studio/bau-interactive-logo-cropped.png"
+                  src="/images/studio/bau-interactive-logo-tight.png"
                   alt="BAu Interactive"
                   fill
-                  sizes="(max-width: 640px) 160px, 192px"
+                  sizes="(max-width: 640px) 100px, 140px"
                   className="object-contain object-left"
                 />
               </div>

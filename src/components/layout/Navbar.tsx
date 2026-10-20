@@ -49,28 +49,28 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#000000] border-b border-zinc-800 shadow-xl">
-      {/* Contenedor de ancho completo y altura uniforme */}
-      <div className="w-full flex items-stretch justify-between h-16 sm:h-20">
-        {/* Bloque Insignia en el Extremo Superior Izquierdo (Estilo Nintendo / Bethesda) */}
+      {/* Contenedor de ancho completo en negro puro #000000 */}
+      <div className="w-full flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
+        {/* Logo Oficial de BAu Interactive en el Extremo Izquierdo (Fondo 100% transparente, estático y sin saltos) */}
         <Link
           href="/"
-          className="h-full flex items-center justify-center px-4 sm:px-7 md:px-9 bg-[#000000] border-r border-zinc-800/80 hover:bg-zinc-950 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55]"
+          className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff55] rounded py-1"
           aria-label="BAu Interactive - Inicio"
         >
-          <div className="relative h-full py-2 sm:py-2.5 aspect-[814/640] transition-transform duration-200 group-hover:scale-105 flex items-center justify-center">
+          <div className="relative h-12 sm:h-16 w-16 sm:w-21 aspect-[755/581]">
             <Image
-              src="/images/studio/bau-interactive-logo-cropped.png"
+              src="/images/studio/bau-interactive-logo-tight.png"
               alt="BAu Interactive"
               fill
-              sizes="(max-width: 640px) 120px, 160px"
-              className="object-contain object-center"
+              sizes="(max-width: 640px) 90px, 120px"
+              className="object-contain object-left"
               priority
             />
           </div>
         </Link>
 
         {/* Lado Derecho: Navegación de Escritorio y Menú */}
-        <div className="flex items-center px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center">
           <nav className="hidden md:flex items-center space-x-1" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
