@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Game } from '@/types/game';
-import { Play, ArrowRight, Sparkles, Terminal } from 'lucide-react';
+import { Play, ArrowRight } from 'lucide-react';
 
 interface StudioGamesShowcaseProps {
   featuredGame: Game;
@@ -42,21 +42,26 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
 
         {/* Cuadrícula de Proyectos del Estudio */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Tarjeta 1: Pok-Tschack (Título Principal) */}
+          {/* Tarjeta 1: Pok-Tschack (Con video de gameplay en reproducción continua) */}
           <article className="group relative rounded-2xl bg-black border border-zinc-800 hover:border-[#a855f7]/60 overflow-hidden shadow-xl transition-all duration-200 flex flex-col justify-between">
-            {/* Banner Gráfico del Juego */}
-            <div className="relative w-full aspect-[16/9] bg-zinc-900 overflow-hidden border-b border-zinc-800">
-              <Image
-                src="/videos/pok-tschack/poster-01.webp"
-                alt="Pok-Tschack Gameplay"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            {/* Banner con Video de Gameplay Activo en Bucle */}
+            <div className="relative w-full aspect-[16/9] bg-black overflow-hidden border-b border-zinc-800">
+              <video
+                src="/videos/pok-tschack/pok-tschack-gameplay-01.mp4"
+                poster="/videos/pok-tschack/poster-01.webp"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                aria-hidden="true"
+                tabIndex={-1}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent pointer-events-none" />
 
               {/* Badges de Estado */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between text-xs font-mono">
+              <div className="absolute top-4 inset-x-4 flex items-center justify-between text-xs font-mono pointer-events-none">
                 <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 font-bold uppercase tracking-wider text-[#a855f7]">
                   BETA v1.0 DISPONIBLE
                 </span>
@@ -65,9 +70,9 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                 </span>
               </div>
 
-              {/* Logo Flotante */}
-              <div className="absolute bottom-4 left-6 right-6">
-                <div className="relative w-48 sm:w-56 aspect-[1232/592] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+              {/* Logo Oficial de Pok-Tschack Flotante */}
+              <div className="absolute bottom-4 left-6 right-6 pointer-events-none">
+                <div className="relative w-48 sm:w-56 aspect-[1232/592] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
                   <Image
                     src="/images/pok-tschack/pok-tschack-title-logo.png"
                     alt={featuredGame.title}
@@ -121,13 +126,13 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             </div>
           </article>
 
-          {/* Tarjeta 2: Proyecto TBA (En Desarrollo Activo) */}
-          <article className="group relative rounded-2xl bg-black border border-zinc-800/80 hover:border-zinc-750 overflow-hidden shadow-xl transition-all duration-200 flex flex-col justify-between">
-            {/* Banner Gráfico Conceptual (Estilo Blueprint de Desarrollo) */}
+          {/* Tarjeta 2: Próximamente (Con Logo de BAu Interactive) */}
+          <article className="group relative rounded-2xl bg-black border border-zinc-800/80 hover:border-zinc-700 overflow-hidden shadow-xl transition-all duration-200 flex flex-col justify-between">
+            {/* Banner con Logo de BAu Interactive sobre fondo oscuro */}
             <div className="relative w-full aspect-[16/9] bg-zinc-950 overflow-hidden border-b border-zinc-800 flex items-center justify-center p-8">
-              {/* Trama técnica de fondo */}
+              {/* Trama sutil de fondo */}
               <div
-                className="absolute inset-0 opacity-[0.06]"
+                className="absolute inset-0 opacity-[0.03]"
                 style={{
                   backgroundImage:
                     'linear-gradient(to right, #a855f7 1px, transparent 1px), linear-gradient(to bottom, #a855f7 1px, transparent 1px)',
@@ -135,22 +140,24 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                 }}
               />
 
-              <div className="relative z-10 text-center space-y-3">
-                <div className="w-14 h-14 mx-auto rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#a855f7] shadow-lg">
-                  <Terminal className="w-6 h-6" />
-                </div>
-                <div className="font-mono text-xs uppercase tracking-widest text-zinc-400">
-                  PROYECTO EN PRE-PRODUCCIÓN
-                </div>
+              {/* Logo Oficial de BAu Interactive como Imagen Central */}
+              <div className="relative w-40 sm:w-52 aspect-[755/581] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 drop-shadow-[0_4px_24px_rgba(168,85,247,0.2)]">
+                <Image
+                  src="/images/studio/bau-interactive-logo-tight.png"
+                  alt="BAu Interactive - Próxima Producción"
+                  fill
+                  sizes="208px"
+                  className="object-contain object-center"
+                />
               </div>
 
               {/* Badges de Estado */}
               <div className="absolute top-4 inset-x-4 flex items-center justify-between text-xs font-mono">
-                <span className="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 font-bold uppercase tracking-wider text-zinc-400">
-                  EN CONCEPTO // TBA
+                <span className="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 font-bold uppercase tracking-wider text-zinc-300">
+                  PRÓXIMAMENTE
                 </span>
                 <span className="px-2.5 py-0.5 rounded bg-zinc-900/80 border border-zinc-800 text-zinc-500">
-                  I+D
+                  TBA
                 </span>
               </div>
             </div>
@@ -159,31 +166,21 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
               <div>
                 <span className="text-[11px] font-mono text-zinc-500 font-semibold uppercase tracking-wider block mb-2">
-                  PRÓXIMA PRODUCCIÓN // SISTEMA EN INVESTIGACIÓN
+                  NUEVA PRODUCCIÓN EN DESARROLLO
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide font-sans mb-3">
-                  Proyecto 02 (TBA)
+                  Próximamente
                 </h3>
                 <p className="text-sm text-zinc-400 font-sans leading-relaxed">
-                  Nueva exploración mecánica enfocada en ritmo dinámico, calibración física en tiempo
-                  real y control táctil sin concesiones. Actualmente en fase de diseño técnico y
-                  prototipado de motor.
+                  Nueva propuesta de videojuego independiente concebida bajo nuestra filosofía de
+                  físicas deterministas, reto justo y control milimétrico.
                 </p>
               </div>
 
-              {/* Acciones de la Tarjeta */}
-              <div className="pt-4 border-t border-zinc-900 flex items-center justify-between">
-                <span className="text-xs font-mono text-zinc-500">
-                  ESTADO: DOCUMENTACIÓN TÉCNICA
-                </span>
-
-                <Link
-                  href="/novedades"
-                  className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-[#a855f7] transition-colors"
-                >
-                  <span>Seguir Devlogs</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+              {/* Pie de la Tarjeta */}
+              <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-500">
+                <span>ESTADO: EN DESARROLLO</span>
+                <span className="text-zinc-600">// BAu INTERACTIVE</span>
               </div>
             </div>
           </article>
@@ -195,7 +192,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             href="/juegos"
             className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-[#a855f7] transition-colors"
           >
-            <span>Ver registro completo del catálogo de producciones</span>
+            <span>Ver catálogo de producciones</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
