@@ -60,16 +60,6 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent pointer-events-none" />
 
-              {/* Badges de Estado */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between text-xs font-mono pointer-events-none">
-                <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 font-bold uppercase tracking-wider text-[#a855f7]">
-                  BETA v1.0 DISPONIBLE
-                </span>
-                <span className="px-2.5 py-0.5 rounded bg-black/70 backdrop-blur-md border border-zinc-800 text-zinc-300">
-                  60 FPS
-                </span>
-              </div>
-
               {/* Logo Oficial de Pok-Tschack Flotante */}
               <div className="absolute bottom-4 left-6 right-6 pointer-events-none">
                 <div className="relative w-48 sm:w-56 aspect-[1232/592] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
@@ -149,16 +139,6 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                   sizes="208px"
                   className="object-contain object-center"
                 />
-              </div>
-
-              {/* Badges de Estado */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between text-xs font-mono">
-                <span className="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 font-bold uppercase tracking-wider text-zinc-300">
-                  PRÓXIMAMENTE
-                </span>
-                <span className="px-2.5 py-0.5 rounded bg-zinc-900/80 border border-zinc-800 text-zinc-500">
-                  TBA
-                </span>
               </div>
             </div>
 

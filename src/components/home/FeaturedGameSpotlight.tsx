@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Game } from '@/types/game';
-import { Play, ArrowRight, ShieldCheck, Clock, RotateCw } from 'lucide-react';
+import { Play, ArrowRight } from 'lucide-react';
 
 interface FeaturedGameSpotlightProps {
   game: Game;
@@ -149,18 +149,6 @@ export function FeaturedGameSpotlight({ game }: FeaturedGameSpotlightProps) {
 
       {/* 2. Contenido del Spotlight */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full">
-        {/* Badge Semántico Superior */}
-        <div className="mb-6">
-          <div className="inline-flex items-center space-x-2.5 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700/80 text-zinc-200 text-xs shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7] animate-pulse" />
-            <span className="font-semibold uppercase tracking-wider text-white">
-              TÍTULO ESTANDARTE DEL ESTUDIO
-            </span>
-            <span className="text-zinc-600">|</span>
-            <span className="text-[#a855f7] font-semibold">BETA v1.0 DISPONIBLE</span>
-          </div>
-        </div>
-
         {/* Bloque Central de Tipografía y Acción */}
         <div className="max-w-2xl space-y-6">
           {/* Logo Oficial de Pok-Tschack */}
@@ -185,24 +173,8 @@ export function FeaturedGameSpotlight({ game }: FeaturedGameSpotlightProps) {
             {game.short_description}
           </p>
 
-          {/* Micro-píldoras de mecánicas */}
-          <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-300 pt-1">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-zinc-950/80 border border-zinc-800 text-zinc-300">
-              <RotateCw className="w-3.5 h-3.5 text-[#a855f7]" />
-              <span>Aro Rotatorio Variable</span>
-            </div>
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-zinc-950/80 border border-zinc-800 text-zinc-300">
-              <Clock className="w-3.5 h-3.5 text-[#a855f7]" />
-              <span>Reloj Reiniciable a 60s</span>
-            </div>
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-zinc-950/80 border border-zinc-800 text-zinc-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#a855f7]" />
-              <span>Habilidad Pura // 0 Pay-to-Win</span>
-            </div>
-          </div>
-
           {/* Botones de Acción Simétricos */}
-          <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
             {betaLink && (
               <a
                 href={betaLink}
