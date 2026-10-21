@@ -4,7 +4,6 @@ import { getFeaturedGame, getNewsPosts } from '@/lib/data/api';
 import { HeroGame } from '@/components/home/HeroGame';
 import { TrailerSection } from '@/components/media/TrailerSection';
 import { GameFeatures } from '@/components/home/GameFeatures';
-import { GameGallery } from '@/components/home/GameGallery';
 import { CommunitySection } from '@/components/home/CommunitySection';
 import { NewsCard } from '@/components/news/NewsCard';
 import { ArrowRight } from 'lucide-react';
@@ -35,13 +34,10 @@ export default async function HomePage() {
         betaUrl={betaLink}
       />
 
-      {/* 3. Pilares de Jugabilidad y Mecánicas */}
+      {/* 3. Características Principales de Jugabilidad (Estilo Bethesda) */}
       <GameFeatures />
 
-      {/* 4. Dinámica de Cancha y Criaturas */}
-      <GameGallery />
-
-      {/* 5. Novedades y Devlogs del Estudio */}
+      {/* 4. Novedades y Devlogs del Estudio */}
       {recentNews.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-labelledby="news-preview-title">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
@@ -71,7 +67,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* 6. Comunidad y Feedback */}
+      {/* 5. Comunidad y Feedback */}
       <CommunitySection />
     </div>
   );

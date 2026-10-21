@@ -1,78 +1,149 @@
-import React from 'react';
-import { RotateCw, Clock, Zap, ShieldCheck } from 'lucide-react';
+'use client';
 
-const FEATURES = [
+import React from 'react';
+import Image from 'next/image';
+import { Clock, ShieldCheck, Zap } from 'lucide-react';
+
+interface GameFeatureItem {
+  id: string;
+  tag: string;
+  title: string;
+  description: string;
+  sprite?: string;
+  spriteAlt?: string;
+  icon?: React.ComponentType<{ className?: string }>;
+}
+
+const GAME_FEATURES: GameFeatureItem[] = [
   {
-    icon: RotateCw,
-    title: 'Aro Rotatorio & Apertura Variable',
+    id: 'ring',
+    tag: 'PRECISIÓN DE TIRO',
+    title: 'Aro Rotatorio y Apertura Variable',
     description:
       'El aro de piedra gira de forma continua en la cancha. El reto exige leer el ángulo y calcular el momento exacto en que la apertura permite el cruce limpio de la pelota.',
-    tag: 'Precisión de Tiro',
+    sprite: '/images/pok-tschack/sprites/pelota.png',
+    spriteAlt: 'Pelota de juego y trayectoria',
   },
   {
+    id: 'clock',
+    tag: 'SUPERVIVENCIA ACTIVA',
+    title: 'Reloj Dinámico de 60 Segundos',
+    description:
+      'Cada gol reinicia el tiempo a 60 segundos. La partida dura lo que tu destreza permita prolongar. Los tiros rápidos premian con escalones de hasta 100 puntos.',
     icon: Clock,
-    title: 'Reloj Dinámico Reiniciable',
-    description:
-      'Cada gol reinicia el tiempo a 60 segundos. La partida dura lo que tu destreza permita prolongar. Los goles rápidos recompensan con escalones de hasta 100 puntos.',
-    tag: 'Supervivencia Activa',
   },
   {
-    icon: Zap,
-    title: 'Física de Rebote e Inercia',
+    id: 'physics',
+    tag: 'FÍSICA 2D & INERCIA',
+    title: 'Física de Rebote e Impulso Cinético',
     description:
-      'Encadenar contactos en el aire y rebotes en paredes o techo acumula velocidad e impulso cinético. Tocar el suelo interrumpe la inercia sin eliminar al jugador.',
-    tag: 'Control Físico 2D',
+      'Encadenar contactos aéreos y rebotes contra paredes y techo acumula velocidad e inercia. Tocar el suelo interrumpe el impulso sin eliminarte.',
+    sprite: '/images/pok-tschack/sprites/grecas.png',
+    spriteAlt: 'Grecas de rebote en cancha',
   },
   {
+    id: 'creatures',
+    tag: 'CRIATURAS EN CANCHA',
+    title: 'Robos de Luxen y Fintas de Temotl',
+    description:
+      'Los Luxen atrapan la pelota a ras de suelo y Temotl interviene con fintas directas sobre el aro, obligándote a rectificar la trayectoria en milisegundos.',
+    sprite: '/images/pok-tschack/sprites/POK-TSCHACK-TEMOTL.png',
+    spriteAlt: 'Temotl en cancha',
+  },
+  {
+    id: 'hazards',
+    tag: 'OBSTÁCULOS Y RETOS',
+    title: 'Punzantes y Desafíos de 30s',
+    description:
+      'Peligros de obsidiana junto al aro que penalizan puntos, junto a fases breves de 30 segundos con gravedad modificada o controles invertidos.',
+    sprite: '/images/pok-tschack/sprites/punzantes.png',
+    spriteAlt: 'Punzantes de obsidiana',
+  },
+  {
+    id: 'pure-skill',
+    tag: 'DESTREZA PURA',
+    title: 'Habilidad Arcade & Cero Pay-to-Win',
+    description:
+      'Sin micropagos con dinero real ni ventajas prediseñadas. La tienda interna utiliza exclusivamente los puntos generados en la misma partida para mejoras temporales.',
     icon: ShieldCheck,
-    title: 'Habilidad Pura & Cero Pay-to-Win',
-    description:
-      'Sin micropagos con dinero real ni ventajas prediseñadas. La tienda interna utiliza exclusivamente puntos generados en la misma partida para mejoras temporales.',
-    tag: '100% Destreza Arcade',
   },
 ];
 
 export function GameFeatures() {
   return (
-    <section className="py-20 bg-zinc-50 border-b border-zinc-200" aria-labelledby="features-title">
+    <section
+      className="py-20 lg:py-24 bg-black text-white border-b border-zinc-800"
+      aria-labelledby="features-title"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
-              Mecánicas Principales
+        {/* Cabecera de Sección (Estilo Bethesda) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] block font-sans">
+              Características del Juego
             </span>
-            <h2 id="features-title" className="text-3xl sm:text-4xl font-bold tracking-tight text-black uppercase">
-              Pilares de Jugabilidad
+            <h2
+              id="features-title"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-sans"
+            >
+              Domina el Ritmo de la Cancha
             </h2>
           </div>
-          <p className="text-sm text-zinc-600 max-w-sm">
-            Diseñado para poner a prueba tu capacidad de respuesta y lectura de trayectorias bajo presión continua.
+          <p className="text-sm sm:text-base text-zinc-400 max-w-md font-sans leading-relaxed">
+            Una pelota, un aro en rotación continua y 60 segundos en el cronómetro. Tu lectura de trayectorias determina cuánto tiempo logras sobrevivir.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {FEATURES.map((feature, idx) => {
+        {/* Cuadrícula de 6 Características con Identidad Gráfica Real */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+          {GAME_FEATURES.map((feature) => {
             const Icon = feature.icon;
             return (
               <div
-                key={idx}
-                className="p-6 rounded-lg bg-white border border-zinc-200 hover:border-zinc-400 hover:shadow-md transition-all duration-200 flex flex-col justify-between group"
+                key={feature.id}
+                className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-[#a855f7]/60 hover:shadow-xl hover:shadow-purple-950/20 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center mb-6 text-zinc-800 group-hover:text-black group-hover:border-[#9333ea] transition-colors">
-                    <Icon className="w-5 h-5 stroke-[1.75]" />
+                  {/* Encabezado de la Tarjeta: Badge Semántico y Preview Visual */}
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:border-[#a855f7]/40 group-hover:text-[#a855f7] transition-colors">
+                      {feature.tag}
+                    </span>
+
+                    <div className="w-12 h-12 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center p-2 group-hover:border-[#a855f7]/50 transition-colors">
+                      {feature.sprite ? (
+                        <div className="relative w-8 h-8 flex items-center justify-center">
+                          <Image
+                            src={feature.sprite}
+                            alt={feature.spriteAlt || feature.title}
+                            fill
+                            sizes="32px"
+                            className="object-contain"
+                            style={{ imageRendering: 'pixelated' }}
+                          />
+                        </div>
+                      ) : Icon ? (
+                        <Icon className="w-5 h-5 text-[#a855f7]" />
+                      ) : null}
+                    </div>
                   </div>
-                  <h3 className="text-base font-bold text-black mb-2">
+
+                  {/* Título de la Característica */}
+                  <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wide mb-2.5 font-sans leading-snug">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed font-sans">
+
+                  {/* Descripción Directa */}
+                  <p className="text-sm text-zinc-400 leading-relaxed font-sans">
                     {feature.description}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                  <span className="text-[#7e22ce] font-semibold">{feature.tag}</span>
-                  <span>CANCHA // MECÁNICA</span>
+                {/* Acento inferior sutil al hacer hover */}
+                <div className="mt-6 pt-3 border-t border-zinc-900/80 flex items-center justify-end text-[11px] font-mono">
+                  <span className="text-[#a855f7] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
+                    EXPLORAR &rarr;
+                  </span>
                 </div>
               </div>
             );

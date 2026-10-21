@@ -60,10 +60,10 @@ export default async function GameDetailPage({ params }: Props) {
       {game.features && game.features.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block font-sans">
-            Mecánicas Deterministas
+            Características del Sistema
           </span>
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-950 uppercase mb-6 font-sans">
-            Parámetros de Jugabilidad
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 uppercase mb-6 font-sans">
+            Reglas y Dinámica de Juego
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {game.features.map((feature, i) => (
