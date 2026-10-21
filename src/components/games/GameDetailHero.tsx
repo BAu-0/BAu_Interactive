@@ -144,9 +144,7 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
           </div>
 
           <div className="hidden sm:flex items-center space-x-2 text-[11px] font-mono text-zinc-400 bg-black/60 backdrop-blur-md px-3 py-1 rounded border border-zinc-800">
-            <span>CANCHA // 60 FPS</span>
-            <span className="text-zinc-600">|</span>
-            <span className="text-[#a855f7] font-semibold">FICHA DE INGENIERÍA</span>
+            <span className="text-[#a855f7] font-semibold">FICHA TÉCNICA OFICIAL</span>
           </div>
         </div>
 
@@ -257,11 +255,6 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
                 </>
               )}
             </button>
-
-            <div className="hidden sm:inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-black/60 border border-zinc-800 text-[11px] text-zinc-400">
-              <VolumeX className="w-3 h-3 text-zinc-400" />
-              <span>Metraje Silencioso // 60 FPS</span>
-            </div>
           </div>
 
           <div className="flex items-center space-x-1.5 text-[11px] font-mono text-zinc-400">

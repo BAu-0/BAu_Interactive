@@ -13,7 +13,7 @@ interface TrailerSectionProps {
 
 export function TrailerSection({
   title = 'El Ritmo de la Cancha en Acción',
-  subtitle = 'Trailer Oficial // Formato Vertical Arcade',
+  subtitle = 'Trailer Oficial',
   gameTitle = 'Pok-Tschack',
   betaUrl = 'https://garanda.itch.io/pok-tschack-betav1',
 }: TrailerSectionProps) {
@@ -72,7 +72,7 @@ export function TrailerSection({
             {title}
           </h2>
           <p className="text-base text-zinc-600 leading-relaxed font-sans">
-            Metraje oficial capturado a 60 FPS en resolución vertical nativa (1080×1920). Observa la inercia del salto, la apertura rotatoria del aro y la presión del cronómetro.
+            Metraje oficial del juego en formato vertical. Observa la inercia del salto, la apertura rotatoria del aro y la presión del cronómetro en la cancha.
           </p>
         </div>
 
@@ -99,14 +99,6 @@ export function TrailerSection({
                 {/* Overlay de gradiente */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/60" />
 
-                {/* Insignia superior */}
-                <div className="absolute top-4 inset-x-4 flex items-center justify-between text-[10px] font-mono text-zinc-300">
-                  <span className="px-2 py-0.5 rounded bg-black/80 border border-zinc-700 font-bold uppercase tracking-wider">
-                    TRAILER // 45s
-                  </span>
-                  <span className="text-[#a855f7] font-semibold">60 FPS</span>
-                </div>
-
                 {/* Botón Central de Play */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                   <button
@@ -121,13 +113,6 @@ export function TrailerSection({
                     Ver Trailer Oficial
                   </span>
                   <span className="text-[11px] text-zinc-400 mt-1">Con audio y efectos de juego</span>
-                </div>
-
-                {/* Pie del Bezel */}
-                <div className="absolute bottom-3 inset-x-4 text-center">
-                  <span className="text-[10px] font-mono text-zinc-400">
-                    POK-TSCHACK // ARCADE VERTICAL 2D
-                  </span>
                 </div>
               </div>
 
@@ -171,8 +156,6 @@ export function TrailerSection({
                       <RotateCcw className="w-3.5 h-3.5" />
                     </button>
                   </div>
-
-                  <span className="text-[10px] font-mono text-zinc-400">45 SEG // 1080p60</span>
                 </div>
               )}
             </div>
