@@ -58,20 +58,20 @@ export function TrailerSection({
   }, []);
 
   return (
-    <section className="py-20 bg-zinc-50 border-b border-zinc-200" aria-labelledby="trailer-title">
+    <section className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800" aria-labelledby="trailer-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabecera de Sección */}
         <div className="max-w-3xl mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block font-sans">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
             {subtitle}
           </span>
           <h2
             id="trailer-title"
-            className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-950 uppercase font-sans mb-3"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-sans mb-3"
           >
             {title}
           </h2>
-          <p className="text-base text-zinc-600 leading-relaxed font-sans">
+          <p className="text-base text-zinc-400 leading-relaxed font-sans">
             Metraje oficial del juego en formato vertical. Observa la inercia del salto, la apertura rotatoria del aro y la presión del cronómetro en la cancha.
           </p>
         </div>
@@ -165,58 +165,58 @@ export function TrailerSection({
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-4">
               {/* Tarjeta 1: Formato Vertical */}
-              <div className="p-5 rounded-lg bg-white border border-zinc-200 shadow-sm flex items-start space-x-4 group hover:border-zinc-400 transition-colors">
-                <div className="w-10 h-10 rounded border border-zinc-200 bg-purple-50 flex items-center justify-center text-[#7e22ce] shrink-0 mt-0.5">
+              <div className="p-5 sm:p-6 rounded-xl bg-black border border-zinc-800 hover:border-[#a855f7]/50 shadow-sm flex items-start space-x-4 group transition-all">
+                <div className="w-11 h-11 rounded-lg border border-zinc-800 bg-zinc-900 flex items-center justify-center text-[#a855f7] shrink-0 mt-0.5">
                   <Smartphone className="w-5 h-5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-zinc-950 font-sans mb-1">
+                  <h3 className="text-base font-bold text-white uppercase tracking-wide font-sans mb-1">
                     Diseño Nativo en Formato Vertical
                   </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed font-sans">
+                  <p className="text-sm text-zinc-400 leading-relaxed font-sans">
                     Construido específicamente para la visión vertical y la inercia de caída libre. Permite anticipar rebotes en paredes y calcular la apertura del aro sin distorsión de perspectiva.
                   </p>
                 </div>
               </div>
 
               {/* Tarjeta 2: Reloj y Supervivencia */}
-              <div className="p-5 rounded-lg bg-white border border-zinc-200 shadow-sm flex items-start space-x-4 group hover:border-zinc-400 transition-colors">
-                <div className="w-10 h-10 rounded border border-zinc-200 bg-purple-50 flex items-center justify-center text-[#7e22ce] shrink-0 mt-0.5">
+              <div className="p-5 sm:p-6 rounded-xl bg-black border border-zinc-800 hover:border-[#a855f7]/50 shadow-sm flex items-start space-x-4 group transition-all">
+                <div className="w-11 h-11 rounded-lg border border-zinc-800 bg-zinc-900 flex items-center justify-center text-[#a855f7] shrink-0 mt-0.5">
                   <Clock className="w-5 h-5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-zinc-950 font-sans mb-1">
+                  <h3 className="text-base font-bold text-white uppercase tracking-wide font-sans mb-1">
                     Reloj Dinámico de 60 Segundos
                   </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed font-sans">
+                  <p className="text-sm text-zinc-400 leading-relaxed font-sans">
                     El trailer evidencia cómo cada anotación limpia reinicia el cronómetro. La supervivencia en la cancha depende exclusivamente de tu ritmo para prolongar la partida.
                   </p>
                 </div>
               </div>
 
               {/* Tarjeta 3: Reactividad y Criaturas */}
-              <div className="p-5 rounded-lg bg-white border border-zinc-200 shadow-sm flex items-start space-x-4 group hover:border-zinc-400 transition-colors">
-                <div className="w-10 h-10 rounded border border-zinc-200 bg-purple-50 flex items-center justify-center text-[#7e22ce] shrink-0 mt-0.5">
+              <div className="p-5 sm:p-6 rounded-xl bg-black border border-zinc-800 hover:border-[#a855f7]/50 shadow-sm flex items-start space-x-4 group transition-all">
+                <div className="w-11 h-11 rounded-lg border border-zinc-800 bg-zinc-900 flex items-center justify-center text-[#a855f7] shrink-0 mt-0.5">
                   <Sparkles className="w-5 h-5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-zinc-950 font-sans mb-1">
+                  <h3 className="text-base font-bold text-white uppercase tracking-wide font-sans mb-1">
                     Cancha Reactiva y Efectos Sonoros
                   </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed font-sans">
+                  <p className="text-sm text-zinc-400 leading-relaxed font-sans">
                     Descubre las interferencias de Temotl, los robos a ras de suelo de los Luxen y los obstáculos Punzantes que alteran la jugada acompañados de su banda sonora original.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Botón de Jugar la Beta */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+            {/* Botón de Jugar la Beta Simétrico */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
                 href={betaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                className="inline-flex items-center justify-center space-x-2 px-8 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/40 transition-all active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <Play className="w-4 h-4 fill-white text-white" />
                 <span>Probar la Beta en Navegador</span>

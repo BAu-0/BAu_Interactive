@@ -108,7 +108,7 @@ export function HeroGame({ game }: HeroGameProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-black text-white min-h-[580px] lg:min-h-[660px] flex flex-col justify-center border-b border-zinc-800"
+      className="relative w-full overflow-hidden bg-black text-white min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col justify-center border-b border-zinc-800"
       aria-labelledby="hero-title"
     >
       {/* 1. Capa de Video de Fondo en Secuencia Continua (Ambiental) */}
@@ -149,10 +149,10 @@ export function HeroGame({ game }: HeroGameProps) {
       </div>
 
       {/* 2. Contenido Principal */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full flex-1 flex flex-col justify-center">
         {/* Barra Superior del Hero: Estado de Beta */}
         <div className="mb-6">
-          <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded bg-black/70 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs">
+          <div className="inline-flex items-center space-x-2.5 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-zinc-700/80 text-zinc-200 text-xs">
             <span className="w-2 h-2 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7] animate-pulse" />
             <span className="font-semibold uppercase tracking-wider text-white">
               BETA v1.0 EN ITCH.IO
@@ -169,13 +169,13 @@ export function HeroGame({ game }: HeroGameProps) {
             <h1 id="hero-title" className="sr-only">
               {game.title}
             </h1>
-            <div className="relative w-72 sm:w-88 md:w-[420px] aspect-[1232/592] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+            <div className="relative w-72 sm:w-88 md:w-[440px] aspect-[1232/592] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
               <Image
                 src="/images/pok-tschack/pok-tschack-title-logo.png"
                 alt={`Logo oficial de ${game.title}`}
                 fill
                 priority
-                sizes="(max-width: 640px) 288px, (max-width: 768px) 352px, 420px"
+                sizes="(max-width: 640px) 288px, (max-width: 768px) 352px, 440px"
                 className="object-contain object-left"
                 style={{ imageRendering: 'pixelated' }}
               />
@@ -187,14 +187,14 @@ export function HeroGame({ game }: HeroGameProps) {
             {game.short_description}
           </p>
 
-          {/* Botones de Acción */}
+          {/* Botones de Acción Simétricos con Altura y Alineación Coherente */}
           <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
             {betaLink && (
               <a
                 href={betaLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-900/30 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
+                className="inline-flex items-center justify-center space-x-2.5 px-7 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/40 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
               >
                 <Play className="w-4 h-4 fill-white text-white" />
                 <span>Jugar la Beta en Navegador</span>
@@ -206,7 +206,7 @@ export function HeroGame({ game }: HeroGameProps) {
                 href={feedbackLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded bg-black/80 hover:bg-zinc-900 text-white text-sm font-medium border border-zinc-700 backdrop-blur-md transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center justify-center space-x-2.5 px-6 h-12 rounded-lg bg-zinc-950/80 hover:bg-zinc-900 text-white text-sm font-medium border border-zinc-700/80 hover:border-zinc-500 backdrop-blur-md transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <MessageSquare className="w-4 h-4 text-zinc-300" />
                 <span>Canal de Feedback</span>
@@ -216,10 +216,10 @@ export function HeroGame({ game }: HeroGameProps) {
 
             <Link
               href={`/juegos/${game.slug}`}
-              className="inline-flex items-center justify-center space-x-1.5 px-4 py-3.5 text-xs uppercase font-semibold text-zinc-300 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center space-x-2 px-6 h-12 rounded-lg bg-zinc-950/80 hover:bg-zinc-900 text-zinc-200 hover:text-white text-sm font-medium border border-zinc-800 hover:border-zinc-600 backdrop-blur-md transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <span>Ficha Técnica</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4 text-zinc-400" />
             </Link>
           </div>
         </div>
