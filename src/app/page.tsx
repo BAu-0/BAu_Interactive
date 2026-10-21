@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { getFeaturedGame, getNewsPosts } from '@/lib/data/api';
-import { HeroGame } from '@/components/home/HeroGame';
-import { TrailerSection } from '@/components/media/TrailerSection';
-import { GameFeatures } from '@/components/home/GameFeatures';
+import { StudioHero } from '@/components/home/StudioHero';
+import { FeaturedGameSpotlight } from '@/components/home/FeaturedGameSpotlight';
+import { StudioGamesShowcase } from '@/components/home/StudioGamesShowcase';
+import { StudioPhilosophy } from '@/components/home/StudioPhilosophy';
 import { CommunitySection } from '@/components/home/CommunitySection';
 import { NewsCard } from '@/components/news/NewsCard';
 import { ArrowRight } from 'lucide-react';
@@ -17,36 +18,37 @@ export default async function HomePage() {
   ]);
 
   const recentNews = latestNews.slice(0, 3);
-  const betaLink =
-    featuredGame.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
-    'https://garanda.itch.io/pok-tschack-betav1';
 
   return (
     <div className="bg-black text-white w-full">
-      {/* 1. Hero Cinematográfico con Gameplay Horizontal en Pantalla Completa */}
-      <HeroGame game={featuredGame} />
+      {/* 1. Hero del Estudio (BAu Interactive - Identidad & Visión) */}
+      <StudioHero />
 
-      {/* 2. Trailer Oficial Vertical en Lateral (Formato Obsidian Cohesivo) */}
-      <TrailerSection
-        title="El Ritmo de la Cancha en Acción"
-        subtitle="Trailer Oficial"
-        gameTitle={featuredGame.title}
-        betaUrl={betaLink}
-      />
+      {/* 2. Spotlight de Pok-Tschack (Primer Scroll - Título Estandarte con Redirección a Ficha) */}
+      <FeaturedGameSpotlight game={featuredGame} />
 
-      {/* 3. Características Principales de Jugabilidad (Estilo Bethesda) */}
-      <GameFeatures />
+      {/* 3. Catálogo de Producciones (Pok-Tschack + Próximo Proyecto TBA) */}
+      <StudioGamesShowcase featuredGame={featuredGame} />
 
-      {/* 4. Novedades y Devlogs del Estudio */}
+      {/* 4. ADN y Filosofía del Estudio (Física Determinista, Cero Pay-to-Win, Desarrollo Abierto) */}
+      <StudioPhilosophy />
+
+      {/* 5. Novedades y Devlogs de Ingeniería */}
       {recentNews.length > 0 && (
-        <section className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800" aria-labelledby="news-preview-title">
+        <section
+          className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
+          aria-labelledby="news-preview-title"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
                   Devlogs // Desarrollo
                 </span>
-                <h2 id="news-preview-title" className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-sans">
+                <h2
+                  id="news-preview-title"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-sans"
+                >
                   Novedades y Actualizaciones
                 </h2>
               </div>
@@ -69,7 +71,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* 5. Comunidad y Feedback */}
+      {/* 6. Comunidad y Canales de Feedback */}
       <div className="py-20 lg:py-24 bg-black">
         <CommunitySection />
       </div>
