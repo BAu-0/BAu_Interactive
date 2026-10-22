@@ -3,7 +3,7 @@
  * Cumplimiento estricto con RGPD (UE), ePrivacy y directrices de protección de datos.
  */
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-R7Z68W8SV6';
 
 export const CONSENT_STORAGE_KEY = 'bau_cookie_consent_v1';
 

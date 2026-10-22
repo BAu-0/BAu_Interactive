@@ -52,4 +52,10 @@ describe('Google Analytics 4 & Consent Mode v2 (RGPD / ePrivacy)', () => {
     trackEvent('click_play_beta', { game: 'pok-tschack' });
     expect(window.gtag).not.toHaveBeenCalledWith('event', expect.anything(), expect.anything());
   });
+
+  it('trackEvent envía eventos cuando el consentimiento está en "granted"', () => {
+    updateGtagConsent('granted');
+    trackEvent('click_play_beta', { game: 'pok-tschack' });
+    expect(window.gtag).toHaveBeenCalledWith('event', 'click_play_beta', { game: 'pok-tschack' });
+  });
 });
