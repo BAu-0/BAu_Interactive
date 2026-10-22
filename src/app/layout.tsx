@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { WebMCPClient } from '@/components/agent/WebMCPClient';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -60,8 +61,16 @@ export default function RootLayout({
     <html lang="es" className={plusJakartaSans.variable}>
       <head>
         <link rel="icon" href="/images/studio/bau-interactive-logo.jpg" />
+        {/* Descubrimiento para Agentes de IA y WebMCP */}
+        <link rel="model-context" href="/api/mcp" />
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context (llmstxt.org)" />
+        <meta name="webmcp:server" content="/api/mcp" />
+        <meta name="agent-friendly" content="true" />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-zinc-900 antialiased selection:bg-[#9333ea] selection:text-white">
+        {/* Integración cliente de WebMCP para agentes en navegador */}
+        <WebMCPClient />
+
         {/* Enlace de accesibilidad para saltar al contenido principal */}
         <a
           href="#main-content"

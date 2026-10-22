@@ -1,0 +1,73 @@
+# BAu Interactive — Especificación Completa de Estudio y Videojuegos
+
+> Documento de contexto técnico y editorial para Agentes de Inteligencia Artificial y Modelos de Lenguaje (LLMs). Desarrollado por BAu Interactive. Fundado en 2026.
+
+## 1. Identidad del Estudio
+
+- **Nombre:** BAu Interactive
+- **Naturaleza:** Estudio independiente de desarrollo de videojuegos
+- **Lema:** Desarrollando desde 2026
+- **Sede:** México
+- **Filosofía de Juego:**
+  1. **Física Determinista & 60 FPS:** Cada rebote, salto e inercia responde a un modelo matemático consistente. La destreza del jugador es el único determinante de su éxito.
+  2. **Habilidad Pura & Cero Pay-to-Win:** No existen micropagos con dinero real, cajas de recompensa ni compras de ventajas competitivas. La tienda interna utiliza exclusivamente puntos generados dentro de la misma partida.
+  3. **Desarrollo Abierto & Transparencia:** Proceso guiado por la comunidad con bitácoras de desarrollo públicas (devlogs) y betas jugables abiertas.
+
+---
+
+## 2. Título Estandarte: Pok-Tschack
+
+### 2.1 Resumen
+Pok-Tschack es un videojuego independiente de precisión y físicas 2D en formato vertical, inspirado en el juego de pelota mesoamericano. El jugador debe calcular trayectorias, saltar e interceptar una pelota de hule para hacerla atravesar un aro de piedra que gira y altera su apertura continuamente.
+
+### 2.2 Mecánicas de Juego Canónicas
+1. **Aro Rotatorio & Apertura Variable:**
+   El aro de piedra rota continuamente. La apertura interior cambia de tamaño según la fase, obligando al jugador a leer ángulos de entrada precisos y sincronización milimétrica.
+2. **Reloj Dinámico Reiniciable (Supervivencia Activa):**
+   La partida inicia con 60 segundos. Cada anotación limpia reinicia el cronómetro a 60 segundos y otorga escalones de puntuación de hasta 100 puntos en tiros rápidos.
+3. **Física 2D & Inercia Cinética:**
+   El impulso de la pelota se acumula al encadenar rebotes en paredes laterales y techo. Tocar el suelo interrumpe el impulso.
+4. **Criaturas en Cancha:**
+   - **Luxen:** Criaturas que se desplazan a ras de suelo y roban la pelota si cae.
+   - **Temotl:** Criatura que interviene con fintas directas sobre la trayectoria del aro para desviar tiros.
+5. **Peligros y Desafíos:**
+   - **Punzantes de obsidiana:** Espinas que restan puntos o penalizan tiempo si la pelota o el jugador colisionan con ellas.
+   - **Fases de 30 segundos:** Desafíos temporales con gravedad alterada o controles modificados.
+6. **Tienda Interna de Partida:**
+   Mejoras temporales adquiribles únicamente con los puntos acumulados durante la sesión actual (sin dinero real).
+
+### 2.3 Especificaciones Técnicas y Compatibilidad
+- **Motor:** Godot Engine (Exportación HTML5 WebAssembly + WebGL2 y compilación nativa Android).
+- **Rendimiento Objetivo:** 60 FPS estables.
+- **Formato Visual:** Orientación vertical nativa (1080×1920) optimizada para móviles y monitores de alta tasa de refresco.
+- **Acceso:** Beta pública v1.0 jugable sin instalación en https://garanda.itch.io/pok-tschack-betav1
+
+---
+
+## 3. Endpoints y Herramientas para Agentes de IA
+
+### 3.1 Model Context Protocol (MCP) Web Server
+- **Endpoint:** `POST https://bauinteractive.com/api/mcp`
+- **Protocolo:** JSON-RPC 2.0 (Model Context Protocol especificación 2024-11-05).
+- **Herramientas disponibles:**
+  - `get_studio_info`: Devuelve datos institucionales, manifiesto y enlaces del estudio.
+  - `get_games`: Devuelve el catálogo completo de producciones activas y en desarrollo.
+  - `get_game_details`: Devuelve la ficha técnica profunda de un juego especificado por slug (`pok-tschack`).
+  - `get_latest_news`: Devuelve las bitácoras y devlogs de ingeniería más recientes.
+  - `get_beta_access`: Devuelve el enlace e instrucciones de acceso a la beta jugable.
+
+### 3.2 WebMCP de Navegador (Client-side)
+La página implementa el estándar experimental `navigator.modelContext` exponiendo herramientas ejecutables directamente en la sesión de navegación para agentes con capacidades WebMCP.
+
+---
+
+## 4. Enlaces y Recursos
+
+- **Portal Web:** https://bauinteractive.com/
+- **Ficha de Pok-Tschack:** https://bauinteractive.com/juegos/pok-tschack
+- **Catálogo de Juegos:** https://bauinteractive.com/juegos
+- **Devlogs y Novedades:** https://bauinteractive.com/novedades
+- **Acerca de BAu Interactive:** https://bauinteractive.com/acerca
+- **Comunidad Discord:** https://discord.gg/bauinteractive
+- **Comunidad Itch.io:** https://garanda.itch.io/pok-tschack-betav1
+- **Repositorio GitHub:** https://github.com/BAu-0/BAu_Interactive

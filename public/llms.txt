@@ -1,0 +1,27 @@
+# BAu Interactive
+
+> Estudio independiente de desarrollo de videojuegos enfocado en mecánicas de alta precisión, físicas deterministas, control fluido a 60 FPS y destreza pura. Desarrollando desde 2026.
+
+## Título Principal
+
+- [Pok-Tschack](https://bauinteractive.com/juegos/pok-tschack): Videojuego arcade vertical 2D de física e interceptación inspirado en el juego de pelota mesoamericano.
+- [Probar Beta de Pok-Tschack](https://garanda.itch.io/pok-tschack-betav1): Beta v1.0 jugable directamente en navegador web (HTML5) y Android sin costo ni compras integradas.
+
+## El Estudio y Producciones
+
+- [Portada Oficial](https://bauinteractive.com/): Portal principal de BAu Interactive con spotlight de producciones.
+- [Acerca del Estudio](https://bauinteractive.com/acerca): Manifiesto, filosofía de diseño, rechazo a prácticas predatorias (0 Pay-to-Win) y proceso abierto.
+- [Catálogo de Producciones](https://bauinteractive.com/juegos): Registro completo de títulos del estudio (Pok-Tschack y futuros proyectos).
+- [Novedades y Devlogs](https://bauinteractive.com/novedades): Bitácora de ingeniería, notas de versión y calibraciones físicas.
+- [Clasificación y Puntuaciones](https://bauinteractive.com/clasificacion): Marcadores globales y mejores puntuaciones de Pok-Tschack.
+
+## Servidor Model Context Protocol (MCP)
+
+- [Servidor Web MCP](https://bauinteractive.com/api/mcp): Endpoint JSON-RPC 2.0 compatible con el estándar Model Context Protocol para interactuar con agentes de IA.
+- [Contexto Exhaustivo para LLMs](https://bauinteractive.com/llms-full.txt): Especificación detallada de reglas, mecánicas y entidades del juego.
+
+## Canales Oficiales y Comunidad
+
+- [Itch.io](https://garanda.itch.io/pok-tschack-betav1): Canal de distribución de la beta pública y feedback de jugadores.
+- [Discord](https://discord.gg/bauinteractive): Servidor oficial de la comunidad de BAu Interactive.
+- [GitHub](https://github.com/BAu-0/BAu_Interactive): Repositorio oficial y código de la plataforma web.
