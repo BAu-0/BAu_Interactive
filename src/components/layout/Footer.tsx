@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
 import { GithubIcon, DiscordIcon } from '@/components/icons/BrandIcons';
+import { CookiePreferencesButton } from '@/components/analytics/CookiePreferencesButton';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -122,7 +123,8 @@ export function Footer() {
           <div>
             &copy; {currentYear} BAu Interactive. Todos los derechos reservados.
           </div>
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <CookiePreferencesButton />
             <Link href="/privacidad" className="hover:text-zinc-300 transition-colors">
               Privacidad de Datos
             </Link>

@@ -4,6 +4,8 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WebMCPClient } from '@/components/agent/WebMCPClient';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { CookieBanner } from '@/components/analytics/CookieBanner';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -66,8 +68,14 @@ export default function RootLayout({
         <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context (llmstxt.org)" />
         <meta name="webmcp:server" content="/api/mcp" />
         <meta name="agent-friendly" content="true" />
+
+        {/* Google Analytics 4 con Consent Mode v2 (Cumplimiento RGPD / ePrivacy) */}
+        <GoogleAnalytics />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-zinc-900 antialiased selection:bg-[#9333ea] selection:text-white">
+        {/* Banner y gestor de consentimiento de cookies RGPD */}
+        <CookieBanner />
+
         {/* Integración cliente de WebMCP para agentes en navegador */}
         <WebMCPClient />
 

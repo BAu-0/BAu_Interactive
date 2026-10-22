@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { CookiePreferencesButton } from '@/components/analytics/CookiePreferencesButton';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad',
@@ -49,11 +50,33 @@ export default function PrivacyPage() {
 
       <section className="space-y-3">
         <h2 className="text-base font-bold uppercase text-zinc-950">
-          3. Cookies & Almacenamiento Local
+          3. Cookies, Analítica Web y Cumplimiento RGPD / ePrivacy
         </h2>
         <p className="text-sm leading-relaxed">
-          No empleamos cookies publicitarias ni trackers de terceros. Solo se utilizan claves locales de almacenamiento en el cliente para mantener preferencias técnicas y ajustes de control.
+          En cumplimiento con el <strong>Reglamento General de Protección de Datos (RGPD UE 2016/679)</strong>, la <strong>Directiva ePrivacy</strong> y normativas internacionales de privacidad:
         </p>
+        <ul className="text-sm list-disc list-inside space-y-1.5 pl-2 text-zinc-800">
+          <li>
+            <strong>Cookies Técnicas / Esenciales:</strong> Almacenan únicamente las preferencias de control y el estado de tu consentimiento. No recaban datos personales ni requieren consentimiento previo por ser estrictamente necesarias para el servicio.
+          </li>
+          <li>
+            <strong>Google Analytics 4 con Consent Mode v2:</strong> Utilizamos Google Analytics únicamente con fines estadísticos agregados (medición de páginas visitadas, tiempos de respuesta y enlaces de descarga). Todas las categorías de almacenamiento se inician en estado bloqueado (<code>denied</code>) y <strong>solo se activan si otorgas tu consentimiento explícito</strong>.
+          </li>
+          <li>
+            <strong>Anonimización de IP:</strong> Las direcciones IP son truncadas y anonimizadas automáticamente antes de procesarse, impidiendo la identificación del usuario.
+          </li>
+          <li>
+            <strong>Cero Fines Publicitarios:</strong> No compartimos datos con redes publicitarias de terceros, no realizamos remarketing ni perfilado invasivo.
+          </li>
+        </ul>
+        <div className="pt-2">
+          <p className="text-xs text-zinc-600 mb-2">
+            Puedes revocar o modificar tu consentimiento en cualquier momento:
+          </p>
+          <div className="inline-block p-2 bg-zinc-100 rounded border border-zinc-200 text-xs font-semibold text-purple-700">
+            <CookiePreferencesButton className="text-[#7e22ce] hover:text-[#9333ea] font-bold underline" />
+          </div>
+        </div>
       </section>
 
       <section className="space-y-3">
