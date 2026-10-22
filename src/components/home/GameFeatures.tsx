@@ -12,6 +12,7 @@ interface GameFeatureItem {
   sprite?: string;
   spriteAlt?: string;
   icon?: React.ComponentType<{ className?: string }>;
+  video: string;
 }
 
 const GAME_FEATURES: GameFeatureItem[] = [
@@ -23,6 +24,7 @@ const GAME_FEATURES: GameFeatureItem[] = [
       'El aro de piedra gira de forma continua en la cancha. El reto exige leer el ángulo y calcular el momento exacto en que la apertura permite el cruce limpio de la pelota.',
     sprite: '/images/pok-tschack/sprites/pelota.png',
     spriteAlt: 'Pelota de juego y trayectoria',
+    video: '/videos/features/feature-ring.mp4',
   },
   {
     id: 'clock',
@@ -31,6 +33,7 @@ const GAME_FEATURES: GameFeatureItem[] = [
     description:
       'Cada gol reinicia el tiempo a 60 segundos. La partida dura lo que tu destreza permita prolongar. Los tiros rápidos premian con escalones de hasta 100 puntos.',
     icon: Clock,
+    video: '/videos/features/feature-clock.mp4',
   },
   {
     id: 'physics',
@@ -40,6 +43,7 @@ const GAME_FEATURES: GameFeatureItem[] = [
       'Encadenar contactos aéreos y rebotes contra paredes y techo acumula velocidad e inercia. Tocar el suelo interrumpe el impulso sin eliminarte.',
     sprite: '/images/pok-tschack/sprites/grecas.png',
     spriteAlt: 'Grecas de rebote en cancha',
+    video: '/videos/features/feature-physics.mp4',
   },
   {
     id: 'creatures',
@@ -49,6 +53,7 @@ const GAME_FEATURES: GameFeatureItem[] = [
       'Los Luxen atrapan la pelota a ras de suelo y Temotl interviene con fintas directas sobre el aro, obligándote a rectificar la trayectoria en milisegundos.',
     sprite: '/images/pok-tschack/sprites/POK-TSCHACK-TEMOTL.png',
     spriteAlt: 'Temotl en cancha',
+    video: '/videos/features/feature-creatures.mp4',
   },
   {
     id: 'hazards',
@@ -58,6 +63,7 @@ const GAME_FEATURES: GameFeatureItem[] = [
       'Peligros de obsidiana junto al aro que penalizan puntos, junto a fases breves de 30 segundos con gravedad modificada o controles invertidos.',
     sprite: '/images/pok-tschack/sprites/punzantes.png',
     spriteAlt: 'Punzantes de obsidiana',
+    video: '/videos/features/feature-hazards.mp4',
   },
   {
     id: 'pure-skill',
@@ -66,6 +72,7 @@ const GAME_FEATURES: GameFeatureItem[] = [
     description:
       'Sin micropagos con dinero real ni ventajas prediseñadas. La tienda interna utiliza exclusivamente los puntos generados en la misma partida para mejoras temporales.',
     icon: ShieldCheck,
+    video: '/videos/features/feature-skill.mp4',
   },
 ];
 
@@ -101,16 +108,35 @@ export function GameFeatures() {
             return (
               <div
                 key={feature.id}
-                className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-[#a855f7]/60 hover:shadow-xl hover:shadow-purple-950/20 transition-all duration-200 flex flex-col justify-between"
+                className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950/90 border border-zinc-800 hover:border-[#a855f7]/60 hover:shadow-2xl hover:shadow-purple-950/20 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
-                <div>
+                {/* Video de fondo en close-up con loop auténtico del gameplay */}
+                {feature.video && (
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                    <video
+                      src={feature.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-500"
+                      style={{ imageRendering: 'pixelated' }}
+                    />
+                    {/* Gradientes para garantizar contraste WCAG de los textos */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-zinc-950/85 to-zinc-950/50" />
+                    <div className="absolute inset-0 bg-zinc-950/30 backdrop-blur-[0.5px]" />
+                  </div>
+                )}
+
+                {/* Contenido en primer plano */}
+                <div className="relative z-10">
                   {/* Encabezado de la Tarjeta: Badge Semántico y Preview Visual */}
                   <div className="flex items-center justify-between mb-5">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:border-[#a855f7]/40 group-hover:text-[#a855f7] transition-colors">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 text-zinc-300 group-hover:border-[#a855f7]/40 group-hover:text-[#a855f7] transition-colors">
                       {feature.tag}
                     </span>
 
-                    <div className="w-12 h-12 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center p-2 group-hover:border-[#a855f7]/50 transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 flex items-center justify-center p-2 group-hover:border-[#a855f7]/50 transition-colors">
                       {feature.sprite ? (
                         <div className="relative w-8 h-8 flex items-center justify-center">
                           <Image
@@ -129,7 +155,7 @@ export function GameFeatures() {
                   </div>
 
                   {/* Título de la Característica */}
-                  <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wide mb-2.5 font-sans leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wide mb-2.5 font-sans leading-snug drop-shadow-sm">
                     {feature.title}
                   </h3>
 
@@ -140,7 +166,7 @@ export function GameFeatures() {
                 </div>
 
                 {/* Acento inferior sutil al hacer hover */}
-                <div className="mt-6 pt-3 border-t border-zinc-900/80 flex items-center justify-end text-[11px] font-mono">
+                <div className="relative z-10 mt-6 pt-3 border-t border-zinc-800/80 flex items-center justify-end text-[11px] font-mono">
                   <span className="text-[#a855f7] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
                     EXPLORAR &rarr;
                   </span>

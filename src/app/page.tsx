@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getFeaturedGame, getNewsPosts } from '@/lib/data/api';
 import { StudioHero } from '@/components/home/StudioHero';
 import { FeaturedGameSpotlight } from '@/components/home/FeaturedGameSpotlight';
+import { GameFeatures } from '@/components/home/GameFeatures';
 import { StudioGamesShowcase } from '@/components/home/StudioGamesShowcase';
 import { StudioPhilosophy } from '@/components/home/StudioPhilosophy';
 import { CommunitySection } from '@/components/home/CommunitySection';
@@ -27,7 +28,10 @@ export default async function HomePage() {
       {/* 2. Spotlight de Pok-Tschack (Primer Scroll - Título Estandarte con Redirección a Ficha) */}
       <FeaturedGameSpotlight game={featuredGame} />
 
-      {/* 3. Catálogo de Producciones (Pok-Tschack + Próximo Proyecto TBA) */}
+      {/* 3. Vitrina de Jugabilidad y Mecánicas Canónicas (6 Cuadros con Video de Fondo) */}
+      <GameFeatures />
+
+      {/* 4. Catálogo de Producciones (Pok-Tschack + Próximo Proyecto TBA) */}
       <StudioGamesShowcase featuredGame={featuredGame} />
 
       {/* 4. ADN y Filosofía del Estudio */}
