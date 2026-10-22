@@ -108,7 +108,7 @@ export function GameFeatures() {
             return (
               <div
                 key={feature.id}
-                className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950/90 border border-zinc-800 hover:border-[#a855f7]/60 hover:shadow-2xl hover:shadow-purple-950/20 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-[#a855f7]/80 hover:shadow-2xl hover:shadow-purple-950/30 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 {/* Video de fondo en close-up con loop auténtico del gameplay */}
                 {feature.video && (
@@ -119,24 +119,23 @@ export function GameFeatures() {
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-500"
+                      className="w-full h-full object-cover opacity-65 group-hover:opacity-90 transition-opacity duration-300"
                       style={{ imageRendering: 'pixelated' }}
                     />
-                    {/* Gradientes para garantizar contraste WCAG de los textos */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-zinc-950/85 to-zinc-950/50" />
-                    <div className="absolute inset-0 bg-zinc-950/30 backdrop-blur-[0.5px]" />
+                    {/* Gradiente sutil para legibilidad cinematográfica sin tapar el video */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/30" />
                   </div>
                 )}
 
-                {/* Contenido en primer plano */}
+                {/* Contenido en primer plano con sombras protectoras */}
                 <div className="relative z-10">
                   {/* Encabezado de la Tarjeta: Badge Semántico y Preview Visual */}
                   <div className="flex items-center justify-between mb-5">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 text-zinc-300 group-hover:border-[#a855f7]/40 group-hover:text-[#a855f7] transition-colors">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-black/80 backdrop-blur-md border border-zinc-700/80 text-zinc-200 group-hover:border-[#a855f7]/60 group-hover:text-[#a855f7] transition-colors shadow-sm">
                       {feature.tag}
                     </span>
 
-                    <div className="w-12 h-12 rounded-lg bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 flex items-center justify-center p-2 group-hover:border-[#a855f7]/50 transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-black/80 backdrop-blur-md border border-zinc-700/80 flex items-center justify-center p-2 group-hover:border-[#a855f7]/60 transition-colors shadow-sm">
                       {feature.sprite ? (
                         <div className="relative w-8 h-8 flex items-center justify-center">
                           <Image
@@ -155,19 +154,19 @@ export function GameFeatures() {
                   </div>
 
                   {/* Título de la Característica */}
-                  <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wide mb-2.5 font-sans leading-snug drop-shadow-sm">
+                  <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wide mb-2.5 font-sans leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
                     {feature.title}
                   </h3>
 
                   {/* Descripción Directa */}
-                  <p className="text-sm text-zinc-400 leading-relaxed font-sans">
+                  <p className="text-sm text-zinc-200 leading-relaxed font-sans drop-shadow-[0_1px_3px_rgba(0,0,0,0.95)]">
                     {feature.description}
                   </p>
                 </div>
 
                 {/* Acento inferior sutil al hacer hover */}
-                <div className="relative z-10 mt-6 pt-3 border-t border-zinc-800/80 flex items-center justify-end text-[11px] font-mono">
-                  <span className="text-[#a855f7] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
+                <div className="relative z-10 mt-6 pt-3 border-t border-zinc-800/90 flex items-center justify-end text-[11px] font-mono">
+                  <span className="text-[#a855f7] opacity-0 group-hover:opacity-100 transition-opacity font-semibold drop-shadow-sm">
                     EXPLORAR &rarr;
                   </span>
                 </div>
