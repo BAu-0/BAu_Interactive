@@ -23,5 +23,5 @@
 ## Canales Oficiales y Comunidad
 
 - [Itch.io](https://garanda.itch.io/pok-tschack-betav1): Canal de distribución de la beta pública y feedback de jugadores.
-- [Discord](https://discord.gg/bauinteractive): Servidor oficial de la comunidad de BAu Interactive.
+- [Discord](https://discord.gg/BTNA7EEQG): Servidor oficial de la comunidad de BAu Interactive.
 - [GitHub](https://github.com/BAu-0/BAu_Interactive): Repositorio oficial y código de la plataforma web.

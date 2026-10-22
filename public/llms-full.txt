@@ -68,6 +68,6 @@ La página implementa el estándar experimental `navigator.modelContext` exponie
 - **Catálogo de Juegos:** https://bauinteractive.com/juegos
 - **Devlogs y Novedades:** https://bauinteractive.com/novedades
 - **Acerca de BAu Interactive:** https://bauinteractive.com/acerca
-- **Comunidad Discord:** https://discord.gg/bauinteractive
+- **Comunidad Discord:** https://discord.gg/BTNA7EEQG
 - **Comunidad Itch.io:** https://garanda.itch.io/pok-tschack-betav1
 - **Repositorio GitHub:** https://github.com/BAu-0/BAu_Interactive

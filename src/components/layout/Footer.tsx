@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'soporte@bauinteractive.com';
   const redditUrl = process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
-  const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/bauinteractive';
+  const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/BTNA7EEQG';
   const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/BAu-0/BAu_Interactive';
 
   return (

@@ -262,7 +262,7 @@ export async function POST(req: NextRequest) {
             links: {
               website: 'https://bauinteractive.com',
               itch: 'https://garanda.itch.io/pok-tschack-betav1',
-              discord: 'https://discord.gg/bauinteractive',
+              discord: 'https://discord.gg/BTNA7EEQG',
               github: 'https://github.com/BAu-0/BAu_Interactive',
             },
           };

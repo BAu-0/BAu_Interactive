@@ -152,7 +152,7 @@ export const FALLBACK_SOCIAL_LINKS = [
     id: 's-2',
     platform: 'discord' as const,
     label: 'Discord Oficial',
-    url: process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/bauinteractive',
+    url: process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/BTNA7EEQG',
     enabled: true,
   },
   {

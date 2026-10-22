@@ -50,7 +50,7 @@ ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value;
 -- Enlaces de Redes y Comunidad
 INSERT INTO public.social_links (platform, url, label, enabled, sort_order) VALUES
 ('reddit', 'https://reddit.com/r/BAuInteractive', 'r/BAuInteractive', true, 1),
-('discord', 'https://discord.gg/bauinteractive', 'Servidor de Discord', true, 2),
+('discord', 'https://discord.gg/BTNA7EEQG', 'Servidor de Discord', true, 2),
 ('github', 'https://github.com/BAu-0/BAu_Interactive', 'GitHub Oficial', true, 3)
 ON CONFLICT DO NOTHING;
 

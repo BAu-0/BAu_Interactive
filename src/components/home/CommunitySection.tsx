@@ -4,7 +4,7 @@ import { GithubIcon, DiscordIcon } from '@/components/icons/BrandIcons';
 
 export function CommunitySection() {
   const feedbackUrl = process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://garanda.itch.io/pok-tschack-betav1';
-  const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/bauinteractive';
+  const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/BTNA7EEQG';
   const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/BAu-0/BAu_Interactive';
 
   return (
