@@ -35,8 +35,8 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             </h2>
           </div>
           <p className="text-sm sm:text-base text-zinc-400 max-w-md font-sans leading-relaxed">
-            Cada proyecto concebido en el estudio responde a una misma premisa: desafío justo,
-            respuesta inmediata y control milimétrico.
+            Cada proyecto concebido en el estudio responde a una misma convicción: desafío auténtico,
+            ideas originales y diversión que respeta la inteligencia del jugador.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
               <div>
                 <span className="text-[11px] font-mono text-[#a855f7] font-semibold uppercase tracking-wider block mb-2">
-                  ARCADE VERTICAL 2D // FÍSICAS DE PRECISIÓN
+                  ARCADE VERTICAL 2D // HABILIDAD Y REFLEJOS
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide font-sans mb-3">
                   {featuredGame.title}
@@ -97,7 +97,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                   href={`/juegos/${featuredGame.slug}`}
                   className="inline-flex items-center justify-center space-x-2 px-6 h-11 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-bold uppercase tracking-wider border border-zinc-750 hover:border-[#a855f7]/60 transition-colors"
                 >
-                  <span>Ver Ficha Técnica Completa</span>
+                  <span>Ficha del Juego</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#a855f7]" />
                 </Link>
 
@@ -146,14 +146,14 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
               <div>
                 <span className="text-[11px] font-mono text-zinc-500 font-semibold uppercase tracking-wider block mb-2">
-                  NUEVA PRODUCCIÓN EN DESARROLLO
+                  PROYECTO EN DESARROLLO
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide font-sans mb-3">
-                  Próximamente
+                  Próxima Producción
                 </h3>
                 <p className="text-sm text-zinc-400 font-sans leading-relaxed">
-                  Nueva propuesta de videojuego independiente concebida bajo nuestra filosofía de
-                  físicas deterministas, reto justo y control milimétrico.
+                  Nuevo proyecto interactivo concebido bajo nuestra filosofía: experiencias desafiantes,
+                  ideas originales y diversión sin concesiones.
                 </p>
               </div>
 

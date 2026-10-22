@@ -83,7 +83,7 @@ export default async function GameDetailPage({ params }: Props) {
 
               <div className="flex items-center space-x-2 text-xs font-mono text-zinc-400">
                 <Monitor className="w-4 h-4 text-[#a855f7]" />
-                <span>GODOT ENGINE // RENDERIZADO 60 FPS</span>
+                <span>PLATAFORMAS // SOPORTE OFICIAL</span>
               </div>
             </div>
 
@@ -98,7 +98,7 @@ export default async function GameDetailPage({ params }: Props) {
                       {req.platform}
                     </h3>
                     <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-zinc-900 border border-zinc-700 text-[#a855f7]">
-                      60 FPS NATIVO
+                      DISPONIBLE
                     </span>
                   </div>
 
@@ -133,7 +133,7 @@ export default async function GameDetailPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
-                  Bitácora de Ingeniería
+                  Notas de Desarrollo
                 </span>
                 <h2
                   id="related-news-title"
@@ -147,7 +147,7 @@ export default async function GameDetailPage({ params }: Props) {
                 href="/novedades"
                 className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-[#a855f7] transition-colors group"
               >
-                <span>Ver todos los devlogs</span>
+                <span>Ver todas las novedades</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -166,7 +166,7 @@ export default async function GameDetailPage({ params }: Props) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-[#a855f7]">
             <ShieldCheck className="w-4 h-4 text-[#a855f7]" />
-            <span>ACCESO PÚBLICO // SIN REGISTRO OBLIGATORIO</span>
+            <span>BETA PÚBLICA // ACCESO LIBRE</span>
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold uppercase tracking-tight text-white font-sans">
             ¿Listo para poner a prueba tu lectura de cancha?

@@ -85,7 +85,7 @@ export default async function NewsDetailPage({ params }: Props) {
           className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-zinc-600 hover:text-[#7e22ce] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Volver al Changelog</span>
+          <span>Volver a Novedades</span>
         </Link>
       </div>
 

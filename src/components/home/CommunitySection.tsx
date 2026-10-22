@@ -21,7 +21,7 @@ export function CommunitySection() {
           </h2>
 
           <p className="text-sm text-zinc-400 leading-relaxed font-sans pb-2">
-            Como estudio independiente, tus comentarios tras probar la beta de <strong>Pok-Tschack</strong> son esenciales. ¿Qué ocurrió en tu partida? Cuéntanos qué funcionó, qué resultó confuso y en qué dispositivo o navegador jugaste.
+            Tus impresiones y comentarios tras probar la beta de <strong>Pok-Tschack</strong> son directos para la evolución del juego. Comparte tus partidas, retos superados o cualquier sugerencia para seguir puliendo la experiencia.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">

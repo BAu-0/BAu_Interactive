@@ -30,7 +30,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-zinc-400 max-w-md leading-relaxed font-sans">
-              Estudio independiente de desarrollo de videojuegos. Diseñado con una arquitectura limpia, física de precisión, estética arcade y transparencia absoluta con la comunidad.
+              Estudio independiente de entretenimiento interactivo. Creamos experiencias desafiantes, ideas originales y videojuegos donde la diversión del jugador es la máxima prioridad.
             </p>
             {supportEmail && (
               <div className="flex items-center space-x-2 text-xs text-zinc-400 pt-1">

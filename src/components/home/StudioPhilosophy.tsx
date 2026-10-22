@@ -1,30 +1,30 @@
 'use client';
 
 import React from 'react';
-import { Cpu, ShieldCheck, MessageSquareCode, ArrowRight } from 'lucide-react';
+import { Sparkles, Gamepad2, ShieldCheck, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const PILLARS = [
   {
-    icon: Cpu,
-    tag: 'ARQUITECTURA DE JUEGO',
-    title: 'Física Determinista & 60 FPS',
+    icon: Gamepad2,
+    tag: 'JUGABILIDAD',
+    title: 'Reto y Diversión Genuina',
     description:
-      'Cada salto, rebote y aceleración cinemática responde a un modelo matemático consistente. La precisión de tus reflejos determina el éxito, sin aleatoriedad artificial.',
+      'Un juego debe cumplir siempre su promesa: ser auténticamente divertido. Ya sea una partida rápida para despejarte o un desafío que exija toda tu concentración, diseñamos experiencias que ponen a prueba tu habilidad y premian tu esfuerzo sin llevarte de la mano.',
+  },
+  {
+    icon: Sparkles,
+    tag: 'IDENTIDAD',
+    title: 'Creatividad Sin Concesiones',
+    description:
+      'Rechazamos las fórmulas repetitivas y las tendencias pasajeras. Cada proyecto concebido en BAu Interactive nace de ideas originales y una visión clara, aprovechando al máximo cada recurso para ofrecer propuestas frescas y con personalidad propia.',
   },
   {
     icon: ShieldCheck,
-    tag: 'RESPETO AL JUGADOR',
-    title: 'Habilidad Pura & Cero Pay-to-Win',
+    tag: 'CALIDAD DE ESTUDIO',
+    title: 'Experiencias Interactivas Sólidas',
     description:
-      'Rechazamos de raíz las prácticas predatorias: sin compras integradas abusivas, sin ventajas prediseñadas y sin anuncios que interrumpan la concentración.',
-  },
-  {
-    icon: MessageSquareCode,
-    tag: 'PROCESO ABIERTO',
-    title: 'Desarrollo Transparente con la Comunidad',
-    description:
-      'Construimos junto a los jugadores. Calibramos inercia, sensibilidad de controles y dificultad evaluando directamente las bitácoras y comentarios de la beta.',
+      'Respuesta de control inmediata, diseño enfocado y acabado pulido. Desarrollamos juegos pensados para atrapar desde el primer segundo, respetar el tiempo del jugador y dejar una huella duradera.',
   },
 ];
 
@@ -39,7 +39,7 @@ export function StudioPhilosophy() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div className="max-w-2xl space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] block font-sans">
-              Filosofía del Estudio
+              Filosofía de Desarrollo
             </span>
             <h2
               id="philosophy-title"
@@ -49,8 +49,7 @@ export function StudioPhilosophy() {
             </h2>
           </div>
           <p className="text-sm sm:text-base text-zinc-400 max-w-md font-sans leading-relaxed">
-            Nuestros principios de diseño gobiernan cada línea de código, cada calibración de motor y
-            cada experiencia que publicamos.
+            Nuestra visión guía cada proyecto: retos justos, creatividad sin ataduras y videojuegos diseñados para divertir de verdad.
           </p>
         </div>
 
@@ -84,11 +83,8 @@ export function StudioPhilosophy() {
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-500">
-                  <span className="text-zinc-600 group-hover:text-zinc-400 transition-colors">
-                    ESTÁNDAR // 0{idx + 1}
-                  </span>
-                  <span className="text-[#a855f7] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
-                    CANÓNICO
+                  <span className="text-zinc-500 text-[11px] uppercase tracking-wider">
+                    PRINCIPIO 0{idx + 1}
                   </span>
                 </div>
               </div>
@@ -102,7 +98,7 @@ export function StudioPhilosophy() {
             href="/acerca"
             className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-[#a855f7] transition-colors"
           >
-            <span>Conoce más sobre nuestra visión y manifiesto de desarrollo</span>
+            <span>Conoce más sobre la filosofía y visión del estudio</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

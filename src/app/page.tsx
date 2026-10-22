@@ -30,10 +30,10 @@ export default async function HomePage() {
       {/* 3. Catálogo de Producciones (Pok-Tschack + Próximo Proyecto TBA) */}
       <StudioGamesShowcase featuredGame={featuredGame} />
 
-      {/* 4. ADN y Filosofía del Estudio (Física Determinista, Cero Pay-to-Win, Desarrollo Abierto) */}
+      {/* 4. ADN y Filosofía del Estudio */}
       <StudioPhilosophy />
 
-      {/* 5. Novedades y Devlogs de Ingeniería */}
+      {/* 5. Novedades y Actualizaciones del Estudio */}
       {recentNews.length > 0 && (
         <section
           className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
@@ -43,7 +43,7 @@ export default async function HomePage() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
-                  Devlogs // Desarrollo
+                  Actualizaciones // Estudio
                 </span>
                 <h2
                   id="news-preview-title"

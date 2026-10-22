@@ -20,13 +20,13 @@ export default async function LeaderboardPage() {
       {/* Cabecera */}
       <div className="max-w-3xl">
         <span className="text-xs font-bold uppercase tracking-widest text-[#7e22ce] mb-2 block">
-          Telemetría de Cancha // Top 15
+          Marcas Oficiales // Top 15
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 uppercase mb-4">
           Salón de Marcas
         </h1>
         <p className="text-sm text-zinc-600 leading-relaxed font-sans">
-          Registro de las 15 mejores marcas obtenidas en <strong>Pok-Tschack</strong> y títulos de BAu Interactive. En la fase de beta actual las puntuaciones se guardan localmente y este tablero proyecta las marcas de referencia y telemetría de prueba del estudio.
+          Registro de las 15 mejores marcas obtenidas en <strong>Pok-Tschack</strong> y títulos de BAu Interactive. En la fase de beta actual las puntuaciones se guardan localmente y este tablero proyecta las mejores marcas registradas por los jugadores.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default async function LeaderboardPage() {
               <strong className="text-zinc-900">Goles vs. Puntos:</strong> Los goles acumulados aumentan la dificultad y prolongan la partida, mientras que los puntos reflejan la rapidez y precisión de cada gol.
             </li>
             <li>
-              <strong className="text-zinc-900">Próxima Telemetría Global:</strong> El sistema de ranking sincronizado en tiempo real se implementará de cara al lanzamiento móvil.
+              <strong className="text-zinc-900">Sincronización Global:</strong> El sistema de clasificación global sincronizada en tiempo real se habilitará con el lanzamiento en dispositivos móviles.
             </li>
           </ul>
         </div>

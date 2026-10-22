@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Cpu, ShieldCheck, Terminal, Play } from 'lucide-react';
+import { ArrowRight, Flame, Sparkles, Compass, Play } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Acerca del Estudio',
-  description: 'Filosofía de desarrollo y diseño independiente detrás de BAu Interactive.',
+  description: 'Filosofía, principios y visión de desarrollo de BAu Interactive.',
 };
 
 export default function AboutPage() {
@@ -15,13 +15,13 @@ export default function AboutPage() {
         {/* Cabecera */}
         <div className="space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-mono">
-            Manifiesto // Estudio Independiente
+            Estudio Independiente
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white uppercase">
             Acerca de BAu Interactive
           </h1>
-          <p className="text-base text-zinc-400 leading-relaxed font-sans">
-            Estudio independiente enfocado en mecánicas de alta precisión, control fluido a 60 FPS y desarrollo transparente con la comunidad de jugadores.
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
+            Desarrolladora independiente de entretenimiento interactivo enfocada en experiencias desafiantes, creatividad original y diversión sin concesiones.
           </p>
         </div>
 
@@ -29,34 +29,40 @@ export default function AboutPage() {
         <div className="space-y-10 border-t border-zinc-850 pt-10 text-base leading-relaxed text-zinc-300">
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white uppercase flex items-center space-x-2.5 font-sans">
-              <Cpu className="w-5 h-5 text-[#a855f7]" />
-              <span>Filosofía de Juego</span>
+              <Flame className="w-5 h-5 text-[#a855f7]" />
+              <span>Nuestra Filosofía de Juego</span>
             </h2>
             <p>
-              En <strong>BAu Interactive</strong> creamos videojuegos donde la respuesta de control, el ritmo y la física determinista son la prioridad. Rechazamos de raíz las prácticas predatorias: no existen compras integradas abusivas, pay-to-win ni anuncios invasivos que interrumpan la concentración del jugador.
+              En <strong>BAu Interactive</strong> vemos a los videojuegos como lo que siempre debieron ser: una combinación de arte, reto e ingenio donde la experiencia y diversión del jugador están al centro de cada decisión.
             </p>
             <p className="text-zinc-400">
-              Creemos en los retos auténticos donde cada segundo cuenta y donde la destreza motriz y la lectura táctica del jugador determinan el éxito de cada intento.
+              Rechazamos las fórmulas repetitivas, los clones sin alma y las limitaciones creativas impuestas por modas pasajeras. Diseñamos títulos donde cada acierto cuesta, cada avance se siente ganado y donde el reto respeta la inteligencia y habilidad del jugador.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white uppercase flex items-center space-x-2.5 font-sans">
-              <ShieldCheck className="w-5 h-5 text-[#a855f7]" />
-              <span>Proyecto Actual: Pok-Tschack</span>
+              <Sparkles className="w-5 h-5 text-[#a855f7]" />
+              <span>Diversión en su Propósito</span>
             </h2>
             <p>
-              Nuestro primer título estandarte es <strong>Pok-Tschack</strong>, un arcade vertical 2D de física e interceptación inspirado en el juego de pelota mesoamericano. Su núcleo se basa en golpear la pelota para hacerla cruzar un aro de piedra que gira y cambia de apertura, donde cada gol reinicia el reloj y permite resistir frente a las criaturas y desafíos de la cancha.
+              Nuestra regla de diseño es directa: si un juego está pensado para desconectar unos minutos, debe ser sumamente entretenido al instante; si es una experiencia que exige dedicación y maestría, debe ofrecer una satisfacción inigualable al conquistar cada hito.
+            </p>
+            <p className="text-zinc-400">
+              No creemos en llevar al jugador de la mano, sino en entregar reglas claras, controles intuitivos y desafíos justos para que cada triunfo sea mérito genuino del jugador.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white uppercase flex items-center space-x-2.5 font-sans">
-              <Terminal className="w-5 h-5 text-[#a855f7]" />
-              <span>Desarrollo Abierto & Feedback</span>
+              <Compass className="w-5 h-5 text-[#a855f7]" />
+              <span>Exploración y Futuro</span>
             </h2>
             <p>
-              El juego se encuentra actualmente en fase beta pública jugable desde el navegador en itch.io, con el objetivo prioritario de llegar a dispositivos móviles Android. Toda retroalimentación de los jugadores sobre sensibilidad de controles, balance de dificultad y rendimiento es evaluada directamente por el autor para afinar la experiencia.
+              <strong>Pok-Tschack</strong> marca nuestro debut oficial, reimaginando la tensión y la destreza del juego de pelota mesoamericano en una experiencia arcade contemporánea. Sin embargo, BAu Interactive no se detiene en un solo género ni en una sola estética.
+            </p>
+            <p className="text-zinc-400">
+              Somos un estudio en constante evolución: exploramos nuevas ideas, mecánicas audaces y proyectos interactivos que mantengan viva la chispa del descubrimiento y el reto en cada partida.
             </p>
           </section>
         </div>
@@ -67,7 +73,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-bold text-white uppercase tracking-wide mb-1 font-sans">
               Prueba Pok-Tschack en tu navegador
             </h3>
-            <p className="text-xs text-zinc-400 font-mono">Beta pública v1.0 en itch.io // 60 FPS</p>
+            <p className="text-xs text-zinc-400 font-sans">Beta pública jugable en itch.io</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <a
@@ -83,7 +89,7 @@ export default function AboutPage() {
               href="/juegos/pok-tschack"
               className="inline-flex items-center justify-center space-x-2 px-5 h-11 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider border border-zinc-750 hover:border-[#a855f7]/50 transition-all whitespace-nowrap"
             >
-              <span>Ficha Técnica</span>
+              <span>Ficha del Juego</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#a855f7]" />
             </Link>
           </div>

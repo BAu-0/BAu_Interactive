@@ -17,13 +17,13 @@ export default async function GamesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-12">
         <div className="max-w-2xl">
           <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block">
-            Catálogo // Desarrollo del Estudio
+            Catálogo // Títulos
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white uppercase mb-4">
             Producciones
           </h1>
           <p className="text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
-            Videojuegos independientes enfocados en mecánicas de habilidad pura, físicas deterministas y control fluido a 60 FPS.
+            Videojuegos independientes enfocados en reto auténtico, creatividad original y diversión sin concesiones.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export default async function GamesPage() {
                   <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-zinc-900 border border-zinc-700 text-[#a855f7]">
                     {game.status === 'beta' ? 'BETA ' + game.display_version : 'LANZAMIENTO'}
                   </span>
-                  <span className="text-xs text-zinc-400 font-mono">60 FPS</span>
+                  <span className="text-xs text-zinc-400 font-mono">ARCADE</span>
                 </div>
 
                 <div className="my-auto text-center py-2">
@@ -68,12 +68,12 @@ export default async function GamesPage() {
                     href={`/juegos/${game.slug}`}
                     className="inline-flex items-center space-x-1.5 font-bold uppercase tracking-wider text-white hover:text-[#a855f7] transition-colors"
                   >
-                    <span>Ficha Técnica</span>
+                    <span>Ficha del Juego</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#a855f7] group-hover:translate-x-0.5 transition-transform" />
                   </Link>
 
                   <span className="text-xs text-zinc-500 font-medium font-mono">
-                    HTML5 // Godot
+                    HTML5 // ANDROID
                   </span>
                 </div>
               </div>

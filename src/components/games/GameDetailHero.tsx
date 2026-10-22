@@ -212,7 +212,7 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
             <dl className="divide-y divide-zinc-800/60 text-xs space-y-2.5">
               <div className="flex justify-between pt-2">
                 <dt className="text-zinc-400">Género:</dt>
-                <dd className="font-bold text-white">Arcade 2D / Precisión y Físicas</dd>
+                <dd className="font-bold text-white">Arcade 2D / Habilidad y Reflejos</dd>
               </div>
               <div className="flex justify-between pt-2">
                 <dt className="text-zinc-400">Estado:</dt>
@@ -259,7 +259,7 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
 
           <div className="flex items-center space-x-1.5 text-[11px] font-mono text-zinc-400">
             <ShieldCheck className="w-3.5 h-3.5 text-[#a855f7]" />
-            <span>PRESENTACIÓN CANÓNICA DE ESTUDIO</span>
+            <span>PRODUCCIÓN OFICIAL // BAU INTERACTIVE</span>
           </div>
         </div>
       </div>
