@@ -58,6 +58,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/juegos" className="hover:text-white transition-colors">
+                  Catálogo
+                </Link>
+              </li>
+              <li>
                 <Link href="/juegos/pok-tschack" className="hover:text-white transition-colors">
                   Pok-Tschack (Beta)
                 </Link>

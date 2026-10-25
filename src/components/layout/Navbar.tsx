@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Gamepad2, Newspaper, Info } from 'lucide-react';
+import { Menu, X, Gamepad2, Newspaper, Info, Layers } from 'lucide-react';
 
 interface NavItem {
   label: string;
@@ -14,6 +14,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Inicio', href: '/', icon: Gamepad2 },
+  { label: 'Catálogo', href: '/juegos', icon: Layers },
   { label: 'Pok-Tschack (Beta)', href: '/juegos/pok-tschack', icon: Gamepad2 },
   { label: 'Novedades', href: '/novedades', icon: Newspaper },
   { label: 'El Estudio', href: '/acerca', icon: Info },
