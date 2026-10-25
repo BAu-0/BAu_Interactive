@@ -33,17 +33,17 @@ const GAME_FEATURES: GameFeatureItem[] = [
   },
   {
     id: 'court-events',
-    title: 'Desafíos en la Cancha',
+    title: 'Eventos en Cancha',
     description:
-      'Eventos imprevistos y condiciones cambiantes transforman la cancha en tiempo real, obligándote a adaptarte al instante para mantener la partida viva.',
-    video: '/videos/features/feature-creatures.mp4',
+      'Cerrojos de Mirones, robos de Luxen, fintas de Temotl y zonas de castigo transforman la cancha en tiempo real, obligándote a adaptarte al instante.',
+    video: '/videos/features/feature-events.mp4',
   },
   {
-    id: 'stages',
-    title: 'El Desafío',
+    id: 'challenge',
+    title: 'Etapa Desafío',
     description:
-      'La partida introduce etapas de desafío donde la intensidad se dispara, poniendo a prueba tus reflejos y concentración para superar cada prueba.',
-    video: '/videos/features/feature-hazards.mp4',
+      'Rondas límite de 30 segundos donde la intensidad se dispara: aros en vaivén, gravedad alterada y reloj acelerado para poner a prueba tu temple bajo presión.',
+    video: '/videos/features/feature-challenge.mp4',
   },
   {
     id: 'arcade-experience',
