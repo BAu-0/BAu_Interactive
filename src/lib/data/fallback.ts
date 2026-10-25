@@ -7,7 +7,7 @@ export const FALLBACK_GAME: Game = {
   slug: 'pok-tschack',
   title: 'Pok-Tschack',
   short_description:
-    'Domina los rebotes, atraviesa un aro de apertura cambiante y anota para ganar más tiempo. Un arcade vertical 2D de habilidad y reflejos inspirado en el juego de pelota mesoamericano.',
+    'Domina la cancha, logra anotar para mantener la partida corriendo. Pok-Tschack; un arcade vertical 2D que pondrá a prueba tus habilidades en la cancha del juego de pelota.',
   full_description:
     'Pok-Tschack es un videojuego independiente de arcade 2D y precisión en formato vertical, inspirado en el juego de pelota mesoamericano. Muévete, salta e intercepta la pelota para hacerla cruzar un aro de piedra que gira y altera continuamente su apertura. Cada gol reinicia el reloj y prolonga la partida mientras la cancha introduce criaturas, trampas y desafíos que ponen a prueba tu capacidad de adaptación y reflejos.',
   status: 'beta',
