@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowDown, Gamepad2, ArrowRight } from 'lucide-react';
+import { AliveTriangleGrid } from './AliveTriangleGrid';
 
 export function StudioHero() {
   const scrollToSpotlight = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -19,19 +20,12 @@ export function StudioHero() {
       className="relative w-full overflow-hidden bg-black text-white min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col justify-between border-b border-zinc-800"
       aria-labelledby="studio-hero-title"
     >
-      {/* Fondo Atmosférico Minimalista con Glow Morado Mace Windu */}
+      {/* Fondo Atmosférico con Malla Triangular Alive 2007 (Daft Punk Style) */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         {/* Glow Radial Central */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[800px] h-[350px] sm:h-[550px] bg-purple-950/30 blur-[150px] rounded-full" />
-        {/* Trama sutil de cuadrícula de fondo */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-          }}
-        />
+        {/* Malla de triángulos vivos con latidos digitales centro-afuera */}
+        <AliveTriangleGrid />
         {/* Gradientes de viñeta suaves */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
       </div>
