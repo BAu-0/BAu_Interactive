@@ -109,7 +109,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                     className="inline-flex items-center justify-center space-x-2 px-6 h-11 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white text-xs font-bold uppercase tracking-wider transition-colors"
                   >
                     <Play className="w-3.5 h-3.5 fill-white" />
-                    <span>Jugar Beta</span>
+                    <span>START</span>
                   </a>
                 )}
               </div>

@@ -36,33 +36,33 @@ export default function AboutPage() {
               En <strong>BAu Interactive</strong> vemos a los videojuegos como lo que siempre debieron ser: una combinación de arte, reto e ingenio donde la experiencia y diversión del jugador están al centro de cada decisión.
             </p>
             <p className="text-zinc-400">
-              Rechazamos las fórmulas repetitivas, los clones sin alma y las limitaciones creativas impuestas por modas pasajeras. Diseñamos títulos donde cada acierto cuesta, cada avance se siente ganado y donde el reto respeta la inteligencia y habilidad del jugador.
+              Creemos firmemente en que un videojuego debe ser tan divertido como desafiante a la vez. Diseñamos experiencias estimulantes donde cada logro se siente genuinamente ganado, respetando el tiempo del jugador y ofreciendo retos donde la satisfacción proviene de su propia destreza e ingenio.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white uppercase flex items-center space-x-2.5 font-sans">
               <Sparkles className="w-5 h-5 text-[#a855f7]" />
-              <span>Diversión en su Propósito</span>
+              <span>Entretenimiento con Propósito</span>
             </h2>
             <p>
-              Nuestra regla de diseño es directa: si un juego está pensado para desconectar unos minutos, debe ser sumamente entretenido al instante; si es una experiencia que exige dedicación y maestría, debe ofrecer una satisfacción inigualable al conquistar cada hito.
+              Abordamos cada desarrollo entendiendo la escala y el alma de cada producción. Sabemos que una propuesta ágil busca diversión inmediata, dinamismo y mecánicas fáciles de comprender desde los primeros segundos; mientras que un proyecto de mayor envergadura abre la puerta a una inmersión más pausada, profundidad gradual y nuevos matices de reto.
             </p>
             <p className="text-zinc-400">
-              No creemos en llevar al jugador de la mano, sino en entregar reglas claras, controles intuitivos y desafíos justos para que cada triunfo sea mérito genuino del jugador.
+              Sin importar el formato ni la complejidad, nuestra brújula siempre es la misma: crear juegos cautivadores, justos y pensados para disfrutarse de principio a fin.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white uppercase flex items-center space-x-2.5 font-sans">
               <Compass className="w-5 h-5 text-[#a855f7]" />
-              <span>Exploración y Futuro</span>
+              <span>Nuestra Visión a Futuro</span>
             </h2>
             <p>
-              <strong>Pok-Tschack</strong> marca nuestro debut oficial, reimaginando la tensión y la destreza del juego de pelota mesoamericano en una experiencia arcade contemporánea. Sin embargo, BAu Interactive no se detiene en un solo género ni en una sola estética.
+              Como desarrolladora independiente, nuestro camino está en continua expansión. Concebimos a BAu Interactive como un taller creativo en constante movimiento, con el objetivo firme de seguir ideando, construyendo y publicando nuevos proyectos que exploren distintas temáticas y estilos de juego.
             </p>
             <p className="text-zinc-400">
-              Somos un estudio en constante evolución: exploramos nuevas ideas, mecánicas audaces y proyectos interactivos que mantengan viva la chispa del descubrimiento y el reto en cada partida.
+              Miramos hacia adelante con la convicción de ampliar nuestro catálogo paso a paso, experimentando con ideas frescas y dando vida a nuevas experiencias interactivas que sigan conectando con quienes buscan diversión auténtica y desafíos estimulantes.
             </p>
           </section>
         </div>
@@ -73,7 +73,9 @@ export default function AboutPage() {
             <h3 className="text-lg font-bold text-white uppercase tracking-wide mb-1 font-sans">
               Prueba Pok-Tschack en tu navegador
             </h3>
-            <p className="text-xs text-zinc-400 font-sans">Beta pública jugable en itch.io</p>
+            <p className="text-xs text-zinc-400 font-sans">
+              Beta en navegador disponible previo a su lanzamiento en móviles
+            </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <a
@@ -83,7 +85,7 @@ export default function AboutPage() {
               className="inline-flex items-center justify-center space-x-2 px-6 h-11 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap"
             >
               <Play className="w-3.5 h-3.5 fill-white text-white" />
-              <span>Jugar en Itch.io</span>
+              <span>START</span>
             </a>
             <Link
               href="/juegos/pok-tschack"
