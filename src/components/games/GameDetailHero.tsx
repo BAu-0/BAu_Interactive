@@ -185,7 +185,7 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
                   className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-900/30 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
                 >
                   <Play className="w-4 h-4 fill-white text-white" />
-                  <span>Jugar Beta en Navegador</span>
+                  <span>START</span>
                 </a>
               )}
 
@@ -216,7 +216,7 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
               </div>
               <div className="flex justify-between pt-2">
                 <dt className="text-zinc-400">Estado:</dt>
-                <dd className="font-bold text-[#a855f7]">Beta Pública (Itch.io)</dd>
+                <dd className="font-bold text-[#a855f7]">Beta Pública (Navegador)</dd>
               </div>
               <div className="flex justify-between pt-2">
                 <dt className="text-zinc-400">Compilación:</dt>

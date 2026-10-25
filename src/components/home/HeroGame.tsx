@@ -155,7 +155,7 @@ export function HeroGame({ game }: HeroGameProps) {
           <div className="inline-flex items-center space-x-2.5 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-zinc-700/80 text-zinc-200 text-xs">
             <span className="w-2 h-2 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7] animate-pulse" />
             <span className="font-semibold uppercase tracking-wider text-white">
-              BETA v1.0 EN ITCH.IO
+              BETA v1.0
             </span>
             <span className="text-zinc-500">/</span>
             <span className="text-zinc-300">JUGABLE EN NAVEGADOR</span>
@@ -194,10 +194,10 @@ export function HeroGame({ game }: HeroGameProps) {
                 href={betaLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center space-x-2.5 px-7 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/40 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
+                className="inline-flex items-center justify-center space-x-2.5 px-8 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/40 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
               >
                 <Play className="w-4 h-4 fill-white text-white" />
-                <span>Jugar la Beta en Navegador</span>
+                <span>START</span>
               </a>
             )}
 

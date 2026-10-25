@@ -38,42 +38,54 @@ export default async function HomePage() {
       <StudioPhilosophy />
 
       {/* 5. Novedades y Actualizaciones del Estudio */}
-      {recentNews.length > 0 && (
-        <section
-          className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
-          aria-labelledby="news-preview-title"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
-                  Actualizaciones // Estudio
-                </span>
-                <h2
-                  id="news-preview-title"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-sans"
-                >
-                  Novedades y Actualizaciones
-                </h2>
-              </div>
-
-              <Link
-                href="/novedades"
-                className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-[#a855f7] transition-colors group"
+      <section
+        className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
+        aria-labelledby="news-preview-title"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
+                Actualizaciones // Estudio
+              </span>
+              <h2
+                id="news-preview-title"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-sans"
               >
-                <span>Ver archivo completo</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                Novedades y Actualizaciones
+              </h2>
             </div>
 
+            <Link
+              href="/novedades"
+              className="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-[#a855f7] transition-colors group"
+            >
+              <span>Ver archivo completo</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          {recentNews.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {recentNews.map((post) => (
                 <NewsCard key={post.slug} post={post} compact={true} dark={true} />
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          ) : (
+            <div className="rounded-2xl border border-zinc-850 bg-black/60 p-10 sm:p-12 text-center space-y-3 max-w-xl mx-auto shadow-xl">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-[#a855f7]">
+                Próximamente
+              </span>
+              <h3 className="text-lg font-bold text-white uppercase tracking-wide">
+                Sin anuncios por el momento
+              </h3>
+              <p className="text-sm text-zinc-400 leading-relaxed font-sans">
+                Estamos preparando los primeros comunicados oficiales, notas de desarrollo y actualizaciones. Síguenos para enterarte en cuanto se publiquen.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* 6. Comunidad y Canales de Feedback */}
       <div className="py-20 lg:py-24 bg-black">

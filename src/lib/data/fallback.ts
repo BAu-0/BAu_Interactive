@@ -58,69 +58,7 @@ export const FALLBACK_GAME: Game = {
   ],
 };
 
-export const FALLBACK_NEWS: NewsPost[] = [
-  {
-    id: 'n-1',
-    slug: 'beta-v1-pok-tschack-itchio',
-    game_id: 'pok-tschack-001',
-    game_title: 'Pok-Tschack',
-    title: 'Beta v1.0 de Pok-Tschack disponible en itch.io',
-    excerpt:
-      'La primera versión de prueba de Pok-Tschack ya está accesible en navegador. Prueba la física de rebotes, el aro dinámico y comparte tus impresiones.',
-    body: `La beta v1.0 de **Pok-Tschack** se encuentra disponible en itch.io para jugar directamente en navegador sin descargas obligatorias.
-
-### ¿Qué encontrarás en esta versión?
-- **Mecánica central de aro rotatorio**: el aro gira y cambia de apertura en tiempo real, exigiendo leer el momento exacto para encajar la pelota.
-- **Reloj reiniciable**: cada gol reinicia el tiempo a 60 segundos. Los goles veloces otorgan mayores puntuaciones (hasta 100 puntos por anotación).
-- **Control de inercia y rebotes**: aprovecha el personaje, las paredes y el techo para construir trayectorias precisas.
-- **Pruebas y criaturas en cancha**: interferencias de Luxen, Punzantes y fases de reto que cambian las condiciones del juego.
-
-### Feedback de la comunidad
-Como estudio independiente, los comentarios sobre sensibilidad de controles (tanto en teclado como en gestos táctiles móviles) y balance de dificultad son fundamentales para pulir el juego rumbo a su versión final.`,
-    category: 'anuncio',
-    status: 'published',
-    author_name: 'BAu',
-    published_at: '2026-10-18T14:00:00Z',
-  },
-  {
-    id: 'n-2',
-    slug: 'mecanicas-cancha-y-aro-giratorio',
-    game_id: 'pok-tschack-001',
-    game_title: 'Pok-Tschack',
-    title: 'Notas de Diseño: Física de rebotes, impulso y lectura de aro',
-    excerpt:
-      'Profundizamos en cómo la cancha interactúa con la pelota, la acumulación de impulso al encadenar golpes y la estrategia de tiempo.',
-    body: `En Pok-Tschack la cancha no es un simple escenario pasivo, sino el eje de todo el desafío.
-
-### Factores clave de la jugabilidad:
-1. **Acumulación de Impulso**: Encadenar golpes en el aire y rebotes en paredes y techo incrementa la velocidad de la pelota. Tocar el suelo corta la acumulación de inercia, pero no elimina al jugador.
-2. **Aro de Apertura Variable**: La piedra gira constantemente. Encontrar la ventana en la que la apertura es suficiente para el paso de la pelota requiere cálculo y paciencia bajo la presión del reloj.
-3. **Escalones de Puntuación**: Los goles inmediatos valen 100 puntos; conforme avanzan los segundos del reloj, el valor desciende a 75, 50 y 25 puntos. Anotar rápido no solo salva tu tiempo, sino que maximiza tu marca.`,
-    category: 'desarrollo',
-    status: 'published',
-    author_name: 'BAu',
-    published_at: '2026-10-16T18:00:00Z',
-  },
-  {
-    id: 'n-3',
-    slug: 'criaturas-y-desafios-de-cancha',
-    game_id: 'pok-tschack-001',
-    game_title: 'Pok-Tschack',
-    title: 'Bitácora #1: Luxen, Temotl y los Desafíos de 30 segundos',
-    excerpt:
-      'Cómo las interferencias en la cancha evitan la monotonía y obligan al jugador a tomar decisiones en fracciones de segundo.',
-    body: `A medida que un intento se prolonga y se acumulan goles, la cancha incrementa sus pruebas:
-
-- **Luxen**: Criaturas que aparecen cerca del suelo para atrapar o arrebatar la pelota. El jugador debe saltar cerca de ellos para recuperarla de inmediato.
-- **Temotl**: Una presencia que interfiere físicamente con el aro o la pelota mediante fintas y bloqueos temporales.
-- **Punzantes y Mirones**: Peligros que penalizan puntos al tocar el aro o sellos que exigen golpear objetos específicos antes de volver a anotar.
-- **Fases de Desafío**: Eventos de 30 segundos con combinaciones de gravedad variable, controles invertidos o aros teletransportados donde al menos un gol es necesario para superar la prueba.`,
-    category: 'desarrollo',
-    status: 'published',
-    author_name: 'BAu',
-    published_at: '2026-10-14T10:00:00Z',
-  },
-];
+export const FALLBACK_NEWS: NewsPost[] = [];
 
 export const FALLBACK_LEADERBOARD: LeaderboardEntry[] = [
   { rank: 1, display_name: 'BAu_Dev', score: 3850, ranked_at: '2026-10-19T20:30:00Z' },

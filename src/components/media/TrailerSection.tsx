@@ -219,11 +219,11 @@ export function TrailerSection({
                 className="inline-flex items-center justify-center space-x-2 px-8 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/40 transition-all active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <Play className="w-4 h-4 fill-white text-white" />
-                <span>Probar la Beta en Navegador</span>
+                <span>START</span>
               </a>
 
-              <span className="text-xs text-zinc-500 font-sans">
-                Sin instalación // Directo en tu navegador web
+              <span className="text-xs text-zinc-400 font-sans">
+                Beta en navegador disponible previo a su lanzamiento en móviles
               </span>
             </div>
           </div>

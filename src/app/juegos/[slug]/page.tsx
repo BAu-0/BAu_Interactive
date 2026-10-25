@@ -184,7 +184,7 @@ export default async function GameDetailPage({ params }: Props) {
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-8 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/40 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
             >
               <Play className="w-4 h-4 fill-white text-white" />
-              <span>Jugar Pok-Tschack en Navegador</span>
+              <span>START</span>
             </a>
 
             <Link
