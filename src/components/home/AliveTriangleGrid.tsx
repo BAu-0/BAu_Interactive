@@ -10,8 +10,6 @@ interface Segment {
   midX: number;
   midY: number;
   dist: number;
-  intensity: number;
-  lastPulseId: number;
 }
 
 interface Pulse {
@@ -19,6 +17,7 @@ interface Pulse {
   startTime: number;
   speed: number;
   strength: number;
+  halfWidth: number;
 }
 
 export function AliveTriangleGrid() {
@@ -42,13 +41,11 @@ export function AliveTriangleGrid() {
     let segments: Segment[] = [];
     let pulses: Pulse[] = [];
     let pulseCounter = 0;
-    let lastBeatTime = 0;
-    let beatStep = 0; // 0: primer latido fuerte, 1: segundo latido eco, 2: espera
+    let lastPulseTime = 0;
 
-    // Soporte para preferencias de movimiento reducido
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Inicializar geometría de la malla triangular (Alive 2007 pyramid style)
+    // Inicializar geometría de la malla triangular equilátera
     const initGrid = () => {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
@@ -62,13 +59,13 @@ export function AliveTriangleGrid() {
 
       centerX = width / 2;
       centerY = height / 2;
-      maxDist = Math.hypot(centerX, centerY) + 80;
+      maxDist = Math.hypot(centerX, centerY) + 100;
 
-      // Tamaño de lado según viewport (responsive)
-      const s = width < 640 ? 52 : width < 1024 ? 64 : 76;
+      // Tamaño de lado según escala de pantalla
+      const s = width < 640 ? 54 : width < 1024 ? 68 : 80;
       const h = s * (Math.sqrt(3) / 2); // Altura de triángulo equilátero
 
-      // Alinear para que un vértice coincida exactamente con el centro (origen de latidos)
+      // Alinear vértice con el centro exacto del logo
       const x0 = (centerX % s) - s * 2;
       const y0 = (centerY % h) - h * 2;
 
@@ -84,26 +81,19 @@ export function AliveTriangleGrid() {
         for (let c = -2; c <= cols; c++) {
           const x = x0 + c * s + rowShift;
 
-          // 1. Barra horizontal hacia la derecha
-          const xH = x + s;
-          const yH = y;
-          addSegment(x, y, xH, yH);
+          // 1. Barra horizontal
+          addSegment(x, y, x + s, y);
 
           // 2. Barra diagonal hacia abajo-izquierda
-          const xDL = x - s / 2;
-          const yDL = y + h;
-          addSegment(x, y, xDL, yDL);
+          addSegment(x, y, x - s / 2, y + h);
 
           // 3. Barra diagonal hacia abajo-derecha
-          const xDR = x + s / 2;
-          const yDR = y + h;
-          addSegment(x, y, xDR, yDR);
+          addSegment(x, y, x + s / 2, y + h);
         }
       }
     };
 
     const addSegment = (x1: number, y1: number, x2: number, y2: number) => {
-      // Filtrar si el segmento está completamente fuera del área visible extendida
       const minX = Math.min(x1, x2);
       const maxX = Math.max(x1, x2);
       const minY = Math.min(y1, y2);
@@ -122,136 +112,119 @@ export function AliveTriangleGrid() {
         midX,
         midY,
         dist,
-        intensity: 0,
-        lastPulseId: -1,
       });
     };
 
-    // Agregar un pulso expansivo desde el centro hacia afuera
-    const triggerPulse = (strength: number, speed: number) => {
+    // Disparar onda concéntrica estilo gota de agua
+    const triggerRipple = () => {
       pulseCounter += 1;
       pulses.push({
         id: pulseCounter,
         startTime: performance.now(),
-        speed,
-        strength,
+        speed: 250, // Velocidad serena y pausada (px/s)
+        strength: 1.0,
+        halfWidth: 150, // Ancho de onda amplio para entrada y salida suave
       });
     };
-
-    let lastFrameTime = performance.now();
 
     // Bucle principal de animación a 60 FPS
     const render = (now: number) => {
       if (!isVisible) return;
 
-      const dt = Math.min((now - lastFrameTime) / 1000, 0.1);
-      lastFrameTime = now;
-
-      // Gestor de latidos pausados (ritmo biológico: tum... tum... pausa)
+      // Intervalo de latidos pausados (cada ~3.6 segundos)
       if (!prefersReducedMotion) {
-        if (lastBeatTime === 0) {
-          lastBeatTime = now;
-          triggerPulse(1.0, 480); // Primer latido fuerte
-          beatStep = 1;
-        } else if (beatStep === 1 && now - lastBeatTime >= 340) {
-          triggerPulse(0.65, 540); // Segundo latido de eco
-          beatStep = 2;
-        } else if (beatStep === 2 && now - lastBeatTime >= 2800) {
-          // Reiniciar ciclo de latido pausado tras la pausa
-          lastBeatTime = now;
-          triggerPulse(1.0, 480);
-          beatStep = 1;
+        if (lastPulseTime === 0 || now - lastPulseTime >= 3600) {
+          lastPulseTime = now;
+          triggerRipple();
         }
       }
 
-      // Propagar frentes de onda y activar barras (encendido digital progresivo)
+      // Actualizar ondas activas y descartar las que ya salieron de pantalla
       pulses = pulses.filter((pulse) => {
         const elapsed = (now - pulse.startTime) / 1000;
-        const waveRadius = elapsed * pulse.speed;
-
-        for (let i = 0; i < segments.length; i++) {
-          const seg = segments[i];
-          if (seg.lastPulseId !== pulse.id && waveRadius >= seg.dist) {
-            // Encendido digital: enciende instantáneamente al cruzar la onda
-            seg.intensity = Math.max(seg.intensity, pulse.strength);
-            seg.lastPulseId = pulse.id;
-          }
-        }
-
-        // Descartar pulso cuando ha superado el radio visible máximo
-        return waveRadius < maxDist;
+        const currentRadius = elapsed * pulse.speed;
+        return currentRadius - pulse.halfWidth < maxDist;
       });
 
-      // Decaimiento exponencial de la intensidad de cada barra
-      const decay = Math.pow(0.18, dt);
-      for (let i = 0; i < segments.length; i++) {
-        if (segments[i].intensity > 0.005) {
-          segments[i].intensity *= decay;
-        } else {
-          segments[i].intensity = 0;
-        }
-      }
-
-      // Dibujar en Canvas
+      // Limpiar lienzo
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Trazado de toda la malla en estado ambiente (muy sutil y de un solo golpe)
+      // 1. DIBUJAR MALLA BASE (Siempre visible pero tenue y elegante)
       ctx.beginPath();
       for (let i = 0; i < segments.length; i++) {
         const seg = segments[i];
         ctx.moveTo(seg.x1, seg.y1);
         ctx.lineTo(seg.x2, seg.y2);
       }
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.026)';
+      ctx.lineWidth = 0.8;
       ctx.stroke();
 
-      // 2. Trazado de las barras iluminadas por el latido (destello blanco Alive 2007)
-      if (!prefersReducedMotion) {
-        // Capa de halo morado de las barras encendidas
-        ctx.beginPath();
+      // 2. EFECTO GOTA DE AGUA (Encendido y apagado gradual, sutil y de fondo)
+      if (!prefersReducedMotion && pulses.length > 0) {
+        // Almacenar intensidad combinada de cada barra calculada por onda
+        const litSegments: { seg: Segment; intensity: number }[] = [];
+
         for (let i = 0; i < segments.length; i++) {
           const seg = segments[i];
-          if (seg.intensity > 0.04) {
-            ctx.moveTo(seg.x1, seg.y1);
-            ctx.lineTo(seg.x2, seg.y2);
+          let maxIntensity = 0;
+
+          for (let p = 0; p < pulses.length; p++) {
+            const pulse = pulses[p];
+            const elapsed = (now - pulse.startTime) / 1000;
+            const currentRadius = elapsed * pulse.speed;
+            const diff = Math.abs(seg.dist - currentRadius);
+
+            // Si la barra está dentro del ancho de la onda
+            if (diff < pulse.halfWidth) {
+              // Curva suave coseno: 0 -> sube suave a 1 -> baja suave a 0 (campana de onda pura)
+              const u = diff / pulse.halfWidth;
+              const waveShape = 0.5 * (1 + Math.cos(u * Math.PI));
+
+              // Atenuación natural de la onda con la distancia recorrida
+              const distanceAttenuation = Math.max(0.35, 1 - (seg.dist / maxDist) * 0.4);
+
+              const intensity = waveShape * pulse.strength * distanceAttenuation;
+              if (intensity > maxIntensity) {
+                maxIntensity = intensity;
+              }
+            }
+          }
+
+          if (maxIntensity > 0.01) {
+            litSegments.push({ seg, intensity: maxIntensity });
           }
         }
-        ctx.strokeStyle = 'rgba(168, 85, 247, 0.45)';
-        ctx.lineWidth = 3;
+
+        // Capa de resplandor morado suave (halo sutil)
+        ctx.beginPath();
+        for (let i = 0; i < litSegments.length; i++) {
+          const { seg } = litSegments[i];
+          ctx.moveTo(seg.x1, seg.y1);
+          ctx.lineTo(seg.x2, seg.y2);
+        }
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.12)';
+        ctx.lineWidth = 1.8;
         ctx.stroke();
 
-        // Núcleo blanco nítido tipo tubo LED / neón
-        for (let i = 0; i < segments.length; i++) {
-          const seg = segments[i];
-          if (seg.intensity > 0.02) {
-            ctx.beginPath();
-            ctx.moveTo(seg.x1, seg.y1);
-            ctx.lineTo(seg.x2, seg.y2);
-            // Destello blanco leve y progresivo
-            ctx.strokeStyle = `rgba(255, 255, 255, ${Math.min(seg.intensity * 0.95, 0.95)})`;
-            ctx.lineWidth = 1.4;
-            ctx.stroke();
-          }
-        }
-
-        // Nodos en los vértices del centro para acentuar el origen
-        const centerSegGlow = segments.find((s) => s.dist < 60)?.intensity || 0;
-        if (centerSegGlow > 0.05) {
+        // Núcleo blanco leve y gradual (destello suave que se enciende y desvanece de fondo)
+        for (let i = 0; i < litSegments.length; i++) {
+          const { seg, intensity } = litSegments[i];
           ctx.beginPath();
-          ctx.arc(centerX, centerY, 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${centerSegGlow})`;
-          ctx.shadowColor = '#a855f7';
-          ctx.shadowBlur = 12;
-          ctx.fill();
-          ctx.shadowBlur = 0;
+          ctx.moveTo(seg.x1, seg.y1);
+          ctx.lineTo(seg.x2, seg.y2);
+
+          // Intensidad controlada: destello blanco suave (máx ~0.26 de opacidad)
+          const whiteAlpha = Math.min(intensity * 0.26, 0.26);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${whiteAlpha})`;
+          ctx.lineWidth = 1.0;
+          ctx.stroke();
         }
       }
 
       animationFrameId = requestAnimationFrame(render);
     };
 
-    // Configurar observadores de rendimiento y redimensionamiento
     const handleResize = () => {
       initGrid();
     };
@@ -260,12 +233,12 @@ export function AliveTriangleGrid() {
     initGrid();
     animationFrameId = requestAnimationFrame(render);
 
-    // Pausar animación cuando la sección no esté a la vista
+    // Pausar animación cuando la sección quede fuera de pantalla
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
         if (isVisible) {
-          lastFrameTime = performance.now();
+          lastPulseTime = performance.now();
           animationFrameId = requestAnimationFrame(render);
         }
       },
