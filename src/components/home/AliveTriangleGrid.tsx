@@ -2,6 +2,13 @@
 
 import React, { useEffect, useRef } from 'react';
 
+interface Vertex {
+  x: number;
+  y: number;
+  dist: number;
+  seed: number;
+}
+
 interface Segment {
   x1: number;
   y1: number;
@@ -10,6 +17,7 @@ interface Segment {
   midX: number;
   midY: number;
   dist: number;
+  seed: number;
 }
 
 interface Pulse {
@@ -17,7 +25,8 @@ interface Pulse {
   startTime: number;
   speed: number;
   strength: number;
-  halfWidth: number;
+  frontWidth: number;
+  tailWidth: number;
 }
 
 export function AliveTriangleGrid() {
@@ -39,13 +48,21 @@ export function AliveTriangleGrid() {
     let maxDist = 0;
 
     let segments: Segment[] = [];
+    let vertices: Vertex[] = [];
     let pulses: Pulse[] = [];
     let pulseCounter = 0;
-    let lastPulseTime = 0;
+    let lastBeatTime = 0;
+    let beatStep = 0; // 0: latido inicial, 1: eco secundario, 2: pausa de reposo
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Inicializar geometría de la malla triangular equilátera
+    // Generador pseudo-aleatorio determinista para sutiles variaciones de circuito
+    const pseudoRandom = (x: number, y: number) => {
+      const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+      return n - Math.floor(n);
+    };
+
+    // Inicializar geometría de la malla triangular holográfica (Estilo Auntie DOT)
     const initGrid = () => {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
@@ -59,13 +76,13 @@ export function AliveTriangleGrid() {
 
       centerX = width / 2;
       centerY = height / 2;
-      maxDist = Math.hypot(centerX, centerY) + 100;
+      maxDist = Math.hypot(centerX, centerY) + 120;
 
-      // Tamaño de lado según escala de pantalla
+      // Escala geométrica equilibrada para viewport
       const s = width < 640 ? 54 : width < 1024 ? 68 : 80;
       const h = s * (Math.sqrt(3) / 2); // Altura de triángulo equilátero
 
-      // Alinear vértice con el centro exacto del logo
+      // Alinear vértice central directamente detrás del isotipo
       const x0 = (centerX % s) - s * 2;
       const y0 = (centerY % h) - h * 2;
 
@@ -73,6 +90,20 @@ export function AliveTriangleGrid() {
       const cols = Math.ceil(width / s) + 4;
 
       segments = [];
+      const vertexMap = new Map<string, Vertex>();
+
+      const registerVertex = (x: number, y: number) => {
+        const key = `${Math.round(x)},${Math.round(y)}`;
+        if (!vertexMap.has(key)) {
+          const dist = Math.hypot(x - centerX, y - centerY);
+          vertexMap.set(key, {
+            x,
+            y,
+            dist,
+            seed: pseudoRandom(x, y),
+          });
+        }
+      };
 
       for (let r = -2; r <= rows; r++) {
         const y = y0 + r * h;
@@ -81,16 +112,23 @@ export function AliveTriangleGrid() {
         for (let c = -2; c <= cols; c++) {
           const x = x0 + c * s + rowShift;
 
-          // 1. Barra horizontal
+          registerVertex(x, y);
+
+          // 1. Barra horizontal hacia la derecha
           addSegment(x, y, x + s, y);
+          registerVertex(x + s, y);
 
           // 2. Barra diagonal hacia abajo-izquierda
           addSegment(x, y, x - s / 2, y + h);
+          registerVertex(x - s / 2, y + h);
 
           // 3. Barra diagonal hacia abajo-derecha
           addSegment(x, y, x + s / 2, y + h);
+          registerVertex(x + s / 2, y + h);
         }
       }
+
+      vertices = Array.from(vertexMap.values());
     };
 
     const addSegment = (x1: number, y1: number, x2: number, y2: number) => {
@@ -112,57 +150,99 @@ export function AliveTriangleGrid() {
         midX,
         midY,
         dist,
+        seed: pseudoRandom(midX, midY),
       });
     };
 
-    // Disparar onda concéntrica estilo gota de agua
-    const triggerRipple = () => {
+    // Lanzar pulso de onda con envolvente holográfica estilo Auntie DOT
+    const triggerPulse = (strength: number, speed: number) => {
       pulseCounter += 1;
       pulses.push({
         id: pulseCounter,
         startTime: performance.now(),
-        speed: 250, // Velocidad serena y pausada (px/s)
-        strength: 1.0,
-        halfWidth: 150, // Ancho de onda amplio para entrada y salida suave
+        speed,
+        strength,
+        frontWidth: 110, // Entrada gradual suave (ataque progresivo)
+        tailWidth: 200,  // Salida gradual extendida (desvanecimiento fósforo/holograma)
       });
     };
 
-    // Bucle principal de animación a 60 FPS
+    // Curva de envolvente Auntie DOT: entrada suave, cumbre luminosa y desvanecimiento progresivo
+    const calculateWaveFactor = (dist: number, currentRadius: number, frontWidth: number, tailWidth: number) => {
+      const diff = dist - currentRadius;
+      if (diff > 0) {
+        // Frente de onda aproximándose: subida gradual suave (Smoothstep)
+        if (diff < frontWidth) {
+          const u = 1 - diff / frontWidth;
+          return u * u * (3 - 2 * u);
+        }
+        return 0;
+      } else {
+        // Cola de onda alejándose: caída gradual orgánica (estilo fósforo holográfico)
+        const behind = -diff;
+        if (behind < tailWidth) {
+          const v = 1 - behind / tailWidth;
+          return Math.pow(v, 1.85);
+        }
+        return 0;
+      }
+    };
+
+    // Bucle de renderizado continuo a 60 FPS
     const render = (now: number) => {
       if (!isVisible) return;
 
-      // Intervalo de latidos pausados (cada ~3.6 segundos)
+      // Ritmo de latidos pausados (Latido principal -> Eco secundario -> Pausa de reposo)
       if (!prefersReducedMotion) {
-        if (lastPulseTime === 0 || now - lastPulseTime >= 3600) {
-          lastPulseTime = now;
-          triggerRipple();
+        if (lastBeatTime === 0) {
+          lastBeatTime = now;
+          triggerPulse(1.0, 240); // Latido base sereno
+          beatStep = 1;
+        } else if (beatStep === 1 && now - lastBeatTime >= 420) {
+          triggerPulse(0.58, 270); // Eco armónico sutil
+          beatStep = 2;
+        } else if (beatStep === 2 && now - lastBeatTime >= 3500) {
+          // Pausa amplia antes del siguiente ciclo
+          lastBeatTime = now;
+          triggerPulse(1.0, 240);
+          beatStep = 1;
         }
       }
 
-      // Actualizar ondas activas y descartar las que ya salieron de pantalla
+      // Filtrar pulsos que hayan recorrido todo el radio visible
       pulses = pulses.filter((pulse) => {
         const elapsed = (now - pulse.startTime) / 1000;
         const currentRadius = elapsed * pulse.speed;
-        return currentRadius - pulse.halfWidth < maxDist;
+        return currentRadius - pulse.tailWidth < maxDist;
       });
 
       // Limpiar lienzo
       ctx.clearRect(0, 0, width, height);
 
-      // 1. DIBUJAR MALLA BASE (Siempre visible pero tenue y elegante)
+      // 1. MALLA BASE DORMIDA (Siempre presente, tenue, nítida y no invasiva)
       ctx.beginPath();
       for (let i = 0; i < segments.length; i++) {
         const seg = segments[i];
         ctx.moveTo(seg.x1, seg.y1);
         ctx.lineTo(seg.x2, seg.y2);
       }
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.026)';
-      ctx.lineWidth = 0.8;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.024)';
+      ctx.lineWidth = 0.75;
       ctx.stroke();
 
-      // 2. EFECTO GOTA DE AGUA (Encendido y apagado gradual, sutil y de fondo)
+      // Puntos nodales base muy sutiles en las intersecciones (los "Dots" de la matriz)
+      ctx.beginPath();
+      for (let i = 0; i < vertices.length; i++) {
+        const v = vertices[i];
+        ctx.moveTo(v.x + 0.7, v.y);
+        ctx.arc(v.x, v.y, 0.7, 0, Math.PI * 2);
+      }
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.fill();
+
+      // 2. EFECTO AUNTIE DOT (Encendido y apagado gradual de fondo)
       if (!prefersReducedMotion && pulses.length > 0) {
-        // Almacenar intensidad combinada de cada barra calculada por onda
+        // A) Calcular iluminación progresiva de las barras
         const litSegments: { seg: Segment; intensity: number }[] = [];
 
         for (let i = 0; i < segments.length; i++) {
@@ -173,18 +253,14 @@ export function AliveTriangleGrid() {
             const pulse = pulses[p];
             const elapsed = (now - pulse.startTime) / 1000;
             const currentRadius = elapsed * pulse.speed;
-            const diff = Math.abs(seg.dist - currentRadius);
 
-            // Si la barra está dentro del ancho de la onda
-            if (diff < pulse.halfWidth) {
-              // Curva suave coseno: 0 -> sube suave a 1 -> baja suave a 0 (campana de onda pura)
-              const u = diff / pulse.halfWidth;
-              const waveShape = 0.5 * (1 + Math.cos(u * Math.PI));
+            const factor = calculateWaveFactor(seg.dist, currentRadius, pulse.frontWidth, pulse.tailWidth);
+            if (factor > 0) {
+              const distanceAttenuation = Math.max(0.35, 1 - (seg.dist / maxDist) * 0.45);
+              // Sutil variación analógica de circuito
+              const circuitVariance = 0.9 + 0.2 * seg.seed;
+              const intensity = factor * pulse.strength * distanceAttenuation * circuitVariance;
 
-              // Atenuación natural de la onda con la distancia recorrida
-              const distanceAttenuation = Math.max(0.35, 1 - (seg.dist / maxDist) * 0.4);
-
-              const intensity = waveShape * pulse.strength * distanceAttenuation;
               if (intensity > maxIntensity) {
                 maxIntensity = intensity;
               }
@@ -196,29 +272,65 @@ export function AliveTriangleGrid() {
           }
         }
 
-        // Capa de resplandor morado suave (halo sutil)
+        // Trazado de halo morado tenue de las barras activas
         ctx.beginPath();
         for (let i = 0; i < litSegments.length; i++) {
           const { seg } = litSegments[i];
           ctx.moveTo(seg.x1, seg.y1);
           ctx.lineTo(seg.x2, seg.y2);
         }
-        ctx.strokeStyle = 'rgba(168, 85, 247, 0.12)';
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.14)';
         ctx.lineWidth = 1.8;
         ctx.stroke();
 
-        // Núcleo blanco leve y gradual (destello suave que se enciende y desvanece de fondo)
+        // Trazado del núcleo blanco leve y gradual (destello suave que no compite con el logo)
         for (let i = 0; i < litSegments.length; i++) {
           const { seg, intensity } = litSegments[i];
           ctx.beginPath();
           ctx.moveTo(seg.x1, seg.y1);
           ctx.lineTo(seg.x2, seg.y2);
 
-          // Intensidad controlada: destello blanco suave (máx ~0.26 de opacidad)
-          const whiteAlpha = Math.min(intensity * 0.26, 0.26);
+          // Intensidad controlada: blanco suave y translúcido (máx ~0.28)
+          const whiteAlpha = Math.min(intensity * 0.28, 0.28);
           ctx.strokeStyle = `rgba(255, 255, 255, ${whiteAlpha})`;
           ctx.lineWidth = 1.0;
           ctx.stroke();
+        }
+
+        // B) Puntos nodales reactivos en las intersecciones (Signatura visual Auntie DOT)
+        for (let i = 0; i < vertices.length; i++) {
+          const v = vertices[i];
+          let maxVIntensity = 0;
+
+          for (let p = 0; p < pulses.length; p++) {
+            const pulse = pulses[p];
+            const elapsed = (now - pulse.startTime) / 1000;
+            const currentRadius = elapsed * pulse.speed;
+
+            const factor = calculateWaveFactor(v.dist, currentRadius, pulse.frontWidth, pulse.tailWidth);
+            if (factor > 0) {
+              const distanceAttenuation = Math.max(0.35, 1 - (v.dist / maxDist) * 0.45);
+              const intensity = factor * pulse.strength * distanceAttenuation;
+              if (intensity > maxVIntensity) {
+                maxVIntensity = intensity;
+              }
+            }
+          }
+
+          if (maxVIntensity > 0.04) {
+            // Nodo nodal brillante sutil
+            ctx.beginPath();
+            ctx.arc(v.x, v.y, 1.2, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(maxVIntensity * 0.38, 0.38)})`;
+            ctx.fill();
+
+            // Halo nodal morado
+            ctx.beginPath();
+            ctx.arc(v.x, v.y, 2.4, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(168, 85, 247, ${Math.min(maxVIntensity * 0.22, 0.22)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
         }
       }
 
@@ -233,12 +345,12 @@ export function AliveTriangleGrid() {
     initGrid();
     animationFrameId = requestAnimationFrame(render);
 
-    // Pausar animación cuando la sección quede fuera de pantalla
+    // Pausar animación cuando la sección quede fuera de la vista para 0% uso de GPU/CPU
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
         if (isVisible) {
-          lastPulseTime = performance.now();
+          lastBeatTime = performance.now();
           animationFrameId = requestAnimationFrame(render);
         }
       },
