@@ -95,21 +95,21 @@ export function CookieBanner() {
               <button
                 type="button"
                 onClick={() => setShowConfig(true)}
-                className="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white bg-zinc-800/80 hover:bg-zinc-700/80 rounded-lg border border-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="px-3 py-2 min-h-[38px] text-xs font-medium text-zinc-300 hover:text-white bg-zinc-800/80 hover:bg-zinc-700/80 rounded-lg border border-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400"
               >
                 Configurar
               </button>
               <button
                 type="button"
                 onClick={handleRejectNonEssential}
-                className="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 rounded-lg border border-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="px-3 py-2 min-h-[38px] text-xs font-medium text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 rounded-lg border border-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400"
               >
                 Solo esenciales
               </button>
               <button
                 type="button"
                 onClick={handleAcceptAll}
-                className="px-4 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-[#9333ea] to-[#7928ca] hover:from-[#a855f7] hover:to-[#9333ea] rounded-lg shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-purple-300"
+                className="px-4 py-2 min-h-[38px] text-xs font-bold text-white bg-gradient-to-r from-[#9333ea] to-[#7928ca] hover:from-[#a855f7] hover:to-[#9333ea] rounded-lg shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-purple-300"
               >
                 Aceptar analítica
               </button>
@@ -140,9 +140,11 @@ export function CookieBanner() {
                   Métricas anónimas de rendimiento, páginas visitadas y efectividad de enlaces con IP anonimizada y Consent Mode v2. Sin perfilado publicitario.
                 </p>
               </div>
-              <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+              <label htmlFor="analytics-consent-toggle" className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
                 <input
+                  id="analytics-consent-toggle"
                   type="checkbox"
+                  aria-label="Permitir cookies analíticas de Google Analytics 4"
                   checked={analyticsEnabled}
                   onChange={(e) => setAnalyticsEnabled(e.target.checked)}
                   className="sr-only peer"
@@ -156,7 +158,7 @@ export function CookieBanner() {
             <button
               type="button"
               onClick={() => setShowConfig(false)}
-              className="text-xs text-zinc-400 hover:text-white underline underline-offset-2"
+              className="text-xs text-zinc-400 hover:text-white underline underline-offset-2 py-1 min-h-[38px] inline-flex items-center"
             >
               Volver
             </button>
@@ -164,14 +166,14 @@ export function CookieBanner() {
               <button
                 type="button"
                 onClick={handleRejectNonEssential}
-                className="px-3 py-1.5 text-xs font-medium text-zinc-300 bg-zinc-800 hover:bg-zinc-700 rounded-lg border border-zinc-700 transition-colors"
+                className="px-3 py-2 min-h-[38px] text-xs font-medium text-zinc-300 bg-zinc-800 hover:bg-zinc-700 rounded-lg border border-zinc-700 transition-colors"
               >
                 Rechazar todas
               </button>
               <button
                 type="button"
                 onClick={handleSaveCustom}
-                className="px-4 py-1.5 text-xs font-bold text-white bg-[#9333ea] hover:bg-[#a855f7] rounded-lg transition-colors"
+                className="px-4 py-2 min-h-[38px] text-xs font-bold text-white bg-[#9333ea] hover:bg-[#a855f7] rounded-lg transition-colors"
               >
                 Guardar preferencias
               </button>

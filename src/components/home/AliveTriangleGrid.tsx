@@ -53,6 +53,7 @@ export function AliveTriangleGrid() {
     let pulseCounter = 0;
     let lastBeatTime = 0;
     let beatStep = 0; // 0: latido inicial, 1: eco secundario, 2: pausa de reposo
+    let isBaseDrawn = false;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -129,6 +130,7 @@ export function AliveTriangleGrid() {
       }
 
       vertices = Array.from(vertexMap.values());
+      isBaseDrawn = false;
     };
 
     const addSegment = (x1: number, y1: number, x2: number, y2: number) => {
@@ -156,6 +158,7 @@ export function AliveTriangleGrid() {
 
     // Lanzar pulso de onda con envolvente holográfica estilo Auntie DOT
     const triggerPulse = (strength: number, speed: number) => {
+      isBaseDrawn = false;
       pulseCounter += 1;
       pulses.push({
         id: pulseCounter,
@@ -216,6 +219,13 @@ export function AliveTriangleGrid() {
         return currentRadius - pulse.tailWidth < maxDist;
       });
 
+      // Si no hay pulsos activos y la malla base ya está dibujada de forma estática,
+      // evitamos re-dibujar en cada fotograma para liberar el hilo principal del navegador.
+      if (pulses.length === 0 && isBaseDrawn) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
       // Limpiar lienzo
       ctx.clearRect(0, 0, width, height);
 
@@ -239,6 +249,10 @@ export function AliveTriangleGrid() {
       }
       ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
       ctx.fill();
+
+      if (pulses.length === 0) {
+        isBaseDrawn = true;
+      }
 
       // 2. EFECTO AUNTIE DOT (Encendido y apagado gradual de fondo)
       if (!prefersReducedMotion && pulses.length > 0) {
@@ -341,9 +355,12 @@ export function AliveTriangleGrid() {
       initGrid();
     };
 
+    let startTimer: ReturnType<typeof setTimeout>;
     window.addEventListener('resize', handleResize);
-    initGrid();
-    animationFrameId = requestAnimationFrame(render);
+    startTimer = setTimeout(() => {
+      initGrid();
+      animationFrameId = requestAnimationFrame(render);
+    }, 40);
 
     // Pausar animación cuando la sección quede fuera de la vista para 0% uso de GPU/CPU
     const observer = new IntersectionObserver(
@@ -360,6 +377,7 @@ export function AliveTriangleGrid() {
     observer.observe(canvas);
 
     return () => {
+      clearTimeout(startTimer);
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       observer.disconnect();

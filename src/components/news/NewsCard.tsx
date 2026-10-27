@@ -18,7 +18,7 @@ export function NewsCard({ post, compact = false }: NewsCardProps) {
         {/* Encabezado: Categoría y Fecha */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <CategoryBadge category={post.category} />
-          <span className="text-xs font-sans text-zinc-500">
+          <span className="text-xs font-sans text-zinc-400">
             {formatRelativeTime(post.published_at)}
           </span>
         </div>
@@ -41,7 +41,7 @@ export function NewsCard({ post, compact = false }: NewsCardProps) {
       </div>
 
       {/* Footer de la tarjeta */}
-      <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-sans text-zinc-500">
+      <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-sans text-zinc-400">
         <span>Por {post.author_name}</span>
 
         <Link

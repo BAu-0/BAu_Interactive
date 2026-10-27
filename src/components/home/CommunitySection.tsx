@@ -62,7 +62,7 @@ export function CommunitySection() {
               <InstagramIcon className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 block mb-1">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 block mb-1">
                 RED SOCIAL
               </span>
               <h3 className="text-lg font-bold text-white uppercase font-sans">
@@ -91,7 +91,7 @@ export function CommunitySection() {
               <FacebookIcon className="w-5 h-5 fill-current" />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 block mb-1">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 block mb-1">
                 COMUNIDAD
               </span>
               <h3 className="text-lg font-bold text-white uppercase font-sans">
@@ -120,7 +120,7 @@ export function CommunitySection() {
               <TikTokIcon className="w-5 h-5 fill-current" />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 block mb-1">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 block mb-1">
                 CONTENIDO CORTO
               </span>
               <h3 className="text-lg font-bold text-white uppercase font-sans">
