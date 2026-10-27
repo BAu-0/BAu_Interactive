@@ -6,7 +6,8 @@ import { NewsCard } from '@/components/news/NewsCard';
 import { GameDetailHero } from '@/components/games/GameDetailHero';
 import { TrailerSection } from '@/components/media/TrailerSection';
 import { GameFeatures } from '@/components/home/GameFeatures';
-import { Monitor, Play, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Play, ArrowRight, ShieldCheck } from 'lucide-react';
+import { DiscordIcon, InstagramIcon, FacebookIcon, TikTokIcon } from '@/components/icons/BrandIcons';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -58,75 +59,223 @@ export default async function GameDetailPage({ params }: Props) {
         betaUrl={betaLink}
       />
 
-      {/* 3. Vitrina de Jugabilidad y Dinámica de Cancha (Estilo Bethesda con Sprites Oficiales) */}
+      {/* 3. Vitrina de Jugabilidad y Dinámica de Cancha */}
       <GameFeatures />
 
       {/* 4. Requisitos de Sistema y Plataformas */}
-      {game.system_requirements && (
-        <section
-          className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
-          aria-labelledby="sysreq-title"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
-                  Compatibilidad & Rendimiento
-                </span>
-                <h2
-                  id="sysreq-title"
-                  className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white uppercase font-sans"
-                >
-                  Dispositivos y Plataformas
-                </h2>
-              </div>
+      <section
+        className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
+        aria-labelledby="sysreq-title"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
+              Compatibilidad & Rendimiento
+            </span>
+            <h2
+              id="sysreq-title"
+              className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white uppercase font-sans"
+            >
+              Dispositivos y Plataformas
+            </h2>
+          </div>
 
-              <div className="flex items-center space-x-2 text-xs font-mono text-zinc-400">
-                <Monitor className="w-4 h-4 text-[#a855f7]" />
-                <span>PLATAFORMAS // SOPORTE OFICIAL</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Tarjeta 1: Web */}
+            <div className="p-6 sm:p-8 rounded-xl bg-black border border-zinc-800 space-y-4 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+                  <h3 className="font-bold text-base text-white uppercase tracking-wider font-sans">
+                    Navegador Web (PC / Móvil)
+                  </h3>
+                  <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-zinc-900 border border-zinc-700 text-[#a855f7]">
+                    DISPONIBLE EN BETA
+                  </span>
+                </div>
+
+                <div className="space-y-3 text-sm text-zinc-300 leading-relaxed font-sans">
+                  <p>
+                    Durante la fase actual de pruebas y retroalimentación, Pok-Tschack se juega directamente desde tu navegador web sin descargas previas ni instalaciones.
+                  </p>
+                  <p className="text-zinc-400 text-xs">
+                    El acceso en web es temporal y exclusivo para esta etapa de pruebas con la comunidad, permitiéndonos calibrar la dificultad y mecánicas de la cancha.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {game.system_requirements.map((req, i) => (
-                <div
-                  key={i}
-                  className="p-6 sm:p-7 rounded-xl bg-black border border-zinc-800 space-y-4 shadow-sm"
-                >
-                  <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-                    <h3 className="font-bold text-base text-white uppercase tracking-wider font-sans">
-                      {req.platform}
-                    </h3>
-                    <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-zinc-900 border border-zinc-700 text-[#a855f7]">
-                      DISPONIBLE
-                    </span>
-                  </div>
-
-                  <div className="space-y-3 text-xs leading-relaxed font-sans">
-                    <p className="text-zinc-400">
-                      <strong className="text-zinc-200 block mb-0.5 font-mono text-[11px] uppercase tracking-wide">
-                        Entorno Mínimo:
-                      </strong>
-                      {req.minimum}
-                    </p>
-                    <p className="text-zinc-400">
-                      <strong className="text-zinc-200 block mb-0.5 font-mono text-[11px] uppercase tracking-wide">
-                        Configuración Recomendada:
-                      </strong>
-                      {req.recommended}
-                    </p>
-                  </div>
+            {/* Tarjeta 2: Móviles */}
+            <div className="p-6 sm:p-8 rounded-xl bg-black border border-zinc-800 space-y-4 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+                  <h3 className="font-bold text-base text-white uppercase tracking-wider font-sans">
+                    Móviles (Android & iOS)
+                  </h3>
+                  <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-zinc-900 border border-zinc-700 text-zinc-400">
+                    PRÓXIMAMENTE
+                  </span>
                 </div>
-              ))}
+
+                <div className="space-y-3 text-sm text-zinc-300 leading-relaxed font-sans">
+                  <p>
+                    Pok-Tschack está concebido y diseñado desde su origen para vivirse como una experiencia ágil y táctil en teléfonos móviles.
+                  </p>
+                  <p className="text-zinc-400 text-xs">
+                    En cuanto concluya la etapa de beta pública, la versión final estará disponible exclusivamente mediante descarga oficial en Google Play Store y Apple App Store.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* 5. Novedades y Bitácoras Específicas de Pok-Tschack */}
+      {/* 5. Comunidad, Redes Oficiales y Canal de Feedback */}
+      <section
+        id="comunidad"
+        className="py-20 lg:py-24 bg-black text-white border-b border-zinc-800 scroll-mt-16"
+        aria-labelledby="community-title"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
+              Comunidad & Retroalimentación
+            </span>
+            <h2
+              id="community-title"
+              className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white uppercase font-sans mb-3"
+            >
+              Canal de Feedback y Redes Oficiales
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
+              Tu experiencia y opiniones son esenciales para pulir la versión final de Pok-Tschack. Únete al Discord del estudio para compartir tus partidas, reportar detalles o sugerencias, y síguenos en nuestras redes oficiales para estar al tanto de cada avance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Discord - Canal Principal */}
+            <a
+              href="https://discord.gg/BTNA7EEQG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl bg-zinc-950 border border-[#a855f7]/50 hover:border-[#a855f7] hover:shadow-xl hover:shadow-purple-950/30 transition-all flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-950/60 border border-purple-800/80 flex items-center justify-center text-[#a855f7] group-hover:scale-105 transition-transform">
+                  <DiscordIcon className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#a855f7] block mb-1">
+                    CANAL PRINCIPAL DE FEEDBACK
+                  </span>
+                  <h3 className="text-lg font-bold text-white uppercase font-sans">
+                    Discord Oficial
+                  </h3>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  Foro de discusión, reporte de bugs, balance de juego y noticias directas del estudio.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-[#a855f7] group-hover:translate-x-0.5 transition-transform">
+                <span>Unirse al Discord</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/bau.interactive/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-zinc-600 transition-all flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:scale-105 transition-all">
+                  <InstagramIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 block mb-1">
+                    RED SOCIAL
+                  </span>
+                  <h3 className="text-lg font-bold text-white uppercase font-sans">
+                    Instagram
+                  </h3>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  @bau.interactive — Vistazos de arte, clips de desarrollo y anuncios oficiales.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-zinc-300 group-hover:text-white transition-colors">
+                <span>Ver Perfil</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </a>
+
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/profile.php?id=61595454786065&locale=es_LA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-zinc-600 transition-all flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:scale-105 transition-all">
+                  <FacebookIcon className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 block mb-1">
+                    COMUNIDAD
+                  </span>
+                  <h3 className="text-lg font-bold text-white uppercase font-sans">
+                    Facebook
+                  </h3>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  Página oficial de BAu Interactive para comunicados y actualizaciones de la comunidad.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-zinc-300 group-hover:text-white transition-colors">
+                <span>Seguir Página</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </a>
+
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@bau_interactive"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-zinc-600 transition-all flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:scale-105 transition-all">
+                  <TikTokIcon className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 block mb-1">
+                    CONTENIDO CORTO
+                  </span>
+                  <h3 className="text-lg font-bold text-white uppercase font-sans">
+                    TikTok
+                  </h3>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  @bau_interactive — Jugadas destacadas, dinámicas de cancha y curiosidades de desarrollo.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-zinc-300 group-hover:text-white transition-colors">
+                <span>Ver Videos</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Novedades y Bitácoras Específicas de Pok-Tschack */}
       {relatedNews.length > 0 && (
         <section
-          className="py-20 lg:py-24 bg-black text-white border-b border-zinc-800"
+          className="py-20 lg:py-24 bg-zinc-950 text-white border-b border-zinc-800"
           aria-labelledby="related-news-title"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,7 +310,7 @@ export default async function GameDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* 6. Barra Final de Acción */}
+      {/* 7. Barra Final de Acción */}
       <section className="py-16 bg-zinc-950 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-[#a855f7]">
@@ -172,8 +321,7 @@ export default async function GameDetailPage({ params }: Props) {
             ¿Listo para poner a prueba tu lectura de cancha?
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto font-sans leading-relaxed">
-            La beta corre directo en tu navegador web mediante aceleración gráfica HTML5. Sin descargas
-            pesadas ni compras integradas.
+            Disponible para jugar directamente en navegador web durante esta fase beta. Próximamente lanzamiento final en Android e iOS.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">

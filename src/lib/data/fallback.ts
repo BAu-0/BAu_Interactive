@@ -47,13 +47,13 @@ export const FALLBACK_GAME: Game = {
   system_requirements: [
     {
       platform: 'Navegador Web (PC / Móvil)',
-      minimum: 'Chrome, Firefox, Safari o Edge con soporte HTML5 y aceleración gráfica',
-      recommended: 'Navegador moderno a 60 Hz. En móviles, se recomienda jugar en orientación vertical.',
+      minimum: 'Disponible para jugar directamente en navegador web únicamente durante esta fase de pruebas y retroalimentación.',
+      recommended: 'No requiere descargas ni instalaciones previas; accede de inmediato desde cualquier navegador moderno.',
     },
     {
-      platform: 'Móviles (Android)',
-      minimum: 'En desarrollo activo para distribución nativa en Google Play',
-      recommended: 'Controles optimizados para gestos de deslizamiento táctil y toque',
+      platform: 'Móviles (Android & iOS)',
+      minimum: 'Juego concebido y diseñado específicamente para la experiencia táctil en dispositivos móviles.',
+      recommended: 'En su lanzamiento final estará disponible exclusivamente mediante descarga oficial en Google Play Store y App Store.',
     },
   ],
 };
@@ -81,23 +81,30 @@ export const FALLBACK_LEADERBOARD: LeaderboardEntry[] = [
 export const FALLBACK_SOCIAL_LINKS = [
   {
     id: 's-1',
-    platform: 'reddit' as const,
-    label: 'Comunidad en Reddit',
-    url: process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive',
+    platform: 'discord' as const,
+    label: 'Discord Oficial (Feedback & Comunidad)',
+    url: 'https://discord.gg/BTNA7EEQG',
     enabled: true,
   },
   {
     id: 's-2',
-    platform: 'discord' as const,
-    label: 'Discord Oficial',
-    url: process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/BTNA7EEQG',
+    platform: 'instagram' as const,
+    label: 'Instagram (@bau.interactive)',
+    url: 'https://www.instagram.com/bau.interactive/',
     enabled: true,
   },
   {
     id: 's-3',
-    platform: 'github' as const,
-    label: 'GitHub',
-    url: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/BAu-0/BAu_Interactive',
+    platform: 'facebook' as const,
+    label: 'Facebook (BAu Interactive)',
+    url: 'https://www.facebook.com/profile.php?id=61595454786065&locale=es_LA',
+    enabled: true,
+  },
+  {
+    id: 's-4',
+    platform: 'tiktok' as const,
+    label: 'TikTok (@bau_interactive)',
+    url: 'https://www.tiktok.com/@bau_interactive',
     enabled: true,
   },
 ];

@@ -74,7 +74,7 @@ const TOOLS = [
   {
     name: 'get_beta_access',
     description:
-      'Devuelve el enlace oficial para jugar la beta pública de Pok-Tschack en el navegador web (HTML5) y Android.',
+      'Devuelve el enlace oficial para jugar la beta pública de Pok-Tschack en el navegador web (próximamente en Android e iOS).',
     inputSchema: {
       type: 'object',
       properties: {},
@@ -352,10 +352,10 @@ export async function POST(req: NextRequest) {
           resultData = {
             game: 'Pok-Tschack',
             version: 'v1.0-beta',
-            platform: 'HTML5 Navegador Web (PC / Móvil) y Android en desarrollo',
+            platform: 'Navegador Web (Beta) / Próximamente en Android e iOS',
             play_url: 'https://garanda.itch.io/pok-tschack-betav1',
             cost: 'Completamente gratuito sin micropagos',
-            requirements: 'Navegador moderno con soporte WebGL / HTML5 a 60 FPS',
+            requirements: 'Disponible en navegador web durante la fase beta; lanzamiento final exclusivo en Play Store y App Store',
           };
           break;
         }

@@ -2,15 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
-import { GithubIcon, DiscordIcon } from '@/components/icons/BrandIcons';
+import { DiscordIcon, InstagramIcon, FacebookIcon, TikTokIcon } from '@/components/icons/BrandIcons';
 import { CookiePreferencesButton } from '@/components/analytics/CookiePreferencesButton';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'soporte@bauinteractive.com';
-  const redditUrl = process.env.NEXT_PUBLIC_FEEDBACK_URL || 'https://reddit.com/r/BAuInteractive';
-  const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/BTNA7EEQG';
-  const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/BAu-0/BAu_Interactive';
+  const discordUrl = 'https://discord.gg/BTNA7EEQG';
+  const instagramUrl = 'https://www.instagram.com/bau.interactive/';
+  const facebookUrl = 'https://www.facebook.com/profile.php?id=61595454786065&locale=es_LA';
+  const tiktokUrl = 'https://www.tiktok.com/@bau_interactive';
 
   return (
     <footer className="bg-[#000000] text-zinc-300 border-t border-zinc-800 mt-auto" role="contentinfo">
@@ -80,45 +81,48 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: Canales Oficiales */}
+          {/* Columna 3: Canales Oficiales y Redes */}
           <div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-4">
               Comunidad
             </h2>
             <div className="flex flex-col space-y-2.5 text-sm">
-              {redditUrl && (
-                <a
-                  href={redditUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-[#a855f7] transition-colors" />
-                  <span>Canal de Feedback</span>
-                </a>
-              )}
-              {discordUrl && (
-                <a
-                  href={discordUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
-                >
-                  <DiscordIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
-                  <span>Discord Oficial</span>
-                </a>
-              )}
-              {githubUrl && (
-                <a
-                  href={githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
-                >
-                  <GithubIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
-                  <span>GitHub Repository</span>
-                </a>
-              )}
+              <a
+                href={discordUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
+              >
+                <DiscordIcon className="w-4 h-4 text-zinc-400 group-hover:text-[#a855f7] transition-colors" />
+                <span>Discord (Feedback & Noticias)</span>
+              </a>
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
+              >
+                <InstagramIcon className="w-4 h-4 text-zinc-400 group-hover:text-[#a855f7] transition-colors" />
+                <span>Instagram (@bau.interactive)</span>
+              </a>
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
+              >
+                <FacebookIcon className="w-4 h-4 text-zinc-400 group-hover:text-[#a855f7] transition-colors" />
+                <span>Facebook Oficial</span>
+              </a>
+              <a
+                href={tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors group"
+              >
+                <TikTokIcon className="w-4 h-4 text-zinc-400 group-hover:text-[#a855f7] transition-colors" />
+                <span>TikTok (@bau_interactive)</span>
+              </a>
             </div>
           </div>
         </div>
