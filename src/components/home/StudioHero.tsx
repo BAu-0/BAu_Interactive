@@ -17,7 +17,7 @@ export function StudioHero() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-black text-white min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col justify-between border-b border-zinc-800"
+      className="relative w-full overflow-hidden bg-black text-white min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col justify-center border-b border-zinc-800"
       aria-labelledby="studio-hero-title"
     >
       {/* Fondo Atmosférico con Malla Triangular Alive 2007 (Daft Punk Style) */}
@@ -31,7 +31,7 @@ export function StudioHero() {
       </div>
 
       {/* Contenido Central: Logo de Gran Escala y Leyenda Minimalista */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 my-auto w-full flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 my-auto w-full flex flex-col items-center text-center">
         {/* Logo Oficial de Gran Escala de BAu Interactive (Fondo Transparente) */}
         <h1 id="studio-hero-title" className="sr-only">
           BAu Interactive - Desarrollando desde 2026
@@ -63,7 +63,7 @@ export function StudioHero() {
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-8 h-12 rounded-lg bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple-950/50 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
           >
             <Gamepad2 className="w-4 h-4 fill-white text-white" />
-            <span>Ver Título Estandarte</span>
+            <span>Conoce Nuestro Nuevo Proyecto</span>
             <ArrowDown className="w-4 h-4" />
           </a>
 
@@ -74,24 +74,6 @@ export function StudioHero() {
             <span>El Estudio</span>
             <ArrowRight className="w-4 h-4 text-zinc-400" />
           </Link>
-        </div>
-      </div>
-
-      {/* Barra Inferior del Hero: Prompt de Scroll Sutil */}
-      <div className="relative z-10 border-t border-zinc-900 bg-black/60 backdrop-blur-md py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs font-mono text-zinc-500">
-          <span className="text-zinc-500 uppercase tracking-wider">
-            ESTUDIO INDEPENDIENTE
-          </span>
-
-          <a
-            href="#destacado-pok-tschack"
-            onClick={scrollToSpotlight}
-            className="inline-flex items-center space-x-2 text-zinc-400 hover:text-[#a855f7] transition-colors cursor-pointer group uppercase tracking-wider"
-          >
-            <span>Desliza para explorar</span>
-            <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
-          </a>
         </div>
       </div>
     </section>

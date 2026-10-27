@@ -152,8 +152,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                   Próxima Producción
                 </h3>
                 <p className="text-sm text-zinc-400 font-sans leading-relaxed">
-                  Nuevo proyecto interactivo concebido bajo nuestra filosofía: experiencias desafiantes,
-                  ideas originales y diversión sin concesiones.
+                  Próximamente un nuevo proyecto.
                 </p>
               </div>
 
