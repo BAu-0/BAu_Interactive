@@ -139,16 +139,16 @@ export default async function GameDetailPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-widest text-[#a855f7] mb-2 block font-sans">
-              Comunidad & Retroalimentación
+              Desarrollo Independiente & Comunidad
             </span>
             <h2
               id="community-title"
               className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white uppercase font-sans mb-3"
             >
-              Canal de Feedback y Redes Oficiales
+              Tu experiencia ayuda a pulir el juego
             </h2>
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
-              Tu experiencia y opiniones son esenciales para pulir la versión final de Pok-Tschack. Únete al Discord del estudio para compartir tus partidas, reportar detalles o sugerencias, y síguenos en nuestras redes oficiales para estar al tanto de cada avance.
+              Tus impresiones y comentarios tras probar la beta de Pok-Tschack son directos para la evolución del juego. Comparte tus partidas, retos superados o cualquier sugerencia para seguir puliendo la experiencia en nuestro servidor oficial de Discord y redes del estudio.
             </p>
           </div>
 

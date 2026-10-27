@@ -7,7 +7,7 @@ import { CookiePreferencesButton } from '@/components/analytics/CookiePreference
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'soporte@bauinteractive.com';
+  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'bau.interactive@gmail.com';
   const discordUrl = 'https://discord.gg/BTNA7EEQG';
   const instagramUrl = 'https://www.instagram.com/bau.interactive/';
   const facebookUrl = 'https://www.facebook.com/profile.php?id=61595454786065&locale=es_LA';
