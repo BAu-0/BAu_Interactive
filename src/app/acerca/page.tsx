@@ -91,7 +91,7 @@ export default function AboutPage() {
               href="/juegos/pok-tschack"
               className="inline-flex items-center justify-center space-x-2 px-5 h-11 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider border border-zinc-750 hover:border-[#a855f7]/50 transition-all whitespace-nowrap"
             >
-              <span>Ficha del Juego</span>
+              <span>Conoce más</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#a855f7]" />
             </Link>
           </div>

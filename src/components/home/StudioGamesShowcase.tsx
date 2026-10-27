@@ -79,7 +79,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
               <div>
                 <span className="text-[11px] font-mono text-[#a855f7] font-semibold uppercase tracking-wider block mb-2">
-                  ARCADE VERTICAL 2D // HABILIDAD Y REFLEJOS
+                  ARCADE
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide font-sans mb-3">
                   {featuredGame.title}
@@ -97,7 +97,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
                   href={`/juegos/${featuredGame.slug}`}
                   className="inline-flex items-center justify-center space-x-2 px-6 h-11 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-bold uppercase tracking-wider border border-zinc-750 hover:border-[#a855f7]/60 transition-colors"
                 >
-                  <span>Ficha del Juego</span>
+                  <span>Conoce más</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#a855f7]" />
                 </Link>
 
