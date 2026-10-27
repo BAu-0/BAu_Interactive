@@ -132,6 +132,7 @@ export function FeaturedGameSpotlight({ game }: FeaturedGameSpotlightProps) {
             poster={currentVideo.poster}
             muted
             playsInline
+            autoPlay
             preload="none"
             aria-hidden="true"
             tabIndex={-1}

@@ -128,7 +128,7 @@ export function Footer() {
         </div>
 
         {/* Barra inferior: Legales y Copyright */}
-        <div className="pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <div className="pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
             &copy; {currentYear} BAu Interactive. Todos los derechos reservados.
           </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Game } from '@/types/game';
@@ -11,38 +11,9 @@ interface StudioGamesShowcaseProps {
 }
 
 export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const cardRef = useRef<HTMLElement>(null);
-
   const betaLink =
     featuredGame.links.find((l) => l.type === 'beta' && l.enabled)?.url ||
     'https://garanda.itch.io/pok-tschack-betav1';
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motionQuery.matches) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            videoRef.current?.play().catch(() => {});
-          } else {
-            videoRef.current?.pause();
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   return (
     <section
@@ -72,16 +43,13 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
         {/* Cuadrícula de Proyectos del Estudio */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Tarjeta 1: Pok-Tschack (Con video de gameplay en reproducción continua) */}
-          <article
-            ref={cardRef}
-            className="group relative rounded-2xl bg-black border border-zinc-800 hover:border-[#a855f7]/60 overflow-hidden shadow-xl transition-all duration-200 flex flex-col justify-between"
-          >
+          <article className="group relative rounded-2xl bg-black border border-zinc-800 hover:border-[#a855f7]/60 overflow-hidden shadow-xl transition-all duration-200 flex flex-col justify-between">
             {/* Banner con Video de Gameplay Activo en Bucle */}
             <div className="relative w-full aspect-[16/9] bg-black overflow-hidden border-b border-zinc-800">
               <video
-                ref={videoRef}
                 src="/videos/pok-tschack/pok-tschack-gameplay-01.mp4"
                 poster="/videos/pok-tschack/poster-01.webp"
+                autoPlay
                 muted
                 loop
                 playsInline
@@ -177,7 +145,7 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
             {/* Contenido Editorial */}
             <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
               <div>
-                <span className="text-[11px] font-mono text-zinc-400 font-semibold uppercase tracking-wider block mb-2">
+                <span className="text-[11px] font-mono text-zinc-500 font-semibold uppercase tracking-wider block mb-2">
                   PROYECTO EN DESARROLLO
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide font-sans mb-3">
@@ -189,9 +157,9 @@ export function StudioGamesShowcase({ featuredGame }: StudioGamesShowcaseProps) 
               </div>
 
               {/* Pie de la Tarjeta */}
-              <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-400">
+              <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-500">
                 <span>ESTADO: EN DESARROLLO</span>
-                <span className="text-zinc-400">// BAu INTERACTIVE</span>
+                <span className="text-zinc-600">// BAu INTERACTIVE</span>
               </div>
             </div>
           </article>

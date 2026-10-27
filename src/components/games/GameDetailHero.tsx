@@ -92,6 +92,7 @@ export function GameDetailHero({ game }: GameDetailHeroProps) {
             ref={videoRef}
             src={videoSrc}
             poster={posterSrc}
+            autoPlay
             muted
             playsInline
             loop

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 interface GameFeatureItem {
   id: string;
@@ -54,57 +54,9 @@ const GAME_FEATURES: GameFeatureItem[] = [
   },
 ];
 
-function FeatureVideoItem({ src, isInView }: { src: string; isInView: boolean }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (isInView) {
-      videoRef.current?.play().catch(() => {});
-    } else {
-      videoRef.current?.pause();
-    }
-  }, [isInView]);
-
-  return (
-    <video
-      ref={videoRef}
-      src={src}
-      loop
-      muted
-      playsInline
-      preload="none"
-      aria-hidden="true"
-      tabIndex={-1}
-      className="w-full h-full object-cover opacity-65 group-hover:opacity-90 transition-opacity duration-300"
-      style={{ imageRendering: 'pixelated' }}
-    />
-  );
-}
-
 export function GameFeatures() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className="py-20 lg:py-24 bg-black text-white border-b border-zinc-800"
       aria-labelledby="features-title"
     >
@@ -137,7 +89,15 @@ export function GameFeatures() {
               {/* Video de fondo en close-up con loop auténtico del gameplay */}
               {feature.video && (
                 <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-                  <FeatureVideoItem src={feature.video} isInView={isInView} />
+                  <video
+                    src={feature.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover opacity-65 group-hover:opacity-90 transition-opacity duration-300"
+                    style={{ imageRendering: 'pixelated' }}
+                  />
                   {/* Gradiente sutil para legibilidad cinematográfica sin tapar el video */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/30" />
                 </div>

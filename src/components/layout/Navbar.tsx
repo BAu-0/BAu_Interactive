@@ -105,6 +105,7 @@ export function Navbar() {
               aria-expanded={isOpen}
               aria-label={isOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
             >
+              <span className="sr-only">Menú</span>
               {isOpen ? <X className="h-6 w-6 text-[#a855f7]" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
