@@ -202,7 +202,7 @@ export default async function GameDetailPage({ params }: Props) {
                   </h3>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  @bau.interactive — Vistazos de arte, clips de desarrollo y anuncios oficiales.
+                  Síguenos en nuestras redes para ver nuestro contenido y que no te pierdas de las últimas noticias.
                 </p>
               </div>
               <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-zinc-300 group-hover:text-white transition-colors">
@@ -231,7 +231,7 @@ export default async function GameDetailPage({ params }: Props) {
                   </h3>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  Página oficial de BAu Interactive para comunicados y actualizaciones de la comunidad.
+                  Síguenos en nuestras redes para ver nuestro contenido y que no te pierdas de las últimas noticias.
                 </p>
               </div>
               <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-zinc-300 group-hover:text-white transition-colors">
@@ -260,7 +260,7 @@ export default async function GameDetailPage({ params }: Props) {
                   </h3>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  @bau_interactive — Jugadas destacadas, dinámicas de cancha y curiosidades de desarrollo.
+                  Síguenos en nuestras redes para ver nuestro contenido y que no te pierdas de las últimas noticias.
                 </p>
               </div>
               <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold uppercase text-zinc-300 group-hover:text-white transition-colors">
