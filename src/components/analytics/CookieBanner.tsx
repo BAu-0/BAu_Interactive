@@ -140,9 +140,11 @@ export function CookieBanner() {
                   Métricas anónimas de rendimiento, páginas visitadas y efectividad de enlaces con IP anonimizada y Consent Mode v2. Sin perfilado publicitario.
                 </p>
               </div>
-              <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+              <label htmlFor="analytics-consent-checkbox" className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
                 <input
+                  id="analytics-consent-checkbox"
                   type="checkbox"
+                  aria-label="Permitir cookies analíticas de Google Analytics 4"
                   checked={analyticsEnabled}
                   onChange={(e) => setAnalyticsEnabled(e.target.checked)}
                   className="sr-only peer"

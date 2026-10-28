@@ -43,6 +43,7 @@ export function StudioHero() {
             alt="BAu Interactive"
             fill
             priority
+            unoptimized
             sizes="(max-width: 640px) 288px, (max-width: 768px) 384px, (max-width: 1024px) 480px, 560px"
             className="object-contain object-center"
           />
