@@ -68,10 +68,10 @@ export function GoogleAnalytics() {
         }}
       />
 
-      {/* 2. Carga asíncrona de la librería oficial gtag de Google */}
+      {/* 2. Carga asíncrona de la librería oficial gtag de Google en reposo para 0 bloqueo de LCP */}
       <Script
         id="google-analytics-tag"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
     </>
